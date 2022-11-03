@@ -418,6 +418,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 24px;
+  height: 300px;
+}
+.proj-imgbx img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 .proj-imgbx::before {
   content: "";
@@ -540,7 +546,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Footer Css ************/
 .footer {
-  padding: 0 0 50px 0;
+  padding: 0 0 0px 0;
   background-image: url('./assets/img/footer-bg.png');
   background-position: center center;
   background-size: cover;

@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from "./components/NavBar";
-import { Banner } from "./components/Banner";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import './App.css';
+import { NavBar } from './components/NavBar';
+import { Footer } from './components/Footer';
+import Detail from './pages/Detail';
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Banner />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <div className='App'>
+        <NavBar />
+        <Routes>
+          <Route exact path={'/'} element={<Home />} />
+          <Route exact path={'/details/:projectId'} element={<Detail />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
