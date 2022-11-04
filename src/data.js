@@ -39,13 +39,17 @@ import food5 from './assets/food/5.png';
 import food6 from './assets/food/6.png';
 import food8 from './assets/food/8.png';
 
+import navIcon1 from './assets/img/nav-icon1.svg';
+import navIcon2 from './assets/img/nav-icon2.svg';
+import navIcon3 from './assets/img/nav-icon3.svg';
+
 const homeDate = {};
 
 const projects = [
   {
     id: 1,
     name: 'Tabula',
-    brief: 'LSM',
+    brief: 'Learning management system',
     description: ' ',
     thumbnail: tabula1,
     images: [
@@ -66,7 +70,7 @@ const projects = [
   {
     id: 2,
     name: 'Loan Labor',
-    brief: 'B2B',
+    brief: 'B2B application',
     description: ' ',
     thumbnail: loanThumb,
     images: [
@@ -209,8 +213,13 @@ const tools = [
 const links = [
   {
     name: 'fb',
-    icon: '',
-    link: '',
+    icon: navIcon2,
+    link: 'https://www.facebook.com/thuhien4995/',
+  },
+  {
+    name: 'Linkedin',
+    icon: navIcon1,
+    link: ':https://www.linkedin.com/in/hien-nguyen-449761181/',
   },
 ];
 export { projects, skills, tools, links };
