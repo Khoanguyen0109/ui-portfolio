@@ -11,8 +11,8 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ['Web Developer', 'Web Designer', 'UI/UX Designer'];
-  const period = 2000;
+  const toRotate = ['UI/UX Designer', 'Product Designer'];
+  const period = 500;
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -45,7 +45,7 @@ export const Banner = () => {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
       setIndex(1);
-      setDelta(500);
+      setDelta(300);
     } else {
       setIndex((prevIndex) => prevIndex + 1);
     }
@@ -65,25 +65,31 @@ export const Banner = () => {
                 >
                   <span className='tagline'>Welcome to my Portfolio</span>
                   <h1>
-                    {`Hi! I'm Judy`}{' '}
-                    <span
+                    {`Hi! I'm Thu Hien`}{' '}
+                    <div
                       className='txt-rotate'
                       dataPeriod='1000'
-                      data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'
+                      data-rotate='[ "UI/UX Designer" , "Product Designer" ]'
                     >
                       <span className='wrap'>{text}</span>
-                    </span>
+                    </div>
                   </h1>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    I am a UX/UI designer, I am young, passionate, enthusiastic
+                    and dedicated. I have always aspired to create products that
+                    are useful to both domestic and international users, and
+                    also bring profits to businesses.
                   </p>
-                  <button onClick={() => console.log('connect')}>
+                  <br />
+                  <p>
+                    I hope to find an environment where I can not only
+                    contribute my abilities but also learn and gain experience,
+                    and especially contribute my personal opinions to the
+                    success of the product
+                  </p>
+                  {/* <button onClick={() => console.log('connect')}>
                     Let’s Connect <ArrowRightCircle size={25} />
-                  </button>
+                  </button> */}
                 </div>
               )}
             </TrackVisibility>
