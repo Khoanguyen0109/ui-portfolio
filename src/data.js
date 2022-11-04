@@ -23,7 +23,7 @@ import us from './assets/skill/research.svg';
 import low from './assets/skill/UI.png';
 import proto from './assets/skill/prototype.png';
 
-import scb1 from './assets/scb/1 (1).png';
+import scb1 from './assets/scb/1.png';
 import scb2 from './assets/scb/2.png';
 
 import music1 from './assets/mucsic/1.png';
