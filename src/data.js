@@ -10,63 +10,207 @@ import loan4 from './assets/loan/4.png';
 import loan5 from './assets/loan/5.png';
 import loan6 from './assets/loan/6.png';
 
+import dynamic1 from './assets/dynamic/1.png';
+import dynamic2 from './assets/dynamic/2.png';
+import dynamicVideo from './assets/dynamic/video.mp4';
+
+import figma from './assets/tools/figma.png';
+import ai from './assets/tools/ai.png';
+import ps from './assets/tools/ps.png';
+import xd from './assets/tools/xd.png';
+
+import us from './assets/skill/research.svg';
+import low from './assets/skill/UI.png';
+import proto from './assets/skill/prototype.png';
+
+import scb1 from './assets/scb/1 (1).png';
+import scb2 from './assets/scb/2.png';
+
+import music1 from './assets/mucsic/1.png';
+import music2 from './assets/mucsic/2.png';
+import music3 from './assets/mucsic/3.png';
+
+import foodbThumb from './assets/food/thumb.jpeg';
+import food1 from './assets/food/1.png';
+import food2 from './assets/food/2.png';
+import food3 from './assets/food/3.png';
+import food4 from './assets/food/4.png';
+import food5 from './assets/food/5.png';
+import food6 from './assets/food/6.png';
+import food8 from './assets/food/8.png';
+
 const homeDate = {};
 
 const projects = [
   {
     id: 1,
     name: 'Tabula',
-    brief: "Education",
+    brief: 'LSM',
     description: ' ',
     thumbnail: tabula1,
     images: [
       {
         id: 1,
-        url: tabula1
+        url: tabula1,
       },
       {
         id: 1,
-        url: tabula2
+        url: tabula2,
       },
       {
         id: 1,
-        url: tabula3
+        url: tabula3,
       },
     ],
   },
   {
     id: 2,
     name: 'Loan Labor',
-    brief: "CRM",
+    brief: 'B2B',
     description: ' ',
     thumbnail: loanThumb,
     images: [
       {
         id: 1,
-        url: loan1
+        url: loan1,
       },
       {
         id: 2,
-        url: loan2
+        url: loan2,
       },
       {
         id: 1,
-        url: loan3
+        url: loan3,
       },
       {
         id: 1,
-        url: loan4
+        url: loan4,
       },
       {
         id: 1,
-        url: loan5
+        url: loan5,
       },
       {
         id: 1,
-        url: loan6
+        url: loan6,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Dynamic',
+    brief: '',
+    description: ' ',
+    thumbnail: dynamic1,
+    images: [
+      {
+        id: 1,
+        url: dynamic1,
+      },
+      {
+        id: 1,
+        url: dynamic2,
+      },
+    ],
+    videos: [
+      {
+        id: 1,
+        url: dynamicVideo,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: 'SCB',
+    brief: '',
+    description: ' ',
+    thumbnail: scb1,
+    images: [
+      {
+        id: 1,
+        url: scb1,
+      },
+      {
+        id: 1,
+        url: scb2,
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: 'Music app',
+    brief: '',
+    description: ' ',
+    thumbnail: music1,
+    images: [
+      {
+        id: 1,
+        url: music1,
+      },
+      {
+        id: 1,
+        url: music2,
+      },
+      {
+        id: 1,
+        url: music3,
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: 'Food App Delivery',
+    brief: '',
+    description: ' ',
+    thumbnail: foodbThumb,
+    images: [
+      {
+        id: 1,
+        url: food8,
       },
     ],
   },
 ];
 
-export { projects };
+const skills = [
+  {
+    name: 'User Research',
+    url: us,
+  },
+  {
+    name: 'Low to high Fidelity Design',
+    url: low,
+  },
+  {
+    name: 'Prototyping & Usability Testing',
+    url: proto,
+  },
+];
+
+const tools = [
+  {
+    name: 'Fignma',
+    url: figma,
+  },
+  {
+    name: 'Xd',
+    url: xd,
+  },
+  {
+    name: 'Ai',
+    url: ai,
+  },
+  {
+    name: 'Ps',
+    url: ps,
+  },
+];
+
+const links = [
+  {
+    name: 'fb',
+    icon: '',
+    link: '',
+  },
+];
+export { projects, skills, tools, links };

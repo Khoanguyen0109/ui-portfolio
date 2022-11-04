@@ -5,6 +5,7 @@ import { Footer } from '../components/Footer';
 import { NavBar } from '../components/NavBar';
 import { Projects } from '../components/Projects';
 import { Skills } from '../components/Skills';
+import { Tools } from '../components/Tool';
 
 function Home() {
   console.log('home');
@@ -12,6 +13,7 @@ function Home() {
     <div>
       <Banner />
       <Skills />
+      <Tools/>
       <Projects />
       <Contact />
     </div>

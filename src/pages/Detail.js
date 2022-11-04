@@ -19,12 +19,10 @@ function Detail() {
         <div className='container'>
           <div className='row'>
             <div className='col-12'>
-              <div className='skill-bx wow '>
-                <h2>Skills</h2>
+              <div className='skill-bx '>
+                <h2>{project.name}</h2>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.<br></br> Lorem Ipsum has been the
-                  industry's standard dummy text.
+                  {project.description}
                 </p>
               </div>
             </div>
@@ -35,7 +33,7 @@ function Detail() {
       <section className='skill'>
         <div className='container'>
           <div className='row'>
-            <div className='skill-bx wow'>
+            <div className='skill-bx'>
               {/* <img className='' src={img1} alt='Image' />
               <img className='' src={img2} alt='Image' />
 
@@ -43,6 +41,12 @@ function Detail() {
               {project.images.map((p) => (
                 <img className='' src={p.url} alt={`Image ${p.id} `} />
               ))}
+              {project.videos &&
+                project.videos.map((video) => (
+                  <video width='1000' height='500' controls>
+                    <source src={video.url} type='video/mp4' />
+                  </video>
+                ))}
             </div>
           </div>
         </div>

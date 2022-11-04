@@ -8,7 +8,7 @@ function NotFound() {
         <div className='container'>
           <div className='row'>
             <div className='col-12'>
-              <div className='skill-bx wow zoomIn'>
+              <div className='skill-bx'>
                 <h2>Not Foud</h2>
               </div>
             </div>
