@@ -14,7 +14,7 @@ export const Footer = () => {
           <Col size={12} sm={6} className='text-center text-sm-end'>
             <div className='social-icon'>
               {links.map((link) => (
-                <a href={link.link}>
+                <a href={link.link} target="_blank" rel="noreferrer">
                   <img src={link.icon} alt='Icon' />
                 </a>
               ))}

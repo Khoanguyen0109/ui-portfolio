@@ -219,7 +219,7 @@ const links = [
   {
     name: 'Linkedin',
     icon: navIcon1,
-    link: ':https://www.linkedin.com/in/hien-nguyen-449761181/',
+    link: 'https://www.linkedin.com/in/hien-nguyen-449761181/',
   },
 ];
 export { projects, skills, tools, links };

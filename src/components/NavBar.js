@@ -71,7 +71,7 @@ export const NavBar = () => {
           <span className='navbar-text'>
             <div className='social-icon'>
               {links.map((link) => (
-                <a href={link.link}>
+                <a href={link.link} target='_blank' rel="noreferrer">
                   <img src={link.icon} alt='Icon' />
                 </a>
               ))}
