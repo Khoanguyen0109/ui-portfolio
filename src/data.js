@@ -21,7 +21,7 @@ import xd from './assets/tools/xd.png';
 
 import us from './assets/skill/research.svg';
 import low from './assets/skill/UI.png';
-import proto from './assets/skill/prototype.png';
+import proto from './assets/skill/Protype.jpg';
 
 import scb1 from './assets/scb/1.png';
 import scb2 from './assets/scb/2.png';
@@ -31,12 +31,6 @@ import music2 from './assets/mucsic/2.png';
 import music3 from './assets/mucsic/3.png';
 
 import foodbThumb from './assets/food/thumb.jpeg';
-import food1 from './assets/food/1.png';
-import food2 from './assets/food/2.png';
-import food3 from './assets/food/3.png';
-import food4 from './assets/food/4.png';
-import food5 from './assets/food/5.png';
-import food6 from './assets/food/6.png';
 import food8 from './assets/food/8.png';
 
 import navIcon1 from './assets/img/nav-icon1.svg';
