@@ -76,11 +76,11 @@ export const NavBar = () => {
                 </a>
               ))}
             </div>
-            <HashLink to='#connect'>
+            {/* <HashLink to='#connect'>
               <button className='vvd'>
                 <span>Let’s Connect</span>
               </button>
-            </HashLink>
+            </HashLink> */}
           </span>
         </Navbar.Collapse>
       </Container>
