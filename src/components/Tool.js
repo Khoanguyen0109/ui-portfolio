@@ -17,7 +17,7 @@ export const Tools = () => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3,
+      items: 4,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -30,7 +30,7 @@ export const Tools = () => {
   };
 
   return (
-    <section className='skill' id='skills'>
+    <section className='skill' id='tools'>
       <div className='container'>
         <div className='row'>
           <div className='col-12'>

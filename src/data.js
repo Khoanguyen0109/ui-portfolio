@@ -96,6 +96,23 @@ const projects = [
   },
   {
     id: 3,
+    name: 'SCB',
+    brief: '',
+    description: ' ',
+    thumbnail: scb1,
+    images: [
+      {
+        id: 1,
+        url: scb1,
+      },
+      {
+        id: 1,
+        url: scb2,
+      },
+    ],
+  },
+  {
+    id: 4,
     name: 'Dynamic',
     brief: '',
     description: ' ',
@@ -117,25 +134,22 @@ const projects = [
       },
     ],
   },
+
   {
-    id: 4,
-    name: 'SCB',
+    id: 5,
+    name: 'Food App Delivery',
     brief: '',
     description: ' ',
-    thumbnail: scb1,
+    thumbnail: foodbThumb,
     images: [
       {
         id: 1,
-        url: scb1,
-      },
-      {
-        id: 1,
-        url: scb2,
+        url: food8,
       },
     ],
   },
   {
-    id: 5,
+    id: 6,
     name: 'Music app',
     brief: '',
     description: ' ',
@@ -152,19 +166,6 @@ const projects = [
       {
         id: 1,
         url: music3,
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: 'Food App Delivery',
-    brief: '',
-    description: ' ',
-    thumbnail: foodbThumb,
-    images: [
-      {
-        id: 1,
-        url: food8,
       },
     ],
   },
