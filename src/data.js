@@ -27,8 +27,7 @@ import scb1 from './assets/scb/1.png';
 import scb2 from './assets/scb/2.png';
 
 import music1 from './assets/mucsic/1.png';
-import music2 from './assets/mucsic/2.png';
-import music3 from './assets/mucsic/3.png';
+import music4 from './assets/mucsic/aksjhd.png';
 
 import foodbThumb from './assets/food/thumb.jpeg';
 import food8 from './assets/food/8.png';
@@ -161,11 +160,7 @@ const projects = [
       },
       {
         id: 1,
-        url: music2,
-      },
-      {
-        id: 1,
-        url: music3,
+        url: music4,
       },
     ],
   },
