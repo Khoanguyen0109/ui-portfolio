@@ -21,9 +21,7 @@ function Detail() {
             <div className='col-12'>
               <div className='skill-bx '>
                 <h2>{project.name}</h2>
-                <p>
-                  {project.description}
-                </p>
+                <p>{project.description}</p>
               </div>
             </div>
           </div>
@@ -34,18 +32,19 @@ function Detail() {
         <div className='container'>
           <div className='row'>
             <div className='skill-bx'>
-              {/* <img className='' src={img1} alt='Image' />
-              <img className='' src={img2} alt='Image' />
-
-              <img className='' src={img3} alt='Image' /> */}
               {project.images.map((p) => (
                 <img className='' src={p.url} alt={`Image ${p.id} `} />
               ))}
+            </div>
+
+            <div className='skill-bx'>
               {project.videos &&
                 project.videos.map((video) => (
-                  <video width='1000' height='500' controls>
-                    <source src={video.url} type='video/mp4' />
-                  </video>
+                  <div className='mb-3'>
+                    <video width='1000' height='500' controls>
+                      <source src={video.url} type='video/mp4' />
+                    </video>
+                  </div>
                 ))}
             </div>
           </div>

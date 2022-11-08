@@ -9,6 +9,11 @@ import loan3 from './assets/loan/3.png';
 import loan4 from './assets/loan/4.png';
 import loan5 from './assets/loan/5.png';
 import loan6 from './assets/loan/6.png';
+import loanVideo1 from './assets/loan/lender mode.mp4';
+import loanVideo2 from './assets/loan/Make a request.mp4';
+import loanVideo3 from './assets/loan/manage employee.mp4';
+
+
 
 import dynamic1 from './assets/dynamic/1.png';
 import dynamic2 from './assets/dynamic/2.png';
@@ -92,6 +97,20 @@ const projects = [
         url: loan6,
       },
     ],
+    videos: [
+      {
+        id: 1,
+        url: loanVideo1,
+      },
+      {
+        id: 2,
+        url: loanVideo1,
+      },
+      {
+        id: 3,
+        url: loanVideo1,
+      }
+    ]
   },
   {
     id: 3,
