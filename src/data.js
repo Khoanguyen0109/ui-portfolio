@@ -10,8 +10,7 @@ import loan4 from './assets/loan/4.png';
 import loan5 from './assets/loan/5.png';
 import loan6 from './assets/loan/6.png';
 import loanVideo1 from './assets/loan/lender mode.mp4';
-import loanVideo2 from './assets/loan/Make a request.mp4';
-import loanVideo3 from './assets/loan/manage employee.mp4';
+
 
 
 
@@ -31,39 +30,43 @@ import proto from './assets/skill/Protype.jpg';
 import scb1 from './assets/scb/1.png';
 import scb2 from './assets/scb/2.png';
 
-import music1 from './assets/mucsic/1.png';
-import music4 from './assets/mucsic/aksjhd.png';
 
 import foodbThumb from './assets/food/thumb.jpeg';
 import food8 from './assets/food/8.png';
 
 import navIcon1 from './assets/img/nav-icon1.svg';
 import navIcon2 from './assets/img/nav-icon2.svg';
-import navIcon3 from './assets/img/nav-icon3.svg';
+
+import nobeeThumnail from './assets/nobee/thumb.jpg'
+import nobeepage from './assets/nobee/page.png'
+import nobeevideo from './assets/nobee/4906850406635748938.mp4'
+
 
 const homeDate = {};
 
 const projects = [
   {
     id: 1,
-    name: 'Tabula',
-    brief: 'Learning management system',
+    name: 'Nobee',
+    brief: 'USA housing rental app',
     description: ' ',
-    thumbnail: tabula1,
+    thumbnail: nobeeThumnail,
     images: [
       {
         id: 1,
-        url: tabula1,
+        url: nobeeThumnail,
       },
       {
-        id: 1,
-        url: tabula2,
-      },
-      {
-        id: 1,
-        url: tabula3,
+        id: 2,
+        url: nobeepage,
       },
     ],
+    videos: [
+      {
+        id: 1,
+        url: nobeevideo,
+      },
+    ]
   },
   {
     id: 2,
@@ -114,6 +117,27 @@ const projects = [
   },
   {
     id: 3,
+    name: 'Tabula',
+    brief: 'Learning management system',
+    description: ' ',
+    thumbnail: tabula1,
+    images: [
+      {
+        id: 1,
+        url: tabula1,
+      },
+      {
+        id: 1,
+        url: tabula2,
+      },
+      {
+        id: 1,
+        url: tabula3,
+      },
+    ],
+  },
+  {
+    id: 4,
     name: 'SCB',
     brief: '',
     description: ' ',
@@ -130,7 +154,7 @@ const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: 'Dynamic',
     brief: '',
     description: ' ',
@@ -154,7 +178,7 @@ const projects = [
   },
 
   {
-    id: 5,
+    id: 6,
     name: 'Food App Delivery',
     brief: '',
     description: ' ',
@@ -163,23 +187,6 @@ const projects = [
       {
         id: 1,
         url: food8,
-      },
-    ],
-  },
-  {
-    id: 6,
-    name: 'Music app',
-    brief: '',
-    description: ' ',
-    thumbnail: music1,
-    images: [
-      {
-        id: 1,
-        url: music1,
-      },
-      {
-        id: 1,
-        url: music4,
       },
     ],
   },
