@@ -1,17 +1,16 @@
-import { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import headerImg from '../assets/img/header-img.svg';
-import { ArrowRightCircle } from 'react-bootstrap-icons';
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { useState, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import headerImg from "../assets/img/header-img.svg";
+import "animate.css";
+import TrackVisibility from "react-on-screen";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ['UI/UX Designer', 'Product Designer'];
+  const toRotate = ["UI/UX Designer", "Product Designer"];
   const period = 500;
 
   useEffect(() => {
@@ -41,7 +40,7 @@ export const Banner = () => {
       setIsDeleting(true);
       setIndex((prevIndex) => prevIndex - 1);
       setDelta(period);
-    } else if (isDeleting && updatedText === '') {
+    } else if (isDeleting && updatedText === "") {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
       setIndex(1);
@@ -52,40 +51,40 @@ export const Banner = () => {
   };
 
   return (
-    <section className='banner' id='home'>
+    <section className="banner" id="home">
       <Container>
-        <Row className='aligh-items-center'>
+        <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) => (
                 <div
                   className={
-                    isVisible ? 'animate__animated animate__fadeIn' : ''
+                    isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <span className='tagline'>Welcome to my Portfolio</span>
+                  <span className="tagline">Welcome to my Portfolio</span>
                   <h1>
-                    {`Hi! I'm Thu Hien`}{' '}
+                    {`Hi! I'm Thu Hien`}{" "}
                     <div
-                      className='txt-rotate'
-                      dataPeriod='1000'
+                      className="txt-rotate"
+                      dataPeriod="1000"
                       data-rotate='[ "UI/UX Designer" , "Product Designer" ]'
                     >
-                      <span className='wrap'>{text}</span>
+                      <span className="wrap">{text}</span>
                     </div>
                   </h1>
                   <p>
-                    I am a UX/UI designer, I am young, passionate, enthusiastic
-                    and dedicated. I have always aspired to create products that
-                    are useful to both domestic and international users, and
-                    also bring profits to businesses.
+                    I am a UX/UI designer with 3 years experience with product
+                    in house, I have always aspired to create products that
+                    serve millions of users around the world, and also bring
+                    profits to businesses.
                   </p>
                   <br />
                   <p>
                     I hope to find an environment where I can not only
                     contribute my abilities but also learn and gain experience,
                     and especially contribute my personal opinions to the
-                    success of the product
+                    success of the product.
                   </p>
                   {/* <button onClick={() => console.log('connect')}>
                     Let’s Connect <ArrowRightCircle size={25} />
@@ -99,10 +98,10 @@ export const Banner = () => {
               {({ isVisible }) => (
                 <div
                   className={
-                    isVisible ? 'animate__animated animate__zoomIn' : ''
+                    isVisible ? "animate__animated animate__zoomIn" : ""
                   }
                 >
-                  <img src={headerImg} alt='Header Img' />
+                  <img src={headerImg} alt="Header Img" />
                 </div>
               )}
             </TrackVisibility>
