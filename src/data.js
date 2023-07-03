@@ -34,15 +34,30 @@ import carNowThumb from "./assets/carnow/Homecarnow.png";
 import carnow from "./assets/carnow/CarNow.png";
 import autoThumb from "./assets/nowauto/thumb.png";
 import auto from "./assets/nowauto/Nowauto.png";
-const homeDate = {};
 
+import saas from "./assets/saas/saas.jpg";
+import saasThumb from "./assets/saas/saas_thumb.jpg";
 const projects = [
   {
     id: 1,
+    name: "[Saas] Property management",
+    brief:
+      "Self managing your rental properties and applications with Nobee SaaS",
+    description: " ",
+    thumbnail: saasThumb,
+    images: [
+      {
+        id: 1,
+        url: saas,
+      },
+    ],
+  },
+  {
+    id: 2,
     name: "Nobee",
     brief: "USA housing rental app",
-    description: " ",
     thumbnail: nobeeThumnail,
+    description: " ",
     images: [
       {
         id: 1,
@@ -61,7 +76,7 @@ const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: "Car Now",
     brief: "Used car sales app",
     description: " ",
@@ -74,7 +89,7 @@ const projects = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     name: "Now Auto",
     brief: "Used car buying app for dealers",
     description: " ",
@@ -87,7 +102,7 @@ const projects = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: "Loan Labor",
     brief: "B2B application",
     description: " ",
@@ -134,7 +149,7 @@ const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     name: "Tabula",
     brief: "Learning management system",
     description: " ",
@@ -155,7 +170,7 @@ const projects = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     name: "SCB",
     brief: "",
     description: " ",
