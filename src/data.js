@@ -87,7 +87,7 @@ const projects = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     name: "Loan Labor",
     brief: "B2B application",
     description: " ",
@@ -208,11 +208,6 @@ const tools = [
 ];
 
 const links = [
-  {
-    name: "fb",
-    icon: navIcon2,
-    link: "https://www.facebook.com/thuhien4995/",
-  },
   {
     name: "Linkedin",
     icon: navIcon1,
