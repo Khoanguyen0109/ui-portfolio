@@ -39,6 +39,32 @@ import saas from "./assets/saas/saas.jpg";
 import saasThumb from "./assets/saas/saas_thumb.jpg";
 const projects = [
   {
+    id: 3,
+    name: "Car Now",
+    brief: "Used car sales app",
+    description: " ",
+    thumbnail: carNowThumb,
+    images: [
+      {
+        id: 1,
+        url: carnow,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Now Auto",
+    brief: "Used car buying app for dealers",
+    description: " ",
+    thumbnail: autoThumb,
+    images: [
+      {
+        id: 1,
+        url: auto,
+      },
+    ],
+  },
+  {
     id: 1,
     name: "[Saas] Property management",
     brief:
@@ -75,32 +101,7 @@ const projects = [
       },
     ],
   },
-  {
-    id: 3,
-    name: "Car Now",
-    brief: "Used car sales app",
-    description: " ",
-    thumbnail: carNowThumb,
-    images: [
-      {
-        id: 1,
-        url: carnow,
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Now Auto",
-    brief: "Used car buying app for dealers",
-    description: " ",
-    thumbnail: autoThumb,
-    images: [
-      {
-        id: 1,
-        url: auto,
-      },
-    ],
-  },
+
   {
     id: 5,
     name: "Loan Labor",
