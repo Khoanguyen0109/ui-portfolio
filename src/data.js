@@ -30,10 +30,10 @@ import nobeeThumnail from "./assets/nobee/thumb.jpg";
 import nobeepage from "./assets/nobee/page.png";
 import nobeevideo from "./assets/nobee/4906850406635748938.mp4";
 
-import carNowThumb from "./assets/carnow/Homecarnow.png";
+import carNowThumb from "./assets/carnow/Carnow-1.jpg";
 import carnow from "./assets/carnow/CarNow.png";
-import autoThumb from "./assets/nowauto/thumb.png";
-import auto from "./assets/nowauto/Nowauto.png";
+import autoThumb from "./assets/nowauto/Nowauto-1.jpg";
+import auto from "./assets/nowauto/Nowauto.jpg";
 
 import saas from "./assets/saas/saas.jpg";
 import saasThumb from "./assets/saas/saas_thumb.jpg";
