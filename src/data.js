@@ -65,20 +65,6 @@ const projects = [
     ],
   },
   {
-    id: 1,
-    name: "[Saas] Property management",
-    brief:
-      "Self managing your rental properties and applications with Nobee SaaS",
-    description: " ",
-    thumbnail: saasThumb,
-    images: [
-      {
-        id: 1,
-        url: saas,
-      },
-    ],
-  },
-  {
     id: 2,
     name: "Nobee",
     brief: "USA housing rental app",
@@ -98,6 +84,20 @@ const projects = [
       {
         id: 1,
         url: nobeevideo,
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: "[Saas] Property management",
+    brief:
+      "Self managing your rental properties and applications with Nobee SaaS",
+    description: " ",
+    thumbnail: saasThumb,
+    images: [
+      {
+        id: 1,
+        url: saas,
       },
     ],
   },
