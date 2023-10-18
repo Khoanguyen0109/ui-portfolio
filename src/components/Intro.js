@@ -13,15 +13,11 @@ export const Intro = () => {
             <div className="col-12">
               <div className="skill-bx">
                 <h2>My Introduction</h2>
-            
+
                 <iframe
-                  style={{
-                    marginTop: '52px',
-                    maxWidth: "760px",
-                  }}
-                  width="100%"
+                  width="560"
                   height="315"
-                  src="https://www.youtube.com/embed/TnqkXhlUq0U?si=BrFmTVzRhsV7CBXV"
+                  src="https://www.youtube.com/embed/UWh42wPan6I?si=tQFIXBB5sj92qEWy"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
