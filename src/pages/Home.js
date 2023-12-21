@@ -14,8 +14,8 @@ function Home() {
     <div>
       <Banner />
       {/* <Intro/> */}
-      <Skills />
-      <Tools/>
+      {/* <Skills />
+      <Tools/> */}
       <Projects />
       <Contact />
     </div>

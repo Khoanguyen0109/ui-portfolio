@@ -1,16 +1,3 @@
-import tabula1 from "./assets/tabula/Thumbnail.png";
-import tabula2 from "./assets/tabula/2 (1).png";
-import tabula3 from "./assets/tabula/3 (1).png";
-
-import loanThumb from "./assets/loan/Thumbnail (1).png";
-import loan1 from "./assets/loan/1.png";
-import loan2 from "./assets/loan/2.png";
-import loan3 from "./assets/loan/3.png";
-import loan4 from "./assets/loan/4.png";
-import loan5 from "./assets/loan/5.png";
-import loan6 from "./assets/loan/6.png";
-import loanVideo1 from "./assets/loan/lender mode.mp4";
-
 import figma from "./assets/tools/figma.png";
 import ai from "./assets/tools/ai.png";
 import ps from "./assets/tools/ps.png";
@@ -26,17 +13,20 @@ import scb2 from "./assets/scb/2.png";
 import navIcon1 from "./assets/img/nav-icon1.svg";
 import navIcon2 from "./assets/img/nav-icon2.svg";
 
-import nobeeThumnail from "./assets/nobee/thumb.jpg";
-import nobeepage from "./assets/nobee/page.png";
+import nobeeThumnail from "./assets/nobee/38.png";
+import nobeepage from "./assets/nobee/37.png";
 import nobeevideo from "./assets/nobee/4906850406635748938.mp4";
 
-import carNowThumb from "./assets/carnow/Carnow-1 (1).jpg";
-import carnow from "./assets/carnow/Carnow (1).png";
-import autoThumb from "./assets/nowauto/Nowauto-1 (1).jpg";
-import auto from "./assets/nowauto/Nowauto (1).png";
+import nobeeAdminThumb from  './assets/saas/5.png'
+import nobeeAdmin from  './assets/saas/52.png'
 
-import saas from "./assets/saas/saas.jpg";
-import saasThumb from "./assets/saas/saas_thumb.jpg";
+import carNowThumb from "./assets/carnow/19.png";
+import carnow from "./assets/carnow/1.png";
+import autoThumb from "./assets/nowauto/2 (1).png";
+import auto from "./assets/nowauto/22.png";
+
+import saas from "./assets/saas/15.png";
+import saasThumb from "./assets/saas/39.png";
 const projects = [
   {
     id: 3,
@@ -80,12 +70,12 @@ const projects = [
         url: nobeepage,
       },
     ],
-    videos: [
-      {
-        id: 1,
-        url: nobeevideo,
-      },
-    ],
+    // videos: [
+    //   {
+    //     id: 1,
+    //     url: nobeevideo,
+    //   },
+    // ],
   },
   {
     id: 1,
@@ -102,91 +92,84 @@ const projects = [
     ],
   },
 
-  {
-    id: 5,
-    name: "Loan Labor",
-    brief: "B2B application",
-    description: " ",
-    thumbnail: loanThumb,
-    images: [
-      {
-        id: 1,
-        url: loan1,
-      },
-      {
-        id: 2,
-        url: loan2,
-      },
-      {
-        id: 1,
-        url: loan3,
-      },
-      {
-        id: 1,
-        url: loan4,
-      },
-      {
-        id: 1,
-        url: loan5,
-      },
-      {
-        id: 1,
-        url: loan6,
-      },
-    ],
-    videos: [
-      {
-        id: 1,
-        url: loanVideo1,
-      },
-      {
-        id: 2,
-        url: loanVideo1,
-      },
-      {
-        id: 3,
-        url: loanVideo1,
-      },
-    ],
-  },
+  // {
+  //   id: 5,
+  //   name: "Loan Labor",
+  //   brief: "B2B application",
+  //   description: " ",
+  //   thumbnail: loanThumb,
+  //   images: [
+  //     {
+  //       id: 1,
+  //       url: loan1,
+  //     },
+  //     {
+  //       id: 2,
+  //       url: loan2,
+  //     },
+  //     {
+  //       id: 1,
+  //       url: loan3,
+  //     },
+  //     {
+  //       id: 1,
+  //       url: loan4,
+  //     },
+  //     {
+  //       id: 1,
+  //       url: loan5,
+  //     },
+  //     {
+  //       id: 1,
+  //       url: loan6,
+  //     },
+  //   ],
+  //   videos: [
+  //     {
+  //       id: 1,
+  //       url: loanVideo1,
+  //     },
+  //     {
+  //       id: 2,
+  //       url: loanVideo1,
+  //     },
+  //     {
+  //       id: 3,
+  //       url: loanVideo1,
+  //     },
+  //   ],
+  // },
   {
     id: 6,
     name: "Tabula",
     brief: "Learning management system",
     description: " ",
-    thumbnail: tabula1,
+    thumbnail: nobeeAdminThumb,
     images: [
       {
         id: 1,
-        url: tabula1,
+        url: nobeeAdmin,
       },
-      {
-        id: 1,
-        url: tabula2,
-      },
-      {
-        id: 1,
-        url: tabula3,
-      },
+      
     ],
   },
-  {
-    id: 7,
-    name: "SCB",
-    brief: "",
-    description: " ",
-    thumbnail: scb1,
-    images: [
-      {
-        id: 1,
-        url: scb1,
-      },
-      {
-        id: 1,
-        url: scb2,
-      },
-    ],
-  },
+  // {
+  //   id: 7,
+  //   name: "SCB",
+  //   brief: "",
+  //   description: " ",
+  //   thumbnail: scb1,
+  //   images: [
+  //     {
+  //       id: 1,
+  //       url: scb1,
+  //     },
+  //     {
+  //       id: 1,
+  //       url: scb2,
+  //     },
+  //   ],
+  // },
 ];
 
 const skills = [

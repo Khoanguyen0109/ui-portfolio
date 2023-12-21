@@ -16,7 +16,7 @@ function Detail() {
   return (
     <div>
       <section className='banner'>
-        <div className='container'>
+        {/* <div className='container'>
           <div className='row'>
             <div className='col-12'>
               <div className='skill-bx '>
@@ -25,7 +25,7 @@ function Detail() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <img className='background-image-left' src={colorSharp} alt='Image' />
       </section>
       <section className='skill'>

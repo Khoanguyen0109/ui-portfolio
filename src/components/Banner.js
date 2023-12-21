@@ -62,7 +62,7 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <span className="tagline">Welcome to my Portfolio</span>
+                  {/* <span className="tagline">Welcome to my Portfolio</span>
                   <h1>
                     {`Hi! I'm Thu Hien`}{" "}
                     <div
@@ -72,8 +72,39 @@ export const Banner = () => {
                     >
                       <span className="wrap">{text}</span>
                     </div>
+                  </h1> */}
+                  <h1 style={{fontSize: '50px', fontWeight: '400'}} >
+                    I'm{" "}
+                    <span
+                      style={{
+                        fontWeight: "600",
+                      }}
+                    >
+                      Sr product designer
+                    </span>
+                    {" "}crafting digital experiences that are{" "}
+                    <span
+                      style={{
+                        fontWeight: "600",
+                        fontStyle: "italic",
+                        color: "#FFCBAA",
+                      }}
+                    >
+                      intuitive
+                    </span>
+                    {" "}and{" "}
+                    <span
+                      style={{
+                        fontWeight: "600",
+                        fontStyle: "italic",
+                        color: "#FF8C62",
+                      }}
+                    >
+                      data-informed
+                    </span>
+                    .
                   </h1>
-                  <p>
+                  {/* <p>
                     I am a UX/UI designer with 3 years experience with product
                     in house, I have always aspired to create products that
                     serve millions of users around the world, and also bring
@@ -85,7 +116,7 @@ export const Banner = () => {
                     contribute my abilities but also learn and gain experience,
                     and especially contribute my personal opinions to the
                     success of the product.
-                  </p>
+                  </p> */}
                   {/* <button onClick={() => console.log('connect')}>
                     Let’s Connect <ArrowRightCircle size={25} />
                   </button> */}
