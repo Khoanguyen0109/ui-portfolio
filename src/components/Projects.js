@@ -19,7 +19,7 @@ export const Projects = () => {
                   }
                 >
                   <h2>Projects</h2>
-                  <p>
+                  {/* <p>
                     Welcome to my projects. Every project I participate in is a
                     process of learning and researching from competitors, from
                     applications that are already on the market, some
@@ -28,7 +28,7 @@ export const Projects = () => {
                     enjoy the projects I've worked on, if you like it or are
                     impressed or have any more ideas, feel free to connect with
                     me!
-                  </p>
+                  </p> */}
                   <Tab.Container id='projects-tabs' defaultActiveKey='first'>
                     {/* <Nav
                       variant='pills'

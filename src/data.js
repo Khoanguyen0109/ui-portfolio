@@ -17,8 +17,8 @@ import nobeeThumnail from "./assets/nobee/38.png";
 import nobeepage from "./assets/nobee/37.png";
 import nobeevideo from "./assets/nobee/4906850406635748938.mp4";
 
-import nobeeAdminThumb from  './assets/saas/5.png'
-import nobeeAdmin from  './assets/saas/52.png'
+import nobeeAdminThumb from  './assets/saas/52.png'
+import nobeeAdmin from  './assets/saas/5.png'
 
 import carNowThumb from "./assets/carnow/19.png";
 import carnow from "./assets/carnow/1.png";

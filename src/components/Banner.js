@@ -73,7 +73,13 @@ export const Banner = () => {
                       <span className="wrap">{text}</span>
                     </div>
                   </h1> */}
-                  <h1 style={{fontSize: '50px', fontWeight: '400'}} >
+                  <h1
+                    style={{
+                      fontSize: "50px",
+                      fontWeight: "400",
+                      lineHeight: "1.5",
+                    }}
+                  >
                     I'm{" "}
                     <span
                       style={{
@@ -81,8 +87,8 @@ export const Banner = () => {
                       }}
                     >
                       Sr product designer
-                    </span>
-                    {" "}crafting digital experiences that are{" "}
+                    </span>{" "}
+                    crafting digital experiences that are{" "}
                     <span
                       style={{
                         fontWeight: "600",
@@ -91,8 +97,8 @@ export const Banner = () => {
                       }}
                     >
                       intuitive
-                    </span>
-                    {" "}and{" "}
+                    </span>{" "}
+                    and{" "}
                     <span
                       style={{
                         fontWeight: "600",
