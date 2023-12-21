@@ -62,10 +62,6 @@ const projects = [
     description: " ",
     images: [
       {
-        id: 1,
-        url: nobeeThumnail,
-      },
-      {
         id: 2,
         url: nobeepage,
       },
