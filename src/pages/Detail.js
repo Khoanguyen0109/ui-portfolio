@@ -1,21 +1,21 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import colorSharp from '../assets/img/color-sharp.png';
-import { projects } from '../data';
-import NotFound from './NotFound';
+import React from "react";
+import { useParams } from "react-router-dom";
+import colorSharp from "../assets/img/color-sharp.png";
+import { projects } from "../data";
+import NotFound from "./NotFound";
 
 function Detail() {
   const params = useParams();
-  console.log('params', params);
+  console.log("params", params);
   const { projectId } = params;
   const project = projects.find((p) => p.id === parseInt(projectId));
-  console.log('project', project);
+  console.log("project", project);
   if (!project) {
     return <NotFound />;
   }
   return (
     <div>
-      <section className='banner'>
+      <section className="banner">
         {/* <div className='container'>
           <div className='row'>
             <div className='col-12'>
@@ -26,23 +26,28 @@ function Detail() {
             </div>
           </div>
         </div> */}
-        <img className='background-image-left' src={colorSharp} alt='Image' />
+        <img className="background-image-left" src={colorSharp} alt="Image" />
       </section>
-      <section className='skill'>
-        <div className='container'>
-          <div className='row'>
-            <div className='skill-bx'>
+      <section className="skill">
+        <div className="container">
+          <div className="row">
+            <div className="skill-bx">
               {project.images.map((p) => (
-                <img className='' src={p.url} alt={`Image ${p.id} `} />
+                <img
+                  loading="lazy"
+                  className=""
+                  src={p.url}
+                  alt={`Image ${p.id} `}
+                />
               ))}
             </div>
 
-            <div className='skill-bx'>
+            <div className="skill-bx">
               {project.videos &&
                 project.videos.map((video) => (
-                  <div className='mb-3'>
-                    <video width='1000' height='500' controls>
-                      <source src={video.url} type='video/mp4' />
+                  <div className="mb-3">
+                    <video width="1000" height="500" controls>
+                      <source src={video.url} type="video/mp4" />
                     </video>
                   </div>
                 ))}

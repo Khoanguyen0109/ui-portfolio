@@ -7,27 +7,46 @@ import us from "./assets/skill/research.svg";
 import low from "./assets/skill/UI.png";
 import proto from "./assets/skill/Protype.jpg";
 
-import scb1 from "./assets/scb/1.png";
-import scb2 from "./assets/scb/2.png";
-
 import navIcon1 from "./assets/img/nav-icon1.svg";
-import navIcon2 from "./assets/img/nav-icon2.svg";
 
 import nobeeThumnail from "./assets/nobee/38.png";
 import nobeepage from "./assets/nobee/37.png";
-import nobeevideo from "./assets/nobee/4906850406635748938.mp4";
-
-import nobeeAdminThumb from  './assets/saas/52.png'
-import nobeeAdmin from  './assets/saas/5.png'
 
 import carNowThumb from "./assets/carnow/19.png";
 import carnow from "./assets/carnow/1.png";
-import autoThumb from "./assets/nowauto/2 (1).png";
-import auto from "./assets/nowauto/22.png";
+import autoThumb from "./assets/nowauto/19.png";
+import auto from "./assets/nowauto/20.png";
 
-import saas from "./assets/saas/15.png";
-import saasThumb from "./assets/saas/39.png";
+import saas from "./assets/saas/37.png";
+import saasThumb from "./assets/saas/38.png";
+import tiktokthumb from "./assets/tiktok/45.png";
+import tiktok from "./assets/tiktok/46.png";
 const projects = [
+  {
+    id: 2,
+    name: "Nobee",
+    brief: "USA housing rental app",
+    thumbnail: nobeeThumnail,
+    description: " ",
+    images: [
+      {
+        id: 2,
+        url: nobeepage,
+      },
+    ],
+  },
+  {
+    id: 242,
+    name: "Tik tok",
+    thumbnail: tiktokthumb,
+    description: " ",
+    images: [
+      {
+        id: 2,
+        url: tiktok,
+      },
+    ],
+  },
   {
     id: 3,
     name: "Car Now",
@@ -54,30 +73,11 @@ const projects = [
       },
     ],
   },
-  {
-    id: 2,
-    name: "Nobee",
-    brief: "USA housing rental app",
-    thumbnail: nobeeThumnail,
-    description: " ",
-    images: [
-      {
-        id: 2,
-        url: nobeepage,
-      },
-    ],
-    // videos: [
-    //   {
-    //     id: 1,
-    //     url: nobeevideo,
-    //   },
-    // ],
-  },
+
   {
     id: 1,
-    name: "[Saas] Property management",
-    brief:
-      "Self managing your rental properties and applications with Nobee SaaS",
+    name: "Now",
+    brief: "",
     description: " ",
     thumbnail: saasThumb,
     images: [
@@ -87,85 +87,6 @@ const projects = [
       },
     ],
   },
-
-  // {
-  //   id: 5,
-  //   name: "Loan Labor",
-  //   brief: "B2B application",
-  //   description: " ",
-  //   thumbnail: loanThumb,
-  //   images: [
-  //     {
-  //       id: 1,
-  //       url: loan1,
-  //     },
-  //     {
-  //       id: 2,
-  //       url: loan2,
-  //     },
-  //     {
-  //       id: 1,
-  //       url: loan3,
-  //     },
-  //     {
-  //       id: 1,
-  //       url: loan4,
-  //     },
-  //     {
-  //       id: 1,
-  //       url: loan5,
-  //     },
-  //     {
-  //       id: 1,
-  //       url: loan6,
-  //     },
-  //   ],
-  //   videos: [
-  //     {
-  //       id: 1,
-  //       url: loanVideo1,
-  //     },
-  //     {
-  //       id: 2,
-  //       url: loanVideo1,
-  //     },
-  //     {
-  //       id: 3,
-  //       url: loanVideo1,
-  //     },
-  //   ],
-  // },
-  {
-    id: 6,
-    name: "Tabula",
-    brief: "Learning management system",
-    description: " ",
-    thumbnail: nobeeAdminThumb,
-    images: [
-      {
-        id: 1,
-        url: nobeeAdmin,
-      },
-      
-    ],
-  },
-  // {
-  //   id: 7,
-  //   name: "SCB",
-  //   brief: "",
-  //   description: " ",
-  //   thumbnail: scb1,
-  //   images: [
-  //     {
-  //       id: 1,
-  //       url: scb1,
-  //     },
-  //     {
-  //       id: 1,
-  //       url: scb2,
-  //     },
-  //   ],
-  // },
 ];
 
 const skills = [
