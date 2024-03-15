@@ -12,12 +12,10 @@ export const Intro = () => {
           <div className="row">
             <div className="col-12">
               <div className="skill-bx">
-                <h2>My Introduction</h2>
-
                 <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube.com/embed/UWh42wPan6I?si=tQFIXBB5sj92qEWy"
+                  width="700"
+                  height="400"
+                  src="https://www.youtube.com/embed/G1vgLP7RCKQ?si=meHhP2jzgUrMypmJ"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

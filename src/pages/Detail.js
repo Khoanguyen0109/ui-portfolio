@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import colorSharp from "../assets/img/color-sharp.png";
 import { projects } from "../data";
 import NotFound from "./NotFound";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Detail() {
   const params = useParams();
@@ -33,9 +34,9 @@ function Detail() {
           <div className="row">
             <div className="skill-bx">
               {project.images.map((p) => (
-                <img
-                  loading="lazy"
+                <LazyLoadImage
                   className=""
+                  effect="blur"
                   src={p.url}
                   alt={`Image ${p.id} `}
                 />

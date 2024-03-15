@@ -13,7 +13,7 @@ function Home() {
   return (
     <div>
       <Banner />
-      {/* <Intro/> */}
+      <Intro/>
       {/* <Skills />
       <Tools/> */}
       <Projects />
