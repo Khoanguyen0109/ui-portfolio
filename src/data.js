@@ -21,7 +21,22 @@ import saas from "./assets/saas/37.png";
 import saasThumb from "./assets/saas/38.png";
 import tiktokthumb from "./assets/tiktok/45.png";
 import tiktok from "./assets/tiktok/46.png";
+import thumbDesign from "./assets/design/thumb.jpg";
+import design from "./assets/design/Content.jpg";
 const projects = [
+  {
+    id: 1,
+    name: "Design System",
+    brief: "USA housing rental app",
+    thumbnail: thumbDesign,
+    description: " ",
+    images: [
+      {
+        id: 2,
+        url: design,
+      },
+    ],
+  },
   {
     id: 2,
     name: "Nobee",
