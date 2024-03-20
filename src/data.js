@@ -23,6 +23,9 @@ import tiktokthumb from "./assets/tiktok/45.png";
 import tiktok from "./assets/tiktok/46.png";
 import thumbDesign from "./assets/design/thumb.jpg";
 import design from "./assets/design/Content.jpg";
+import cinethumbe from "./assets/cine/cinethumb.jpg";
+import cine from "./assets/cine/cine.jpg";
+
 const projects = [
   {
     id: 1,
@@ -34,6 +37,19 @@ const projects = [
       {
         id: 2,
         url: design,
+      },
+    ],
+  },
+  {
+    id: 134432,
+    name: "Cine",
+    brief: "USA housing rental app",
+    thumbnail: cinethumbe,
+    description: " ",
+    images: [
+      {
+        id: 2,
+        url: cine,
       },
     ],
   },
