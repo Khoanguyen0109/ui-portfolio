@@ -28,32 +28,6 @@ import cine from "./assets/cine/cine.jpg";
 
 const projects = [
   {
-    id: 1,
-    name: "Design System",
-    brief: "USA housing rental app",
-    thumbnail: thumbDesign,
-    description: " ",
-    images: [
-      {
-        id: 2,
-        url: design,
-      },
-    ],
-  },
-  {
-    id: 134432,
-    name: "Cine",
-    brief: "USA housing rental app",
-    thumbnail: cinethumbe,
-    description: " ",
-    images: [
-      {
-        id: 2,
-        url: cine,
-      },
-    ],
-  },
-  {
     id: 2,
     name: "Nobee",
     brief: "USA housing rental app",
@@ -75,6 +49,19 @@ const projects = [
       {
         id: 2,
         url: tiktok,
+      },
+    ],
+  },
+  {
+    id: 134432,
+    name: "Cine",
+    brief: "USA housing rental app",
+    thumbnail: cinethumbe,
+    description: " ",
+    images: [
+      {
+        id: 2,
+        url: cine,
       },
     ],
   },
@@ -115,6 +102,19 @@ const projects = [
       {
         id: 1,
         url: saas,
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: "Design System",
+    brief: "USA housing rental app",
+    thumbnail: thumbDesign,
+    description: " ",
+    images: [
+      {
+        id: 2,
+        url: design,
       },
     ],
   },

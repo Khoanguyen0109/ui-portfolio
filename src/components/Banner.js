@@ -92,7 +92,7 @@ export const Banner = () => {
                     <span
                       style={{
                         fontWeight: "600",
-                        fontStyle: "italic",
+                        // fontStyle: "italic",
                         color: "#FFCBAA",
                       }}
                     >
@@ -102,7 +102,7 @@ export const Banner = () => {
                     <span
                       style={{
                         fontWeight: "600",
-                        fontStyle: "italic",
+                        // fontStyle: "italic",
                         color: "#FF8C62",
                       }}
                     >
