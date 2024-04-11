@@ -9,8 +9,8 @@ import proto from "./assets/skill/Protype.jpg";
 
 import navIcon1 from "./assets/img/nav-icon1.svg";
 
-import nobeeThumnail from "./assets/nobee/38.png";
-import nobeepage from "./assets/nobee/37.png";
+import nobeeThumnail from "./assets/nobee/39.jpg";
+import nobeepage from "./assets/nobee/15.jpg";
 
 import carNowThumb from "./assets/carnow/19.png";
 import carnow from "./assets/carnow/1.png";
