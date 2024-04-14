@@ -39,6 +39,8 @@ function Detail() {
                   effect="blur"
                   src={p.url}
                   alt={`Image ${p.id} `}
+                  width={p?.width}
+                  height={p?.height}
                 />
               ))}
             </div>

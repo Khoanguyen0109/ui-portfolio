@@ -14,13 +14,13 @@ import nobeepage from "./assets/nobee/15.jpg";
 
 import carNowThumb from "./assets/carnow/19.png";
 import carnow from "./assets/carnow/1.png";
-import autoThumb from "./assets/nowauto/19.png";
-import auto from "./assets/nowauto/20.png";
+import autoThumb from "./assets/nowauto/19.jpg";
+import auto from "./assets/nowauto/1.jpg";
 
 import saas from "./assets/saas/37.png";
 import saasThumb from "./assets/saas/38.png";
-import tiktokthumb from "./assets/tiktok/45.png";
-import tiktok from "./assets/tiktok/46.png";
+import tiktokthumb from "./assets/tiktok/45.jpg";
+import tiktok from "./assets/tiktok/46.jpg";
 import thumbDesign from "./assets/design/thumb.jpg";
 import design from "./assets/design/Content.jpg";
 import cinethumbe from "./assets/cine/cinethumb.jpg";
@@ -37,6 +37,8 @@ const projects = [
       {
         id: 2,
         url: nobeepage,
+        width: "1320px",
+        height: "22186px",
       },
     ],
   },
@@ -49,6 +51,8 @@ const projects = [
       {
         id: 2,
         url: tiktok,
+        width: "1320px",
+        height: "13925px",
       },
     ],
   },
@@ -92,19 +96,6 @@ const projects = [
     ],
   },
 
-  {
-    id: 1,
-    name: "Now",
-    brief: "",
-    description: " ",
-    thumbnail: saasThumb,
-    images: [
-      {
-        id: 1,
-        url: saas,
-      },
-    ],
-  },
   {
     id: 1,
     name: "Design System",
