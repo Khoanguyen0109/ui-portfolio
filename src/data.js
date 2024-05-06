@@ -17,14 +17,16 @@ import carnow from "./assets/carnow/1.png";
 import autoThumb from "./assets/nowauto/19.jpg";
 import auto from "./assets/nowauto/1.jpg";
 
-import saas from "./assets/saas/37.png";
-import saasThumb from "./assets/saas/38.png";
 import tiktokthumb from "./assets/tiktok/45.jpg";
 import tiktok from "./assets/tiktok/46.jpg";
 import thumbDesign from "./assets/design/thumb.jpg";
 import design from "./assets/design/Content.jpg";
 import cinethumbe from "./assets/cine/cinethumb.jpg";
 import cine from "./assets/cine/cine.jpg";
+import remithumb from "./assets/remitano/thumb.jpg";
+import remidetail from "./assets/remitano/detail.jpg"
+import lendthumb from "./assets/lend/lend.jpg"
+import detail from "./assets/lend/detail.jpg"
 
 const projects = [
   {
@@ -106,6 +108,32 @@ const projects = [
       {
         id: 2,
         url: design,
+      },
+    ],
+  },
+  {
+    id: 23123,
+    name: "Remitano",
+    brief: "USA housing rental app",
+    thumbnail: remithumb,
+    description: " ",
+    images: [
+      {
+        id: 2,
+        url: remidetail,
+      },
+    ],
+  },
+  {
+    id: 3413249,
+    name: "Lending Remitano",
+    brief: "USA housing rental app",
+    thumbnail: lendthumb,
+    description: " ",
+    images: [
+      {
+        id: 2,
+        url: detail,
       },
     ],
   },
