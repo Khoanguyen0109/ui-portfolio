@@ -98,19 +98,19 @@ const projects = [
     ],
   },
 
-  {
-    id: 1,
-    name: "Design System",
-    brief: "USA housing rental app",
-    thumbnail: thumbDesign,
-    description: " ",
-    images: [
-      {
-        id: 2,
-        url: design,
-      },
-    ],
-  },
+  // {
+  //   id: 1,
+  //   name: "Design System",
+  //   brief: "USA housing rental app",
+  //   thumbnail: thumbDesign,
+  //   description: " ",
+  //   images: [
+  //     {
+  //       id: 2,
+  //       url: design,
+  //     },
+  //   ],
+  // },
   {
     id: 23123,
     name: "Remitano",
