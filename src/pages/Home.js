@@ -15,6 +15,7 @@ function Home() {
       <Banner />
       {/* <Intro/> */}
       {/* <Skills />
+      
       <Tools/> */}
       <Projects />
       <Contact />
