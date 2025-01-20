@@ -28,20 +28,72 @@ import remidetail from "./assets/remitano/detail.jpg"
 import lendthumb from "./assets/lend/lend.jpg"
 import detail from "./assets/lend/detail.jpg"
 
+
+import noBee1 from "./assets/newNobee/1.jpg"
+import noBee2 from "./assets/newNobee/2.jpg"
+import noBee3 from "./assets/newNobee/3.jpg"
+import noBee4 from "./assets/newNobee/4.jpg"
+import noBee5 from "./assets/newNobee/5.jpg"
+import noBee6 from "./assets/newNobee/6.jpg"
+import noBee7 from "./assets/newNobee/7.jpg"
+import noBee8 from "./assets/newNobee/8.jpg"
+import noBeeThumb from "./assets/newNobee/Thumnail.jpg"
+
+
+
 const projects = [
   {
     id: 2,
     name: "Nobee",
     brief: "USA housing rental app",
-    thumbnail: nobeeThumnail,
+    thumbnail: noBeeThumb,
     description: " ",
     images: [
       {
-        id: 2,
-        url: nobeepage,
-        width: "1320px",
-        height: "22186px",
+        id: 1,
+        url: noBee1,
+        // width: "1320px",
+        // height: "22186px",
       },
+      {
+        id: 2,
+        url: noBee2,
+        // width: "1320px",
+        // height: "22186px",
+      },
+      {
+        id: 3,
+        url: noBee3,
+        // width: "1320px",
+        // height: "22186px",
+      },
+      {
+        id: 4,
+        url: noBee4,
+
+      },
+      {
+        id: 5,
+        url: noBee5,
+ 
+      },
+      {
+        id: 6,
+        url: noBee6,
+        // width: "1320px",
+        // height: "22186px",
+      },
+      {
+        id: 7,
+        url: noBee7,
+
+      },
+      {
+        id: 8,
+        url: noBee8,
+
+      },
+
     ],
   },
   {
