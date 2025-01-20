@@ -9,18 +9,14 @@ import proto from "./assets/skill/Protype.jpg";
 
 import navIcon1 from "./assets/img/nav-icon1.svg";
 
-import nobeeThumnail from "./assets/nobee/39.jpg";
-import nobeepage from "./assets/nobee/15.jpg";
+
 
 import carNowThumb from "./assets/carnow/19.png";
 import carnow from "./assets/carnow/1.png";
 import autoThumb from "./assets/nowauto/19.jpg";
 import auto from "./assets/nowauto/1.jpg";
 
-import tiktokthumb from "./assets/tiktok/45.jpg";
-import tiktok from "./assets/tiktok/46.jpg";
-import thumbDesign from "./assets/design/thumb.jpg";
-import design from "./assets/design/Content.jpg";
+
 import cinethumbe from "./assets/cine/cinethumb.jpg";
 import cine from "./assets/cine/cine.jpg";
 import remithumb from "./assets/remitano/thumb.jpg";
@@ -49,6 +45,20 @@ import tiktok8 from "./assets/newTiktok/8.jpg";
 import tiktok9 from "./assets/newTiktok/9.jpg";
 import tiktok10 from "./assets/newTiktok/10.jpg";
 import tiktok11 from "./assets/newTiktok/11.jpg";
+
+
+import carThumb from "./assets/newCar/Thumbnail.jpg"
+import car1 from "./assets/newCar/1.jpg";
+import car2 from "./assets/newCar/2.jpg";
+import car3 from "./assets/newCar/3.jpg";
+import car4 from "./assets/newCar/4.jpg";
+import car5 from "./assets/newCar/5.jpg";
+import car6 from "./assets/newCar/6.jpg";
+import car7 from "./assets/newCar/7.jpg";
+import car8 from "./assets/newCar/8.jpg";
+import car9 from "./assets/newCar/9.jpg";
+import car10 from "./assets/newCar/10.jpg";
+
 
 const projects = [
   {
@@ -140,6 +150,56 @@ const projects = [
       },
     ],
   },
+
+  {
+    id: 3,
+    name: "Car Now",
+    brief: "Used car sales app",
+    description: " ",
+    thumbnail: carThumb,
+    images: [
+      {
+        id: 1,
+        url: car1,
+      },
+      {
+        id: 2,
+        url: car2,
+      },
+      {
+        id: 3,
+        url: car3,
+      },
+      {
+        id: 4,
+        url: car4,
+      },
+      {
+        id: 5,
+        url: car5,
+      },
+      {
+        id: 6,
+        url: car6,
+      },
+      {
+        id: 7,
+        url: car7,
+      },
+      {
+        id: 8,
+        url: car8,
+      },
+      {
+        id: 9,
+        url: car9,
+      },
+      {
+        id: 10,
+        url: car10,
+      },
+    ],
+  },
   {
     id: 134432,
     name: "Cine",
@@ -150,19 +210,6 @@ const projects = [
       {
         id: 2,
         url: cine,
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Car Now",
-    brief: "Used car sales app",
-    description: " ",
-    thumbnail: carNowThumb,
-    images: [
-      {
-        id: 1,
-        url: carnow,
       },
     ],
   },
@@ -179,6 +226,7 @@ const projects = [
       },
     ],
   },
+  
 
   // {
   //   id: 1,
