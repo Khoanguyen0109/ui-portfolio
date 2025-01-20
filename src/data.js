@@ -10,19 +10,16 @@ import proto from "./assets/skill/Protype.jpg";
 import navIcon1 from "./assets/img/nav-icon1.svg";
 
 
-
-import carNowThumb from "./assets/carnow/19.png";
-import carnow from "./assets/carnow/1.png";
-import autoThumb from "./assets/nowauto/19.jpg";
-import auto from "./assets/nowauto/1.jpg";
+// import autoThumb from "./assets/nowauto/19.jpg";
+// import auto from "./assets/nowauto/1.jpg";
 
 
-import cinethumbe from "./assets/cine/cinethumb.jpg";
-import cine from "./assets/cine/cine.jpg";
-import remithumb from "./assets/remitano/thumb.jpg";
-import remidetail from "./assets/remitano/detail.jpg";
-import lendthumb from "./assets/lend/lend.jpg";
-import detail from "./assets/lend/detail.jpg";
+// import cinethumbe from "./assets/cine/cinethumb.jpg";
+// import cine from "./assets/cine/cine.jpg";
+// import remithumb from "./assets/remitano/thumb.jpg";
+// import remidetail from "./assets/remitano/detail.jpg";
+// import lendthumb from "./assets/lend/lend.jpg";
+// import detail from "./assets/lend/detail.jpg";
 
 import noBee1 from "./assets/newNobee/1.jpg";
 import noBee2 from "./assets/newNobee/2.jpg";
@@ -58,6 +55,26 @@ import car7 from "./assets/newCar/7.jpg";
 import car8 from "./assets/newCar/8.jpg";
 import car9 from "./assets/newCar/9.jpg";
 import car10 from "./assets/newCar/10.jpg";
+
+
+import cineThumb from "./assets/newCine/Thumbnail.jpg"
+import cine1 from "./assets/newCine/1.jpg";
+import cine2 from "./assets/newCine/2.jpg";
+import cine3 from "./assets/newCine/3.jpg";
+import cine4 from "./assets/newCine/4.jpg";
+import cine5 from "./assets/newCine/5.jpg";
+import cine6 from "./assets/newCine/6.jpg";
+import cine7 from "./assets/newCine/7.jpg";
+import cine8 from "./assets/newCine/8.jpg";
+import cine9 from "./assets/newCine/9.jpg";
+import cine10 from "./assets/newCine/10.jpg";
+import cine11 from "./assets/newCine/11.jpg";
+import cine12 from "./assets/newCine/12.jpg";
+import cine13 from "./assets/newCine/13.jpg";
+import cine14 from "./assets/newCine/14.jpg";
+import cine15 from "./assets/newCine/15.jpg";
+
+
 
 
 const projects = [
@@ -204,28 +221,84 @@ const projects = [
     id: 134432,
     name: "Cine",
     brief: "USA housing rental app",
-    thumbnail: cinethumbe,
+    thumbnail: cineThumb,
     description: " ",
-    images: [
-      {
-        id: 2,
-        url: cine,
-      },
-    ],
-  },
-  {
-    id: 4,
-    name: "Now Auto",
-    brief: "Used car buying app for dealers",
-    description: " ",
-    thumbnail: autoThumb,
     images: [
       {
         id: 1,
-        url: auto,
+        url: cine1,
+      },
+      {
+        id: 2,
+        url: cine2,
+      },
+      {
+        id: 3,
+        url: cine3,
+      },
+      {
+        id: 4,
+        url: cine4,
+      },
+      {
+        id: 5,
+        url: cine5,
+      },
+      {
+        id: 6,
+        url: cine6,
+      },
+      {
+        id: 7,
+        url: cine7,
+      },
+      {
+        id: 8,
+        url: cine8,
+      },
+      {
+        id: 9,
+        url: cine9,
+      },
+      {
+        id: 10,
+        url: cine10,
+      },
+      {
+        id: 11,
+        url: cine11,
+      },
+      {
+        id: 12,
+        url: cine12,
+      },
+      {
+        id: 13,
+        url: cine13,
+      },
+      {
+        id: 14,
+        url: cine14,
+      },
+      {
+        id: 15,
+        url: cine15,
       },
     ],
   },
+  // {
+  //   id: 4,
+  //   name: "Now Auto",
+  //   brief: "Used car buying app for dealers",
+  //   description: " ",
+  //   thumbnail: autoThumb,
+  //   images: [
+  //     {
+  //       id: 1,
+  //       url: auto,
+  //     },
+  //   ],
+  // },
   
 
   // {
@@ -241,32 +314,32 @@ const projects = [
   //     },
   //   ],
   // },
-  {
-    id: 23123,
-    name: "Remitano",
-    brief: "USA housing rental app",
-    thumbnail: remithumb,
-    description: " ",
-    images: [
-      {
-        id: 2,
-        url: remidetail,
-      },
-    ],
-  },
-  {
-    id: 3413249,
-    name: "Lending Remitano",
-    brief: "USA housing rental app",
-    thumbnail: lendthumb,
-    description: " ",
-    images: [
-      {
-        id: 2,
-        url: detail,
-      },
-    ],
-  },
+  // {
+  //   id: 23123,
+  //   name: "Remitano",
+  //   brief: "USA housing rental app",
+  //   thumbnail: remithumb,
+  //   description: " ",
+  //   images: [
+  //     {
+  //       id: 2,
+  //       url: remidetail,
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 3413249,
+  //   name: "Lending Remitano",
+  //   brief: "USA housing rental app",
+  //   thumbnail: lendthumb,
+  //   description: " ",
+  //   images: [
+  //     {
+  //       id: 2,
+  //       url: detail,
+  //     },
+  //   ],
+  // },
 ];
 
 const skills = [
