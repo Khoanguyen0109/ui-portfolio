@@ -75,9 +75,71 @@ import cine14 from "./assets/newCine/14.jpg";
 import cine15 from "./assets/newCine/15.jpg";
 
 
+import testcaseThumb from "./assets/testcasse/Thumbnail.jpg"
+import test1 from "./assets/testcasse/1.jpg";
+import test2 from "./assets/testcasse/2.jpg";
+import test3 from "./assets/testcasse/3.jpg";
+import test4 from "./assets/testcasse/4.jpg";
+import test5 from "./assets/testcasse/5.jpg";
+import test6 from "./assets/testcasse/6.jpg";
+import test7 from "./assets/testcasse/7.jpg";
+import test8 from "./assets/testcasse/8.jpg";
+import test9 from "./assets/testcasse/9.jpg";
+import test10 from "./assets/testcasse/10.jpg";
+
+
+
 
 
 const projects = [
+  {
+    id: 1,
+    name: "AI-Assisted Test Case Generation",
+    thumbnail: testcaseThumb,
+    description: " ",
+    images: [
+      {
+        id: 1,
+        url: test1,
+      },
+      {
+        id: 2,
+        url: test2,
+      },
+      {
+        id: 3,
+        url: test3,
+      },
+      {
+        id: 4,
+        url: test4,
+      },
+      {
+        id: 5,
+        url: test5,
+      },
+      {
+        id: 6,
+        url: test6,
+      },
+      {
+        id: 7,
+        url: test7,
+      },
+      {
+        id: 8,
+        url: test8,
+      },
+      {
+        id: 9,
+        url: test9,
+      },
+      {
+        id: 10,
+        url: test10,
+      },
+    ],
+  },
   {
     id: 2,
     name: "Nobee",
