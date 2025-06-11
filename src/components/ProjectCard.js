@@ -3,12 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { PasswordModal } from "./PasswordModal";
 
-export const ProjectCard = ({ id, title, description, imgUrl }) => {
+export const ProjectCard = ({ id, title, description, imgUrl, requirePassword }) => {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
 
   const handleCardClick = () => {
-    setShowModal(true);
+    if (requirePassword) {
+      setShowModal(true);
+    } else {
+      navigate(`details/${id}`);
+    }
   };
 
   const handleModalSuccess = () => {

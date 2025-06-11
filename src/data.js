@@ -97,6 +97,7 @@ const projects = [
     name: "AI-Assisted Test Case Generation",
     thumbnail: testcaseThumb,
     description: " ",
+    requirePassword: true,
     images: [
       {
         id: 1,
@@ -146,6 +147,7 @@ const projects = [
     brief: "USA housing rental app",
     thumbnail: noBeeThumb,
     description: " ",
+    requirePassword: false,
     images: [
       {
         id: 1,
@@ -186,6 +188,7 @@ const projects = [
     name: "Tik tok",
     thumbnail: tiktok1,
     description: " ",
+    requirePassword: false,
     images: [
       {
         id: 1,
@@ -235,6 +238,7 @@ const projects = [
     name: "Car Now",
     brief: "Used car sales app",
     description: " ",
+    requirePassword: false,
     thumbnail: carThumb,
     images: [
       {

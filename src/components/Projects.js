@@ -61,6 +61,7 @@ export const Projects = () => {
                                 title={project.name}
                                 description={project.brief}
                                 imgUrl={project.thumbnail}
+                                requirePassword={project.requirePassword}
                               />
                             );
                           })}
