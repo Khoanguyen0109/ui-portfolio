@@ -442,21 +442,23 @@ export const CaseStudyTestGenerator = () => {
           <div>
             {/* Breadcrumb */}
             <div className="flex items-center gap-2.5 text-[12px] text-[#a1a1aa] uppercase tracking-[0.06em] mb-7">
-              <span>Portfolio</span>
+              <span>Work</span>
               <span className="text-[#3f3f46]">/</span>
-              <strong className="text-accent font-medium">AI · QA Testing</strong>
+              <strong className="text-accent font-medium">Test Generator</strong>
             </div>
             <h1 className="font-serif font-normal text-white mb-5" style={{ fontSize: 'clamp(36px, 4.5vw, 62px)', lineHeight: 1.05, letterSpacing: '-0.025em' }}>
               AI Test Generator —<br />
               <em className="not-italic text-accent">a new chapter</em><br />
-              for QA teams
+              for QA teams.
             </h1>
             <p className="text-[15px] text-[#a1a1aa] leading-[1.75] mb-10">
-              Designed the end-to-end AI test case generation experience for Katalon — from requirement quality evaluation to Feature Area–grouped output with accept/edit/reject review. Solo designer. Shipped in 2026.
+              Generates test cases from requirements, evaluates requirement quality,
+              and introduces Feature Area grouping — the structural layer every QE
+              needs but no competitor provides.
             </p>
             {/* Meta cells */}
             <div className="grid gap-px bg-[#3f3f46] border border-[#3f3f46] rounded-xl overflow-hidden mb-10" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
-              {[{ label: 'Role', value: 'Solo Designer' }, { label: 'Timeline', value: '8 weeks' }, { label: 'Scope', value: 'End-to-end flow' }].map((m) => (
+              {[{ label: 'My Role', value: 'Solo Senior Designer' }, { label: 'Timeline', value: '2026 · Shipped' }, { label: 'AI Tools', value: 'Claude Code · VSCode · Figma Make' }].map((m) => (
                 <div key={m.label} className="bg-surface px-5 py-4">
                   <div className="text-[10px] tracking-[0.10em] uppercase text-[#a1a1aa] mb-1">{m.label}</div>
                   <div className="text-[13px] font-medium text-white">{m.value}</div>
@@ -690,7 +692,6 @@ export const CaseStudyTestGenerator = () => {
       {/* ── THE SHIPPED SCREENS ── */}
       <section className="px-12 py-20 bg-surface border-b border-[#3f3f46]">
         <div className="max-w-[1100px] mx-auto">
-          <SectionHeader><SectionLabel>Final Design</SectionLabel><SkillTag>UI Design</SkillTag></SectionHeader>
           <h2 className="font-serif font-normal text-white leading-[1.1] mb-12" style={{ fontSize: 'clamp(28px, 3.5vw, 46px)', letterSpacing: '-0.02em' }}>
             The shipped screens,<br /><em className="not-italic text-accent">step by step.</em>
           </h2>
