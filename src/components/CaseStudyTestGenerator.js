@@ -230,30 +230,39 @@ const WIZARD_STEPS = [
     label: 'Requirement\nquality score',
     title: 'Requirement details — quality score',
     text: 'AI evaluates every requirement on sync and surfaces a quality score — Good, Needs Clarification, or Vague — with a full breakdown of what\'s clear and what\'s missing. QE sees signal before touching anything.',
+    images: ['/images/quality score2.jpg'],
   },
   {
     num: '02',
     label: 'Upload\nattachment',
     title: 'Upload more attachment',
     text: 'QE uploads design specs, mockups, or API docs to enrich the AI context before generating. More context means higher coverage and more specific test cases — shown as a clear value signal in the UI.',
+    images: ['/images/Upload attachments.jpg'],
   },
   {
     num: '03',
     label: 'Clarification\nrequirement',
     title: 'Clarification requirement',
     text: 'When a requirement is vague, AI generates targeted clarifying questions. QE answers what they can — or skips entirely. Every answered question directly improves output quality.',
+    images: ['/images/Requirement clarification.jpg'],
   },
   {
     num: '04',
     label: 'Thinking\nprocess',
     title: 'Thinking process',
     text: 'AI reads requirement, analyses scenarios, generates test cases, and finalises steps — shown as a transparent 4-stage progress. QEs know exactly what the AI is doing, building trust in the output.',
+    images: ['/images/Generate process.jpg'],
   },
   {
     num: '05',
     label: 'AI test cases\ngenerated',
     title: 'AI test cases generated',
     text: 'AI test cases are automatically grouped by Feature Area — so QE reviews in context, not across a flat list. Each case can be edited inline, accepted, or rejected individually. The grouping makes bulk review fast and exact, with accepted cases landing directly in the right place in the test suite.',
+    images: [
+      '/images/AI test cases generated.jpg',
+      '/images/AI test cases generated 1.jpg',
+      '/images/AI test cases generated 2.jpg',
+    ],
   },
 ];
 
@@ -386,13 +395,17 @@ const Wizard = () => {
       {/* Panel */}
       <div className="px-9 py-8">
         <div key={active} style={{ animation: 'stepIn 0.3s ease both' }}>
-          {/* Image placeholder */}
-          <div className="border-2 border-dashed border-[#2a2a2a] rounded-2xl min-h-[280px] flex flex-col items-center justify-center gap-3 px-12 py-12 text-center mb-8 hover:border-[#3a3a3a] transition-colors">
-            <span className="text-[28px] opacity-[0.10]">🖼</span>
-            <p className="text-[13px] text-[#a1a1aa]">Design screen — Step {WIZARD_STEPS[active].num}</p>
-            <small className="text-[11px] text-[#333] max-w-[320px] leading-[1.6]">
-              {WIZARD_STEPS[active].title}
-            </small>
+          {/* Step images */}
+          <div className="flex flex-col gap-4 mb-8">
+            {WIZARD_STEPS[active].images.map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`${WIZARD_STEPS[active].title}${WIZARD_STEPS[active].images.length > 1 ? ` ${idx + 1}` : ''}`}
+                className="w-full rounded-2xl border border-[#3f3f46] object-cover"
+                loading="lazy"
+              />
+            ))}
           </div>
           {/* Description */}
           <div className="flex gap-6 items-start max-w-[680px]">
