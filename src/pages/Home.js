@@ -1,25 +1,23 @@
-import React from "react";
-import { Banner } from "../components/Banner";
-import { Contact } from "../components/Contact";
-import { Footer } from "../components/Footer";
-import { NavBar } from "../components/NavBar";
-import { Projects } from "../components/Projects";
-import { Skills } from "../components/Skills";
-import { Tools } from "../components/Tool";
-import { Intro } from "../components/Intro";
-import hero from "../assets/BACK ground.jpg";
+import { NavBar } from '../components/NavBar';
+import { Hero } from '../components/Hero';
+import { Marquee } from '../components/Marquee';
+import { AIToolkit } from '../components/AIToolkit';
+import { Work } from '../components/Work';
+import { About } from '../components/About';
+import { Contact } from '../components/Contact';
+import { Footer } from '../components/Footer';
+
 function Home() {
-  console.log("home");
   return (
-    <div>
-      {/* <Banner /> */}
-      <img src={hero} alt="hero" />
-      {/* <Intro/> */}
-      {/* <Skills />
-      
-      <Tools/> */}
-      <Projects />
+    <div className="bg-bg min-h-screen">
+      <NavBar />
+      <Hero />
+      <Marquee />
+      <AIToolkit />
+      <Work />
+      <About />
       <Contact />
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Generator — Hien Nguyen · AI Designer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap');
+
+    :root {
+      --bg: #09090b;
+      --surface: #18181b;
+      --surface2: #3f3f46;
+      --border: #3f3f46;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --muted2: #d4d4d8;
+      --accent: #a78bfa;
+      --accent-dim: rgba(167, 139, 250, 0.10);
+      --accent-border: rgba(167, 139, 250, 0.25);
+      --red: #ff6b6b;
+      --red-dim: rgba(255, 107, 107, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom-color: var(--border);
+    }
+    .nav-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); text-decoration: none; }
+    .nav-back { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+    .nav-back svg { transition: transform 0.2s; }
+    .nav-back:hover svg { transform: translateX(-3px); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1100px; margin: 0 auto; }
+    .container-narrow { max-width: 760px; margin: 0 auto; }
+
+    section { padding: 80px 48px; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 20px;
+    }
+    .section-label::before { content: ''; width: 16px; height: 1px; background: var(--muted); }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
+    }
+    h2 em { font-style: italic; color: var(--accent); }
+    h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 400; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--muted); font-size: 13px; text-decoration: none;
+      transition: color 0.2s; letter-spacing: 0.02em;
+    }
+    .btn-ghost:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 120px 48px 72px;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top: -100px; right: -100px;
+      width: 700px; height: 600px;
+      background: radial-gradient(ellipse, rgba(167,139,250,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 100% 80% at 60% 0%, black 30%, transparent 100%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: start;
+    }
+    .hero-left {}
+    .hero-right {
+      padding-top: 16px;
+    }
+
+    .hero-breadcrumb {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 12px; color: var(--muted); letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 28px;
+    }
+    .hero-breadcrumb span { color: var(--muted); }
+    .hero-breadcrumb strong { color: var(--accent); font-weight: 500; }
+    .hero-breadcrumb-sep { color: var(--border); }
+
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 4.5vw, 62px);
+      font-weight: 400; line-height: 1.05;
+      letter-spacing: -0.025em; margin-bottom: 20px;
+    }
+    .hero-title em { font-style: italic; color: var(--accent); }
+
+    .hero-sub { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 40px; }
+
+    .hero-meta-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .meta-cell { background: var(--surface); padding: 16px 20px; }
+    .meta-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+    .meta-value { font-size: 13px; font-weight: 500; color: var(--text); }
+
+    .impact-strip {
+      display: flex; gap: 32px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .impact-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 40px; line-height: 1; color: var(--accent); margin-bottom: 6px;
+    }
+    .impact-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* ── HERO PRODUCT PREVIEW ── */
+    .hero-preview {
+      border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+      background: var(--bg); box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-8px); }
+    }
+    .preview-titlebar {
+      display: flex; align-items: center; gap: 6px;
+      background: #09090b; border-bottom: 1px solid var(--border);
+      padding: 10px 14px;
+    }
+    .preview-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .preview-dot-r { background: #ff5f57; }
+    .preview-dot-y { background: #febc2e; }
+    .preview-dot-g { background: #28c840; }
+    .preview-url { flex: 1; background: rgba(255,255,255,0.04); border-radius: 4px; padding: 4px 10px; font-size: 10px; color: var(--muted); margin: 0 8px; }
+
+    .preview-app { display: grid; grid-template-columns: 140px 1fr; height: 340px; }
+    .preview-sidebar { background: #090909; border-right: 1px solid var(--border); padding: 12px 8px; }
+    .preview-sidebar-label { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 6px 8px; margin-bottom: 4px; }
+    .preview-area {
+      display: flex; align-items: center; gap: 7px;
+      padding: 7px 8px; border-radius: 6px; font-size: 11px;
+      color: var(--muted2); margin-bottom: 2px; cursor: default;
+    }
+    .preview-area.active { background: var(--accent-dim); color: var(--accent); }
+    .preview-area-dot { width: 5px; height: 5px; border-radius: 50%; background: #3f3f46; flex-shrink: 0; }
+    .preview-area.active .preview-area-dot { background: var(--accent); }
+    .preview-area-count { margin-left: auto; font-size: 9px; color: var(--muted); background: rgba(255,255,255,0.05); padding: 1px 5px; border-radius: 100px; }
+
+    .preview-main { display: flex; flex-direction: column; overflow: hidden; }
+    .preview-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 14px; border-bottom: 1px solid var(--border);
+    }
+    .preview-area-name { font-size: 12px; font-weight: 600; color: var(--text); }
+    .preview-gen-btn {
+      display: flex; align-items: center; gap: 5px;
+      background: var(--accent); color: var(--bg);
+      font-size: 10px; font-weight: 700; padding: 5px 10px; border-radius: 6px;
+    }
+    .preview-content { flex: 1; padding: 12px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+    .preview-tc {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 12px;
+    }
+    .preview-tc.accepted { border-color: rgba(167,139,250,0.28); background: rgba(167,139,250,0.07); }
+    .preview-tc-head { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+    .preview-tc-id { font-size: 9px; font-weight: 700; color: var(--accent); letter-spacing: 0.06em; }
+    .preview-tc-type { font-size: 9px; color: #7eb8f7; background: rgba(126,184,247,0.1); padding: 1px 6px; border-radius: 100px; margin-left: auto; }
+    .preview-tc-type.neg { color: #f7a07e; background: rgba(247,160,126,0.08); }
+    .preview-tc-title { font-size: 11px; font-weight: 600; color: var(--text); margin-bottom: 5px; line-height: 1.4; }
+    .preview-tc-given { font-size: 10px; color: var(--muted2); line-height: 1.55; }
+    .preview-tc-kw { font-weight: 600; color: var(--accent); }
+    .preview-tc-kw.w { color: #f7e07e; }
+    .preview-tc-kw.t { color: #7eb8f7; }
+    .preview-tc-actions { display: flex; gap: 5px; margin-top: 7px; }
+    .preview-tc-btn { font-size: 9px; padding: 3px 8px; border-radius: 100px; }
+    .preview-tc-btn.a { background: var(--accent-dim); color: var(--accent); }
+    .preview-tc-btn.e { background: rgba(255,255,255,0.05); color: var(--muted); }
+    .preview-tc-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 9px; font-weight: 600; color: var(--accent);
+      margin-left: auto;
+    }
+
+    /* ── SKILL TAGS ── */
+    .skill-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      padding: 4px 12px; border-radius: 100px; margin-left: 12px;
+      vertical-align: middle;
+    }
+    .section-header {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-meta-row { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ── MARKET SECTION ── */
+    .market-section { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .market-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .market-quote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 400; line-height: 1.35;
+      letter-spacing: -0.02em; color: var(--text);
+      border-left: 2px solid var(--accent);
+      padding-left: 28px; margin-bottom: 24px;
+    }
+    .market-quote em { font-style: italic; color: var(--accent); }
+    .market-body p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+    .market-right { padding-top: 8px; }
+    .pain-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px 24px; margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+    .pain-card:hover { border-color: #3f3f46; }
+    .pain-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .pain-label.red { color: var(--red); }
+    .pain-label.green { color: var(--accent); }
+    .pain-text { font-size: 14px; color: var(--muted2); line-height: 1.6; }
+
+    /* ── COMPETITOR SECTION ── */
+    .comp-section { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .comp-table {
+      border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+      margin-top: 48px;
+    }
+    .comp-header {
+      display: grid; grid-template-columns: 240px 1fr 1fr 1fr;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+    }
+    .comp-header-cell {
+      padding: 16px 24px; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+      border-right: 1px solid var(--border);
+    }
+    .comp-header-cell:last-child { border-right: none; }
+    .comp-header-cell.highlight { color: var(--accent); }
+
+    .comp-row {
+      display: grid; grid-template-columns: 240px 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .comp-row:last-child { border-bottom: none; }
+    .comp-row:hover { background: var(--surface); }
+    .comp-cell {
+      padding: 18px 24px; font-size: 13px; color: var(--muted2);
+      border-right: 1px solid var(--border); line-height: 1.5;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .comp-cell:last-child { border-right: none; }
+    .comp-cell.feature-name { color: var(--text); font-size: 13px; font-weight: 500; }
+    .check { color: var(--accent); font-size: 14px; }
+    .cross { color: var(--red); font-size: 14px; }
+    .partial { color: #f0a500; font-size: 12px; }
+
+    .insight-box {
+      margin-top: 32px; background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      border-radius: 12px; padding: 24px 28px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .insight-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .insight-text { font-size: 14px; color: var(--text); line-height: 1.7; }
+    .insight-text strong { color: var(--accent); }
+
+    /* ── VISION SECTION ── */
+    .vision-section { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .vision-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .vision-quote {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px; margin-bottom: 20px;
+    }
+    .vision-quote-mark { font-size: 40px; color: var(--accent); line-height: 1; margin-bottom: 12px; font-family: Georgia, serif; }
+    .vision-quote-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px; font-weight: 400; line-height: 1.5;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .vision-quote-attr { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .vision-body p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+    .vision-constraints { margin-top: 28px; display: flex; flex-direction: column; gap: 10px; }
+    .constraint-row {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; color: var(--muted2); line-height: 1.5;
+    }
+    .constraint-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 6px; }
+
+    /* ── PERSONA ── */
+    .persona-section { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .persona-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; margin-top: 40px;
+    }
+    .persona-top {
+      display: grid; grid-template-columns: 280px 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .persona-identity {
+      padding: 36px 36px; border-right: 1px solid var(--border);
+    }
+    .persona-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, #18181b, #3f3f46);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin-bottom: 20px;
+    }
+    .persona-name { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .persona-role { font-size: 13px; color: var(--accent); margin-bottom: 16px; }
+    .persona-detail { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .persona-stats {
+      padding: 36px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px;
+    }
+    .p-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .p-stat-value { font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .p-stat-sub { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .persona-bottom {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    }
+    .persona-col { padding: 28px 36px; }
+    .persona-col:first-child { border-right: 1px solid var(--border); }
+    .persona-col-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .persona-col-label.red { color: var(--red); }
+    .persona-col-label.green { color: var(--accent); }
+    .persona-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .persona-list li {
+      font-size: 13px; color: var(--muted2); line-height: 1.55;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .persona-list li::before { content: '—'; color: var(--border); flex-shrink: 0; }
+    .persona-list.red li::before { content: '×'; color: var(--red); }
+    .persona-list.green li::before { content: '→'; color: var(--accent); }
+
+    /* ── SCOPE ── */
+    .scope-section { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 40px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .scope-col { background: var(--bg); padding: 32px 36px; }
+    .scope-col-title {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 24px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .scope-col-title.in { color: var(--accent); }
+    .scope-col-title.out { color: var(--muted); }
+    .scope-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: 14px; color: var(--muted2); line-height: 1.55;
+      margin-bottom: 14px; padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .scope-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .scope-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 3px 8px; border-radius: 100px;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .scope-badge.in { background: var(--accent-dim); color: var(--accent); }
+    .scope-badge.out { background: rgba(255,255,255,0.04); color: var(--muted); }
+
+    /* ── AI PROCESS ── */
+    .ai-section { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .ai-header { margin-bottom: 48px; }
+    .ai-header h2 { margin-bottom: 16px; }
+    .ai-header p { font-size: 16px; color: var(--muted); max-width: 600px; line-height: 1.7; }
+    .ai-steps { display: flex; flex-direction: column; gap: 2px; }
+    .ai-step {
+      display: grid; grid-template-columns: 56px 1fr;
+      background: var(--surface); border-radius: 0;
+      border: 1px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+      overflow: hidden;
+    }
+    .ai-steps .ai-step:first-child { border-radius: 14px 14px 0 0; }
+    .ai-steps .ai-step:last-child { border-radius: 0 0 14px 14px; }
+    .ai-step:hover { background: #18181b; }
+
+    .ai-step-num {
+      display: flex; align-items: flex-start; justify-content: center;
+      padding-top: 30px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px; color: var(--border);
+      border-right: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .ai-step:hover .ai-step-num { color: var(--accent); }
+
+    /* New single-column process step layout */
+    .process-step-content { padding: 28px 32px; }
+    .process-step-meta {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+    }
+    .process-phase-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .process-tool-tag {
+      font-size: 10px; font-weight: 600; padding: 2px 8px;
+      background: rgba(167,139,250,0.10); color: var(--accent);
+      border: 1px solid rgba(167,139,250,0.22); border-radius: 100px;
+    }
+    .step-col-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .step-col-label.human { color: var(--muted); }
+    .step-col-label.ai { color: var(--accent); }
+    .step-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .step-body { font-size: 13px; color: var(--muted2); line-height: 1.65; }
+    .step-result {
+      margin-top: 12px; font-size: 12px; font-weight: 600;
+      color: var(--accent); letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .step-result::before { content: '→'; }
+
+    /* ── AI-Era Workflow Diagram ── */
+    .ai-era-diagram {
+      margin-top: 48px;
+      border: 1px solid var(--accent-border);
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(167,139,250,0.06) 0%, var(--surface) 60%);
+      overflow: hidden;
+    }
+    .aed-header {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+      flex-wrap: wrap;
+    }
+    .aed-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      color: var(--accent); text-transform: uppercase;
+      background: var(--accent-dim); border: 1px solid var(--accent-border);
+      padding: 5px 12px; border-radius: 4px;
+      display: inline-block;
+    }
+    .aed-title {
+      font-size: 15px; font-weight: 600; color: var(--text);
+      margin-top: 10px; max-width: 480px; line-height: 1.5;
+    }
+    .aed-title em { color: var(--accent); font-style: normal; }
+    .aed-caption {
+      font-size: 12px; color: var(--muted); margin-top: 6px; max-width: 400px; line-height: 1.6;
+    }
+
+    /* Phase rail */
+    .aed-phases {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      padding: 0;
+    }
+    .aed-phase {
+      padding: 24px 20px 20px;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .aed-phase:last-child { border-right: none; }
+    .aed-phase-num {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      color: var(--muted2); margin-bottom: 8px;
+    }
+    .aed-phase-name {
+      font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px;
+    }
+    .aed-phase-tool {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      color: var(--accent); background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      padding: 3px 8px; border-radius: 4px; margin-bottom: 12px;
+    }
+    .aed-phase-output {
+      font-size: 11px; color: var(--muted); line-height: 1.55;
+    }
+    .aed-phase-output strong { color: var(--muted2); font-weight: 600; }
+    .aed-phase-arrow {
+      position: absolute; top: 28px; right: -9px;
+      width: 16px; height: 16px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 50%; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .aed-phase-arrow svg { display: block; }
+    .aed-phase:last-child .aed-phase-arrow { display: none; }
+
+    /* Sync bar */
+    .aed-sync {
+      border-top: 1px solid var(--border);
+      background: rgba(167,139,250,0.04);
+      padding: 16px 32px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .aed-sync-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted);
+      white-space: nowrap;
+    }
+    .aed-sync-nodes { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .aed-sync-node {
+      font-size: 11px; font-weight: 600; color: var(--text);
+      background: var(--surface2); border: 1px solid var(--border);
+      padding: 4px 12px; border-radius: 20px;
+    }
+    .aed-sync-divider {
+      width: 24px; height: 1px; background: var(--border);
+    }
+    .aed-sync-note {
+      margin-left: auto; font-size: 11px; color: var(--muted); line-height: 1.5;
+      max-width: 360px; text-align: right;
+    }
+    @media (max-width: 720px) {
+      .aed-phases { grid-template-columns: 1fr 1fr; }
+      .aed-phase { border-right: none; border-bottom: 1px solid var(--border); }
+      .aed-sync-note { text-align: left; margin-left: 0; }
+    }
+
+    .code-snippet {
+      margin-top: 12px; background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 14px;
+      font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px;
+      color: #888; line-height: 1.6;
+    }
+    .code-snippet .code-comment { color: #444; }
+    .code-snippet .code-accent { color: var(--accent); }
+    .code-snippet .code-string { color: #a8d080; }
+
+    /* ── KEY INSIGHT ── */
+    .insight-section { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .insight-hero {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 48px; margin-top: 40px; margin-bottom: 40px;
+      position: relative; overflow: hidden;
+    }
+    .insight-hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(ellipse, rgba(167,139,250,0.07) 0%, transparent 70%);
+    }
+    .insight-hero-inner { position: relative; z-index: 1; max-width: 680px; }
+    .insight-hero-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    }
+    .insight-hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 3vw, 40px);
+      font-weight: 400; line-height: 1.2; letter-spacing: -0.02em;
+      color: var(--text); margin-bottom: 20px;
+    }
+    .insight-hero-title em { font-style: italic; color: var(--accent); }
+    .insight-hero-body { font-size: 15px; color: var(--muted); line-height: 1.75; }
+
+    .layer-diagram {
+      display: flex; flex-direction: column; gap: 2px; margin-top: 40px;
+    }
+    .layer {
+      display: flex; align-items: center; gap: 20px;
+      padding: 20px 28px; border-radius: 0;
+      transition: transform 0.2s;
+    }
+    .layer-diagram .layer:first-child { border-radius: 12px 12px 0 0; }
+    .layer-diagram .layer:last-child { border-radius: 0 0 12px 12px; }
+    .layer:hover { transform: translateX(4px); }
+    .layer.l1 { background: rgba(167,139,250,0.10); border: 1px solid rgba(167,139,250,0.22); }
+    .layer.l2 { background: rgba(167,139,250,0.07); border: 1px solid rgba(167,139,250,0.10); }
+    .layer.l3 { background: rgba(255,255,255,0.03); border: 1px solid var(--border); }
+    .layer.l4 { background: rgba(255,255,255,0.02); border: 1px solid var(--border); }
+
+    .layer-icon { font-size: 20px; width: 36px; flex-shrink: 0; }
+    .layer-name { font-size: 14px; font-weight: 600; color: var(--text); min-width: 160px; }
+    .layer-desc { font-size: 13px; color: var(--muted2); line-height: 1.55; }
+    .layer-badge {
+      margin-left: auto; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 100px; flex-shrink: 0;
+    }
+    .layer-badge.new { background: var(--accent-dim); color: var(--accent); }
+    .layer-badge.ai { background: rgba(168, 208, 128, 0.1); color: #a8d080; }
+    .layer-badge.exists { background: rgba(255,255,255,0.04); color: var(--muted); }
+
+    .comp-gap-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px; margin-top: 24px; background: var(--border);
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    }
+    .comp-gap-cell { background: var(--bg); padding: 20px 24px; }
+    .comp-name { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+    .comp-gap-text { font-size: 13px; color: #555; line-height: 1.6; font-style: italic; }
+    .comp-gap-text strong { color: var(--red); font-style: normal; }
+
+    /* ── FLOW ── */
+    .flow-section { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .flow-steps {
+      display: flex; flex-direction: column; gap: 2px;
+      margin-top: 48px;
+    }
+    .flow-step {
+      display: grid;
+      grid-template-columns: 64px 1fr 340px;
+      grid-template-rows: auto auto;
+      background: var(--surface); overflow: hidden;
+    }
+    .flow-steps .flow-step:first-child { border-radius: 14px 14px 0 0; }
+    .flow-steps .flow-step:last-child { border-radius: 0 0 14px 14px; }
+    .flow-step:hover { background: #18181b; }
+
+    /* Screenshot row — spans all columns */
+    .flow-step-screenshot {
+      grid-column: 1 / -1;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+      background: var(--surface2);
+    }
+    .flow-step-screenshot img {
+      width: 100%;
+      display: block;
+      max-height: 400px;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.4s ease;
+    }
+    .flow-step:hover .flow-step-screenshot img { transform: scale(1.01); }
+    /* Placeholder shown when no image */
+    .flow-step-screenshot .img-placeholder {
+      display: none;
+      height: 72px;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    .flow-step-screenshot img[src=""] ~ .img-placeholder,
+    .flow-step-screenshot:not(:has(img)) .img-placeholder { display: flex; }
+
+    .flow-step-num {
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif; font-size: 20px;
+      color: var(--accent); border-right: 1px solid var(--border);
+      min-height: 80px;
+    }
+    .flow-step-body { padding: 28px 32px; border-right: 1px solid var(--border); }
+    .flow-step-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .flow-step-desc { font-size: 13px; color: var(--muted2); line-height: 1.65; max-width: 500px; }
+    .flow-step-aside { padding: 28px 28px; }
+    .aside-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .aside-content { font-size: 12px; color: var(--muted2); line-height: 1.6; }
+    .ux-law-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; color: var(--accent);
+      background: var(--accent-dim); padding: 4px 10px;
+      border-radius: 100px; margin-top: 8px;
+    }
+
+    /* ── DESIGNS / LIVE DEMO ── */
+    .designs-section { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .designs-intro { max-width: 720px; margin-bottom: 48px; }
+    .designs-intro p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-top: 16px; }
+
+    .demo-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); background: var(--accent-dim);
+      border: 1px solid var(--accent-border); padding: 6px 14px; border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .demo-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+      animation: pulse-dot 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    /* App chrome */
+    .app-chrome {
+      border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+      background: var(--bg); box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    }
+    .app-titlebar {
+      display: flex; align-items: center; gap: 0;
+      background: #09090b; border-bottom: 1px solid var(--border);
+      padding: 0;
+    }
+    .app-dot-group { display: flex; gap: 6px; padding: 14px 16px; }
+    .app-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .app-dot-r { background: #ff5f57; }
+    .app-dot-y { background: #febc2e; }
+    .app-dot-g { background: #28c840; }
+    .app-url-bar {
+      flex: 1; background: rgba(255,255,255,0.04); border-radius: 6px;
+      padding: 5px 14px; margin: 8px 16px 8px 0;
+      font-size: 11px; color: var(--muted); letter-spacing: 0.02em;
+    }
+
+    /* Main app layout */
+    .app-layout { display: grid; grid-template-columns: 220px 1fr; min-height: 580px; }
+
+    /* Sidebar */
+    .app-sidebar { background: #09090b; border-right: 1px solid var(--border); display: flex; flex-direction: column; }
+    .sidebar-header { padding: 16px 16px 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .sidebar-area-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 12px; margin: 1px 8px; border-radius: 8px;
+      cursor: pointer; font-size: 13px; color: var(--muted2);
+      transition: background 0.15s, color 0.15s; user-select: none;
+    }
+    .sidebar-area-item:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+    .sidebar-area-item.active { background: var(--accent-dim); color: var(--accent); }
+    .sidebar-dot { width: 7px; height: 7px; border-radius: 50%; background: #3f3f46; flex-shrink: 0; transition: background 0.15s; }
+    .sidebar-area-item.active .sidebar-dot { background: var(--accent); }
+    .sidebar-count {
+      margin-left: auto; font-size: 11px; color: var(--muted);
+      background: rgba(255,255,255,0.06); padding: 2px 7px; border-radius: 100px;
+      min-width: 24px; text-align: center; transition: background 0.3s, color 0.3s;
+    }
+    .sidebar-area-item.active .sidebar-count { background: rgba(167,139,250,0.20); color: var(--accent); }
+    .sidebar-add-btn {
+      display: flex; align-items: center; gap: 8px;
+      margin: 8px; padding: 9px 12px; border-radius: 8px;
+      font-size: 12px; color: var(--muted); cursor: pointer;
+      border: 1px dashed #2a2a2a; transition: border-color 0.2s, color 0.2s;
+    }
+    .sidebar-add-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .sidebar-add-input-wrap { margin: 4px 8px 8px; display: none; }
+    .sidebar-add-input-wrap.visible { display: block; }
+    .sidebar-add-input {
+      width: 100%; background: var(--surface); border: 1px solid var(--accent-border);
+      border-radius: 8px; padding: 8px 12px; font-size: 12px;
+      color: var(--text); outline: none; font-family: 'Inter', sans-serif;
+    }
+    .sidebar-add-input::placeholder { color: var(--muted); }
+    .sidebar-add-actions { display: flex; gap: 6px; margin-top: 6px; }
+    .sidebar-add-confirm {
+      flex: 1; background: var(--accent); color: var(--bg);
+      font-size: 11px; font-weight: 700; padding: 6px; border-radius: 6px;
+      cursor: pointer; text-align: center;
+    }
+    .sidebar-add-cancel {
+      padding: 6px 12px; background: rgba(255,255,255,0.05);
+      color: var(--muted); font-size: 11px; border-radius: 6px; cursor: pointer;
+    }
+
+    /* Main panel */
+    .app-main { display: flex; flex-direction: column; }
+    .app-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 24px; border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .app-area-title { font-size: 15px; font-weight: 600; color: var(--text); }
+    .app-area-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .app-gen-btn {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--accent); color: var(--bg);
+      font-size: 12px; font-weight: 700; padding: 9px 18px;
+      border-radius: 10px; cursor: pointer; transition: opacity 0.2s, transform 0.15s;
+      border: none; font-family: 'Inter', sans-serif; letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+    .app-gen-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .app-gen-btn:active { transform: translateY(0); }
+    .app-gen-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+    /* Content area split */
+    .app-content { display: grid; grid-template-columns: 1fr 1fr; flex: 1; }
+    .app-left { padding: 20px; border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: 14px; }
+    .app-right { display: flex; flex-direction: column; overflow: hidden; }
+
+    /* Left panel */
+    .panel-label { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+    .req-textarea {
+      flex: 1; min-height: 140px; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 14px; font-size: 12px; color: var(--text);
+      line-height: 1.7; resize: none; outline: none;
+      font-family: 'Inter', sans-serif; transition: border-color 0.2s;
+    }
+    .req-textarea:focus { border-color: #2e2e2e; }
+    .req-textarea::placeholder { color: var(--muted); }
+
+    .quality-banner {
+      display: none; align-items: flex-start; gap: 10px;
+      background: rgba(240,165,0,0.08); border: 1px solid rgba(240,165,0,0.25);
+      border-radius: 8px; padding: 10px 14px; font-size: 12px;
+      color: #f0a500; line-height: 1.55;
+    }
+    .quality-banner.visible { display: flex; }
+    .quality-banner-icon { flex-shrink: 0; margin-top: 1px; }
+
+    .test-type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .test-type-chip {
+      padding: 7px 10px; border-radius: 8px; font-size: 11px; font-weight: 500;
+      cursor: pointer; text-align: center; transition: all 0.15s; user-select: none;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--muted);
+    }
+    .test-type-chip.on { background: var(--accent-dim); border-color: var(--accent-border); color: var(--accent); }
+
+    /* Right panel */
+    .right-header {
+      padding: 12px 20px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .right-header-left { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .accepted-badge {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; color: var(--accent);
+    }
+    .accepted-count {
+      background: var(--accent); color: var(--bg);
+      font-size: 10px; font-weight: 700; width: 18px; height: 18px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .accepted-count.bump { transform: scale(1.5); }
+
+    .tc-list { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .tc-list::-webkit-scrollbar { width: 4px; }
+    .tc-list::-webkit-scrollbar-track { background: transparent; }
+    .tc-list::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+
+    /* Empty / generating states */
+    .tc-empty {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; padding: 40px; text-align: center;
+    }
+    .tc-empty-icon { font-size: 32px; opacity: 0.12; }
+    .tc-empty-text { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 200px; }
+
+    .tc-generating { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .tc-skeleton {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px; overflow: hidden; position: relative;
+    }
+    .tc-skeleton::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.03) 50%, transparent 100%);
+      animation: shimmer 1.4s infinite;
+    }
+    @keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+    .skel-line {
+      height: 10px; background: rgba(255,255,255,0.06); border-radius: 4px; margin-bottom: 8px;
+    }
+    .skel-line.short { width: 40%; }
+    .skel-line.med { width: 70%; }
+    .skel-line.full { width: 100%; }
+
+    /* Test case card */
+    .tc-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      transition: border-color 0.2s, opacity 0.3s, transform 0.3s;
+      animation: card-in 0.4s cubic-bezier(0.34,1.36,0.64,1) both;
+    }
+    @keyframes card-in {
+      from { opacity: 0; transform: translateY(10px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .tc-card.accepted {
+      border-color: rgba(167,139,250,0.28);
+      background: rgba(167,139,250,0.07);
+    }
+    .tc-card.rejected {
+      opacity: 0; transform: translateX(20px) scale(0.95);
+      pointer-events: none;
+    }
+    .tc-card-head {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 14px 0;
+    }
+    .tc-id { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; }
+    .tc-type-pill {
+      font-size: 10px; color: var(--muted); background: rgba(255,255,255,0.05);
+      padding: 2px 8px; border-radius: 100px; margin-left: auto;
+    }
+    .tc-type-pill.functional { color: #7eb8f7; background: rgba(126,184,247,0.08); }
+    .tc-type-pill.negative { color: #f7a07e; background: rgba(247,160,126,0.08); }
+    .tc-type-pill.edge { color: #b87ef7; background: rgba(184,126,247,0.08); }
+    .tc-card-body { padding: 8px 14px 0; }
+    .tc-title { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.45; margin-bottom: 6px; }
+    .tc-steps { display: flex; flex-direction: column; gap: 3px; }
+    .tc-step { font-size: 11px; color: var(--muted2); line-height: 1.55; display: flex; gap: 6px; }
+    .tc-step-kw { font-weight: 600; min-width: 36px; flex-shrink: 0; }
+    .tc-step-kw.given { color: #7eb8f7; }
+    .tc-step-kw.when { color: #f7e07e; }
+    .tc-step-kw.then { color: var(--accent); }
+    .tc-card-edit { padding: 8px 14px 0; display: none; }
+    .tc-card-edit.open { display: block; }
+    .tc-edit-textarea {
+      width: 100%; background: var(--bg); border: 1px solid var(--border);
+      border-radius: 6px; padding: 8px 10px; font-size: 11px;
+      color: var(--text); line-height: 1.6; resize: none; outline: none;
+      font-family: 'Inter', sans-serif; min-height: 80px;
+    }
+    .tc-edit-save {
+      margin-top: 6px; background: var(--accent); color: var(--bg);
+      font-size: 10px; font-weight: 700; padding: 5px 12px;
+      border-radius: 6px; cursor: pointer; display: inline-block;
+    }
+    .tc-card-actions { display: flex; gap: 6px; padding: 8px 14px 10px; }
+    .tc-btn {
+      font-size: 10px; font-weight: 600; padding: 5px 12px; border-radius: 100px;
+      cursor: pointer; transition: opacity 0.15s, background 0.15s; border: none;
+      font-family: 'Inter', sans-serif; letter-spacing: 0.03em;
+    }
+    .tc-btn.accept-btn { background: var(--accent-dim); color: var(--accent); }
+    .tc-btn.accept-btn:hover { background: rgba(167,139,250,0.15); }
+    .tc-btn.accept-btn.done { background: rgba(167,139,250,0.20); color: var(--accent); cursor: default; }
+    .tc-btn.edit-btn { background: rgba(255,255,255,0.05); color: var(--muted); }
+    .tc-btn.edit-btn:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+    .tc-btn.reject-btn { background: rgba(255,107,107,0.08); color: #ff6b6b; }
+    .tc-btn.reject-btn:hover { background: rgba(255,107,107,0.14); }
+
+    /* Export bar */
+    .export-bar {
+      border-top: 1px solid var(--border);
+      padding: 12px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; background: var(--bg); flex-shrink: 0;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .export-bar.visible { opacity: 1; pointer-events: all; }
+    .export-bar-text { font-size: 12px; color: var(--muted); }
+    .export-bar-text strong { color: var(--accent); }
+    .export-btn {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--accent); color: var(--bg);
+      font-size: 11px; font-weight: 700; padding: 8px 16px;
+      border-radius: 8px; cursor: pointer; transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .export-btn:hover { opacity: 0.85; }
+
+    /* Success toast */
+    .toast {
+      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(80px);
+      background: var(--surface); border: 1px solid rgba(167,139,250,0.28);
+      border-radius: 12px; padding: 14px 24px; display: flex; align-items: center; gap: 12px;
+      font-size: 13px; color: var(--text); box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      transition: transform 0.4s cubic-bezier(0.34,1.36,0.64,1), opacity 0.3s;
+      opacity: 0; z-index: 200; pointer-events: none;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    .toast-icon { font-size: 18px; }
+    .toast-text strong { color: var(--accent); }
+
+    /* ── STEP TABS ── */
+    .step-tab {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 8px; cursor: pointer; border-right: 1px solid var(--border);
+      transition: background 0.2s; user-select: none;
+    }
+    .step-tab:last-child { border-right: none; }
+    .step-tab:hover { background: rgba(255,255,255,0.03); }
+    .step-tab.active { background: var(--accent-dim); }
+    .step-tab.done { background: rgba(167,139,250,0.07); }
+    .step-tab-num {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); color: var(--muted);
+      font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background 0.2s, color 0.2s;
+    }
+    .step-tab.active .step-tab-num { background: var(--accent); color: var(--bg); }
+    .step-tab.done .step-tab-num { background: rgba(167,139,250,0.22); color: var(--accent); }
+    .step-tab-label { font-size: 12px; color: var(--muted); font-weight: 500; }
+    .step-tab.active .step-tab-label { color: var(--accent); }
+    .step-tab.done .step-tab-label { color: #666; }
+
+    /* ── REQ LIST ITEMS ── */
+    .req-row {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+      padding: 14px 16px; cursor: pointer; transition: border-color 0.2s, background 0.2s;
+    }
+    .req-row:hover { border-color: #3f3f46; background: #18181b; }
+    .req-title { font-size: 13px; font-weight: 500; color: var(--text); flex: 1; line-height: 1.4; }
+    .req-source { font-size: 11px; color: var(--muted); margin-top: 3px; }
+    .quality-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 100px; flex-shrink: 0;
+    }
+    .quality-badge.good { background: rgba(167,139,250,0.10); color: var(--accent); }
+    .quality-badge.clarify { background: rgba(240,165,0,0.1); color: #f0a500; }
+    .quality-badge.vague { background: rgba(255,107,107,0.1); color: #ff6b6b; }
+
+    /* ── AREA CHIPS ── */
+    .area-chip {
+      font-size: 12px; padding: 6px 14px; border-radius: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      color: var(--muted); cursor: pointer; transition: all 0.15s;
+    }
+    .area-chip.active { background: var(--accent-dim); border-color: var(--accent-border); color: var(--accent); }
+
+    /* ── QUESTION ROW ── */
+    .question-row {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px; transition: border-color 0.2s;
+    }
+    .question-row.answered { border-color: rgba(167,139,250,0.25); }
+    .question-text { font-size: 13px; color: var(--text); line-height: 1.5; margin-bottom: 10px; }
+    .question-input {
+      width: 100%; background: var(--bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px; font-size: 12px;
+      color: var(--text); outline: none; font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s;
+    }
+    .question-input:focus { border-color: rgba(167,139,250,0.28); }
+    .question-input::placeholder { color: var(--muted); }
+
+    /* demo step transition */
+    .demo-step { animation: step-in 0.3s ease both; }
+    @keyframes step-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+    /* figma placeholder */
+    .figma-placeholder-section { margin-top: 48px; }
+    .figma-placeholder-label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+    .figma-placeholder-frame {
+      border: 2px dashed #2a2a2a; border-radius: 16px;
+      min-height: 280px; display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px; padding: 48px; text-align: center;
+      transition: border-color 0.2s;
+    }
+    .figma-placeholder-frame:hover { border-color: #3a3a3a; }
+    .figma-placeholder-frame span { font-size: 28px; opacity: 0.1; }
+    .figma-placeholder-frame p { font-size: 13px; color: var(--muted); }
+    .figma-placeholder-frame small { font-size: 11px; color: #333; max-width: 320px; line-height: 1.6; }
+
+    /* ── WIZARD ── */
+    .designs-section h2 { margin-bottom: 48px; }
+    .wizard { background: var(--surface); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+
+    .wizard-guide {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 36px 0;
+      font-size: 11px; color: var(--muted);
+      font-weight: 500; letter-spacing: 0.02em;
+    }
+    .wizard-guide svg { flex-shrink: 0; color: var(--muted); }
+
+    /* Step nav bar */
+    .wizard-steps {
+      display: flex; align-items: center;
+      padding: 28px 36px; gap: 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .wizard-step {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      cursor: pointer; flex-shrink: 0;
+      transition: transform 0.18s, opacity 0.18s;
+      padding: 4px 6px; border-radius: 10px;
+    }
+    .wizard-step:hover { transform: translateY(-2px); opacity: 1; }
+    .wizard-step:hover .wz-circle {
+      border-color: var(--accent);
+      background: rgba(167,139,250,0.10);
+      box-shadow: 0 0 0 4px rgba(167,139,250,0.12);
+    }
+    .wizard-step:hover .wz-num { color: var(--accent); }
+    .wizard-step:hover .wz-label { color: var(--muted2); }
+    .wz-circle {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      background: var(--surface2); transition: all 0.22s;
+      position: relative;
+    }
+    .wz-num {
+      font-size: 12px; font-weight: 700; color: var(--muted);
+      font-family: 'Inter', sans-serif; transition: all 0.2s;
+    }
+    .wz-check {
+      position: absolute; opacity: 0; color: var(--accent);
+      transition: opacity 0.2s;
+    }
+    .wizard-step.active .wz-circle {
+      border-color: var(--accent);
+      background: rgba(167,139,250,0.15);
+      box-shadow: 0 0 0 5px rgba(167,139,250,0.14);
+    }
+    .wizard-step.active .wz-num { color: var(--accent); font-size: 13px; }
+    .wizard-step.done .wz-circle {
+      border-color: var(--accent); background: rgba(167,139,250,0.10);
+    }
+    .wizard-step.done .wz-num { opacity: 0; }
+    .wizard-step.done .wz-check { opacity: 1; }
+    .wz-label {
+      font-size: 11px; font-weight: 500; color: var(--muted);
+      text-align: center; line-height: 1.4; max-width: 88px;
+      transition: color 0.2s;
+    }
+    .wizard-step.active .wz-label { color: var(--text); font-weight: 600; }
+    .wizard-step.done .wz-label { color: var(--muted); }
+    .wz-hint {
+      font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--muted); opacity: 0; transition: opacity 0.18s;
+      margin-top: 2px;
+    }
+    .wizard-step:not(.active):hover .wz-hint { opacity: 1; }
+    .wz-connector {
+      flex: 1; height: 2px; background: var(--border);
+      margin-bottom: 32px; transition: background 0.3s;
+      min-width: 20px;
+    }
+    .wz-connector.done { background: var(--accent); }
+
+    /* Panels */
+    .wizard-panels { position: relative; }
+    .wizard-panel {
+      display: none;
+      animation: wz-in 0.3s ease both;
+    }
+    .wizard-panel.active { display: block; }
+    @keyframes wz-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .wizard-img {
+      width: 100%; overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface2);
+    }
+    .wizard-img img {
+      width: 100%; display: block;
+      max-height: 520px; object-fit: cover; object-position: top;
+    }
+    .wizard-desc {
+      display: flex; align-items: flex-start; gap: 20px;
+      padding: 28px 36px;
+    }
+    .wizard-desc-num {
+      font-family: 'DM Serif Display', serif; font-size: 40px;
+      color: var(--accent); line-height: 1; flex-shrink: 0;
+      min-width: 56px;
+    }
+    .wizard-desc-title {
+      font-size: 17px; font-weight: 600; color: var(--text);
+      margin-bottom: 10px;
+    }
+    .wizard-desc-text {
+      font-size: 13px; color: var(--muted2); line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .wz-progress-bar-hide {
+      display: none;
+    }
+
+    /* ── SUCCESS METRICS ── */
+    .metrics-section { background: var(--surface); border-bottom: 1px solid var(--border); }
+    .metrics-section h2 { margin-bottom: 48px; }
+    .metrics-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    }
+    .metric-card {
+      background: var(--bg); padding: 32px 28px;
+      border-radius: 0;
+    }
+    .metrics-grid .metric-card:first-child { border-radius: 14px 0 0 0; }
+    .metrics-grid .metric-card:nth-child(3) { border-radius: 0 14px 0 0; }
+    .metrics-grid .metric-card:nth-child(4) { border-radius: 0 0 0 14px; }
+    .metrics-grid .metric-card:last-child   { border-radius: 0 0 14px 0; }
+    .metric-highlight .metric-value { color: var(--accent); }
+    .metric-value {
+      font-family: 'DM Serif Display', serif;
+      font-size: 48px; font-weight: 400; line-height: 1;
+      color: var(--text); margin-bottom: 12px;
+    }
+    .metric-label {
+      font-size: 13px; font-weight: 600; color: var(--text);
+      margin-bottom: 10px; line-height: 1.4;
+    }
+    .metric-context {
+      font-size: 12px; color: var(--muted); line-height: 1.65;
+    }
+
+    /* ── REFLECTION / LESSONS ── */
+    .reflection-section { background: var(--bg); }
+    .lessons-stack { display: flex; flex-direction: column; gap: 2px; margin-top: 40px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .lesson-card {
+      background: var(--surface);
+      padding: 32px 36px;
+      display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start;
+      border-bottom: 1px solid var(--border);
+    }
+    .lesson-card:last-child { border-bottom: none; }
+    .lesson-left { display: flex; flex-direction: column; gap: 12px; }
+    .lesson-num {
+      font-family: 'DM Serif Display', serif; font-size: 36px;
+      color: var(--accent); line-height: 1;
+    }
+    .lesson-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+      background: var(--accent-dim); border: 1px solid var(--accent-border);
+      padding: 4px 10px; border-radius: 4px; display: inline-block; width: fit-content;
+    }
+    .lesson-tag.warn { color: #f0a500; background: rgba(240,165,0,0.08); border-color: rgba(240,165,0,0.25); }
+    .lesson-tag.future { color: #34d399; background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.25); }
+    .lesson-title {
+      font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.4;
+    }
+    .lesson-body {
+      font-size: 14px; color: var(--muted2); line-height: 1.8;
+      padding-top: 4px;
+    }
+    .lesson-body strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 720px) {
+      .lesson-card { grid-template-columns: 1fr; gap: 16px; }
+    }
+
+    .next-project {
+      margin-top: 80px; padding-top: 48px; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .next-label { font-size: 12px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+    .next-title { font-size: 20px; font-weight: 600; color: var(--text); }
+    .next-arrow {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: var(--muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .next-arrow:hover { color: var(--accent); }
+    .next-arrow svg { transition: transform 0.2s; }
+    .next-arrow:hover svg { transform: translateX(4px); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border); padding: 28px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: var(--bg);
+    }
+    footer p { font-size: 12px; color: var(--muted); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── ANIMATIONS ── */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 960px) {
+      nav { padding: 16px 24px; }
+      section, .hero { padding-left: 24px; padding-right: 24px; }
+      .hero-meta-row { grid-template-columns: repeat(3, 1fr); }
+      .market-inner, .vision-inner, .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .comp-header, .comp-row { grid-template-columns: 160px 1fr 1fr 1fr; }
+      .persona-top { grid-template-columns: 1fr; }
+      .persona-identity { border-right: none; border-bottom: 1px solid var(--border); }
+      .persona-stats { grid-template-columns: 1fr 1fr; }
+      .persona-bottom { grid-template-columns: 1fr; }
+      .persona-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .scope-grid { grid-template-columns: 1fr; }
+      .ai-step { grid-template-columns: 56px 1fr; }
+      .process-step-content { padding: 20px; }
+      .flow-step { grid-template-columns: 56px 1fr; }
+      .flow-step-aside { display: none; }
+      .reflection-grid { grid-template-columns: 1fr; }
+      .gen-layout, .fa-layout { grid-template-columns: 1fr; height: auto; }
+      .gen-right { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Hien Nguyen</a>
+    <a href="index.html#work" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M12 7H2M7 2L2 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to work
+    </a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════ -->
+  <div class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="container hero-inner">
+
+      <!-- LEFT: text -->
+      <div class="hero-left">
+        <div class="hero-breadcrumb">
+          <span>Work</span>
+          <span class="hero-breadcrumb-sep">/</span>
+          <strong>Test Generator</strong>
+        </div>
+
+        <h1 class="hero-title fade-up visible">
+          AI Test Generator —<br>
+          <em>a new chapter</em><br>
+          for QA teams.
+        </h1>
+
+        <p class="hero-sub fade-up visible">
+          Generates test cases from requirements, evaluates requirement quality,
+          and introduces Feature Area grouping — the structural layer every QE
+          needs but no competitor provides.
+        </p>
+
+        <div class="hero-meta-row fade-up visible">
+          <div class="meta-cell">
+            <div class="meta-label">My Role</div>
+            <div class="meta-value">Solo Senior Designer</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">Timeline</div>
+            <div class="meta-value">2026 · Shipped</div>
+          </div>
+          <div class="meta-cell">
+            <div class="meta-label">AI Tools</div>
+            <div class="meta-value">Claude Code · VSCode · Figma Make</div>
+          </div>
+        </div>
+
+        <div class="impact-strip fade-up visible">
+          <div class="impact-item">
+            <div class="impact-num">70%</div>
+            <div class="impact-label">Time saved on<br>test case creation</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-num">100%</div>
+            <div class="impact-label">Adoption rate<br>(user-requested)</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-num">0→1</div>
+            <div class="impact-label">AI in QA<br>workflow</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-num">3</div>
+            <div class="impact-label">Competitors studied,<br>1 gap found</div>
+          </div>
+        </div>
+      </div><!-- end hero-left -->
+
+      <!-- RIGHT: product preview -->
+      <div class="hero-right fade-up visible">
+        <div class="hero-preview">
+          <div class="preview-titlebar">
+            <div class="preview-dot preview-dot-r"></div>
+            <div class="preview-dot preview-dot-y"></div>
+            <div class="preview-dot preview-dot-g"></div>
+            <div class="preview-url">testgen.app / generate</div>
+          </div>
+          <div class="preview-app">
+            <!-- sidebar -->
+            <div class="preview-sidebar">
+              <div class="preview-sidebar-label">Feature Areas</div>
+              <div class="preview-area active">
+                <div class="preview-area-dot"></div>Authentication
+                <span class="preview-area-count">12</span>
+              </div>
+              <div class="preview-area">
+                <div class="preview-area-dot"></div>Checkout
+                <span class="preview-area-count">8</span>
+              </div>
+              <div class="preview-area">
+                <div class="preview-area-dot"></div>Search
+                <span class="preview-area-count">5</span>
+              </div>
+              <div class="preview-area">
+                <div class="preview-area-dot"></div>User Profile
+                <span class="preview-area-count">3</span>
+              </div>
+              <div style="margin:10px 8px 0;padding:7px 8px;border-radius:6px;font-size:10px;color:var(--accent);border:1px dashed rgba(167,139,250,0.22);text-align:center;cursor:default">+ Add Area</div>
+            </div>
+            <!-- main -->
+            <div class="preview-main">
+              <div class="preview-topbar">
+                <div>
+                  <div class="preview-area-name">Authentication</div>
+                  <div style="font-size:10px;color:var(--muted);margin-top:2px">12 test cases</div>
+                </div>
+                <div class="preview-gen-btn">
+                  <svg width="9" height="9" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v2M6.5 10v2M1 6.5h2M10 6.5h2M2.93 2.93l1.41 1.41M8.66 8.66l1.41 1.41M2.93 10.07l1.41-1.41M8.66 4.34l1.41-1.41" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+                  Generate
+                </div>
+              </div>
+              <div class="preview-content">
+                <div style="font-size:9px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:2px">AI Generated · 3 cases</div>
+                <!-- tc 1 accepted -->
+                <div class="preview-tc accepted">
+                  <div class="preview-tc-head">
+                    <span class="preview-tc-id">TC-001</span>
+                    <span class="preview-tc-type">Functional</span>
+                    <span class="preview-tc-badge">✓ Accepted</span>
+                  </div>
+                  <div class="preview-tc-title">Valid credentials login success</div>
+                  <div class="preview-tc-given">
+                    <span class="preview-tc-kw">Given</span> a registered user<br>
+                    <span class="preview-tc-kw w">When</span> they submit valid credentials<br>
+                    <span class="preview-tc-kw t">Then</span> redirected to dashboard
+                  </div>
+                </div>
+                <!-- tc 2 -->
+                <div class="preview-tc">
+                  <div class="preview-tc-head">
+                    <span class="preview-tc-id">TC-002</span>
+                    <span class="preview-tc-type neg">Negative</span>
+                  </div>
+                  <div class="preview-tc-title">Account locked after 3 failed attempts</div>
+                  <div class="preview-tc-given">
+                    <span class="preview-tc-kw">Given</span> wrong password × 3<br>
+                    <span class="preview-tc-kw w">When</span> 3rd attempt fails<br>
+                    <span class="preview-tc-kw t">Then</span> account temporarily locked
+                  </div>
+                  <div class="preview-tc-actions">
+                    <span class="preview-tc-btn a">✓ Accept</span>
+                    <span class="preview-tc-btn e">Edit</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- end hero-right -->
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MARKET MOMENT
+  ══════════════════════════════════════════════ -->
+  <section class="market-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">The Context</div>
+        <span class="skill-tag">Market Research</span>
+      </div>
+      <div class="market-inner">
+        <div class="market-body">
+          <div class="market-quote">
+            Testing is entering<br>
+            <em>a new chapter.</em><br>
+            AI is writing it.
+          </div>
+          <p>
+            QEs have written test cases manually for decades — slow, inconsistent, disconnected from engineering speed.
+            AI changes this by removing the <em style="color:var(--text)">busywork</em>, not the QE —
+            freeing them for coverage strategy, edge cases, and quality gates.
+          </p>
+        </div>
+        <div class="market-right">
+          <div class="pain-card">
+            <div class="pain-label red">The QE's today</div>
+            <div class="pain-text">20–40 test cases per sprint, written manually from incomplete requirements. 5–15 min each — mostly reading and parsing, not thinking.</div>
+          </div>
+          <div class="pain-card">
+            <div class="pain-label green">The opportunity</div>
+            <div class="pain-text">AI handles parsing and drafting. QE spends time on judgment — reviewing, refining coverage, catching what AI misses.</div>
+          </div>
+          <div class="pain-card">
+            <div class="pain-label" style="color:var(--muted)">The constraint</div>
+            <div class="pain-text">QEs must trust the output. Every AI result is reviewable, editable, and never final on its own.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       COMPETITOR ANALYSIS
+  ══════════════════════════════════════════════ -->
+  <section class="comp-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Competitor Analysis</div>
+        <span class="skill-tag">Competitive Research</span>
+      </div>
+      <h2>What the market<br>already gets <em>wrong.</em></h2>
+
+      <div class="comp-table fade-up">
+        <div class="comp-header">
+          <div class="comp-header-cell">Feature</div>
+          <div class="comp-header-cell">Browserstack</div>
+          <div class="comp-header-cell">Qase</div>
+          <div class="comp-header-cell">Testrail</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell feature-name">Jira / ALM integration</div>
+          <div class="comp-cell"><span class="check">✓</span> Available</div>
+          <div class="comp-cell"><span class="check">✓</span> Available</div>
+          <div class="comp-cell"><span class="check">✓</span> Available</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell feature-name">AI-assisted generation</div>
+          <div class="comp-cell"><span class="partial">◐</span> Beta / limited</div>
+          <div class="comp-cell"><span class="partial">◐</span> Beta</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+        </div>
+        <div class="comp-row" style="background:rgba(167,139,250,0.05)">
+          <div class="comp-cell feature-name" style="color:var(--accent)">🎯 Proactive quality evaluation</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+          <div class="comp-cell"><span class="check">✓</span> Available</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+        </div>
+        <div class="comp-row" style="background:rgba(167,139,250,0.05)">
+          <div class="comp-cell feature-name" style="color:var(--accent)">🎯 Clarifying questions flow</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+        </div>
+        <div class="comp-row" style="background:rgba(167,139,250,0.05)">
+          <div class="comp-cell feature-name" style="color:var(--accent)">🎯 Feature Area grouping</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-cell feature-name">Attachment enrichment</div>
+          <div class="comp-cell"><span class="check">✓</span> Available</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+          <div class="comp-cell"><span class="cross">✗</span> Not available</div>
+        </div>
+      </div>
+
+      <div class="insight-box fade-up">
+        <div class="insight-icon">💡</div>
+        <div class="insight-text">
+          Qase has quality evaluation — but it's reactive, triggered after the QE opens a requirement.
+          Our product evaluates <strong>before the QE opens it</strong>, surfacing signal on the list itself.
+          No competitor combines proactive evaluation with a <strong>clarifying questions flow</strong> and
+          <strong>Feature Area grouping</strong> in a single workflow. All three shipped in v1.
+        </div>
+      </div>
+
+      <div class="comp-gap-row fade-up">
+        <div class="comp-gap-cell">
+          <div class="comp-name">Browserstack</div>
+          <div class="comp-gap-text">Strong execution layer, but <strong>no structural grouping</strong>. QEs end up with flat lists of test cases with no area context.</div>
+        </div>
+        <div class="comp-gap-cell">
+          <div class="comp-name">Qase</div>
+          <div class="comp-gap-text">Has quality evaluation and AI in beta — but <strong>no clarifying questions flow and no Feature Area grouping</strong>. Surfaces issues without guiding the QE to resolve them.</div>
+        </div>
+        <div class="comp-gap-cell">
+          <div class="comp-name">Testrail</div>
+          <div class="comp-gap-text">Enterprise gold standard but <strong>no AI at all</strong>. Suites exist but require heavy manual setup with no guidance.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       [REMOVED: PM/CEO VISION, QE PERSONA, SCOPE]
+  ══════════════════════════════════════════════ -->
+  
+  <!-- ═══════════════════════════════════════════
+       AI DESIGN PROCESS
+  ══════════════════════════════════════════════ -->
+  <section class="ai-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">AI-Augmented Design Process</div>
+        <span class="skill-tag">AI-Augmented Design</span>
+      </div>
+      <div class="ai-header">
+        <h2>My process —<br><em>AI-native from day one.</em></h2>
+        <p>
+          Not as a shortcut — as a force multiplier. Claude Code, Figma Make, and VSCode let me stay in the room with engineering and PM at every stage, not just at handoff.
+        </p>
+      </div>
+
+      <div class="ai-steps fade-up">
+
+        <div class="ai-step process-step">
+          <div class="ai-step-num">1</div>
+          <div class="process-step-content">
+            <div class="process-step-meta">
+              <span class="process-phase-tag">Discovery</span>
+              <span class="process-tool-tag">Claude</span>
+            </div>
+            <div class="step-title">Research and competitive analysis — before the first meeting</div>
+            <div class="step-body">
+              Used Claude to map the competitive landscape, extract QE mental models, and define the 5 core design questions — before the first PM session. Walked in with a clear point of view, not a blank canvas.
+            </div>
+            <div class="step-result">Competitor gap confirmed and design questions defined — before kickoff</div>
+          </div>
+        </div>
+
+        <div class="ai-step process-step">
+          <div class="ai-step-num">2</div>
+          <div class="process-step-content">
+            <div class="process-step-meta">
+              <span class="process-phase-tag">Architecture</span>
+              <span class="process-tool-tag">Claude Code · Figma Make</span>
+            </div>
+            <div class="step-title">Main flow and page hierarchy — defined before any screen work</div>
+            <div class="step-body">
+              Mapped the 5-step flow: Quality score → Upload attachments → Clarification → AI generation → Review (edit/accept/reject). Defined page hierarchy for each screen, then used Claude Code to build the initial prototype for team alignment.
+            </div>
+            <div class="step-result">Flow and hierarchy locked before Figma — zero structural rework after team review</div>
+          </div>
+        </div>
+
+        <div class="ai-step process-step">
+          <div class="ai-step-num">3</div>
+          <div class="process-step-content">
+            <div class="process-step-meta">
+              <span class="process-phase-tag">Prototyping</span>
+              <span class="process-tool-tag">Claude Code · VSCode</span>
+            </div>
+            <div class="step-title">Interactive prototype in hours — brought to engineering, not sent after</div>
+            <div class="step-body">
+              Built a fully interactive HTML prototype in hours with Claude Code + VSCode. Brought it to the engineering session — not static screens. Feedback came in real time and was incorporated the same day.
+            </div>
+            <div class="code-snippet">
+              <div class="code-comment">// Prompt to Claude Code</div>
+              <div class="code-accent">"Build a 4-step test generator prototype.</div>
+              <div class="code-accent"> Step 1: requirement list with AI quality badges.</div>
+              <div class="code-accent"> Step 2: detail + upload + quality analysis panel.</div>
+              <div class="code-accent"> Step 3: clarifying questions, skippable.</div>
+              <div class="code-accent"> Step 4: generated cases streaming in, accept/edit/reject."</div>
+            </div>
+            <div class="step-result">Interactive prototype → engineering alignment → same-day revision: all in one session</div>
+          </div>
+        </div>
+
+        <div class="ai-step process-step">
+          <div class="ai-step-num">4</div>
+          <div class="process-step-content">
+            <div class="process-step-meta">
+              <span class="process-phase-tag">Refinement</span>
+              <span class="process-tool-tag">Figma Make · Claude</span>
+            </div>
+            <div class="step-title">High-fidelity design — judgment-heavy, not generation-heavy</div>
+            <div class="step-body">
+              Used Figma Make to accelerate components, then focused on what AI can't decide: phrasing of quality warnings, tone of empty states, which actions to show by default. Components shared with engineers as they were completed — not at the end.
+            </div>
+            <div class="step-result">Engineers were never blocked waiting for specs — components shared in parallel</div>
+          </div>
+        </div>
+
+        <div class="ai-step process-step">
+          <div class="ai-step-num">5</div>
+          <div class="process-step-content">
+            <div class="process-step-meta">
+              <span class="process-phase-tag">Handoff</span>
+              <span class="process-tool-tag">Claude · VSCode</span>
+            </div>
+            <div class="step-title">Handoff is where the real design work begins</div>
+            <div class="step-body">
+              Stayed embedded after handoff — reviewing builds on QA, pushing fixes immediately, looping in PM when requirements changed. Collaborated with QE and engineers continuously, treating every QA cycle as a design validation pass.
+            </div>
+            <div class="step-result">Shipped experience matched design intent — feedback loops caught and resolved gaps before release</div>
+          </div>
+        </div>
+
+        <!-- ── AI-Era Workflow Diagram ── -->
+        <div class="ai-era-diagram fade-up">
+          <div class="aed-header">
+            <div>
+              <div class="aed-badge">How I work as a designer in the AI era</div>
+              <div class="aed-title">I leverage AI across every phase —<br><em>to ship sharper, faster, with no gaps</em></div>
+              <div class="aed-caption">Compressing time between decisions and delivery — every judgment call stays mine.</div>
+            </div>
+          </div>
+
+          <div class="aed-phases">
+            <div class="aed-phase">
+              <div class="aed-phase-arrow">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M2 4h4M4 2l2 2-2 2" stroke="#71717a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="aed-phase-num">01</div>
+              <div class="aed-phase-name">Research</div>
+              <div class="aed-phase-tool">Claude</div>
+              <div class="aed-phase-output"><strong>Competitor map, mental models, design questions</strong> — ready before the first PM meeting</div>
+            </div>
+            <div class="aed-phase">
+              <div class="aed-phase-arrow">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M2 4h4M4 2l2 2-2 2" stroke="#71717a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="aed-phase-num">02</div>
+              <div class="aed-phase-name">Architecture</div>
+              <div class="aed-phase-tool">Claude Code</div>
+              <div class="aed-phase-output"><strong>5-step flow defined, page hierarchy set</strong> — validated before touching Figma</div>
+            </div>
+            <div class="aed-phase">
+              <div class="aed-phase-arrow">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M2 4h4M4 2l2 2-2 2" stroke="#71717a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="aed-phase-num">03</div>
+              <div class="aed-phase-name">Prototype</div>
+              <div class="aed-phase-tool">Claude Code · VSCode</div>
+              <div class="aed-phase-output"><strong>Working HTML prototype same day</strong> — engineers click through and push back in real time</div>
+            </div>
+            <div class="aed-phase">
+              <div class="aed-phase-arrow">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M2 4h4M4 2l2 2-2 2" stroke="#71717a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="aed-phase-num">04</div>
+              <div class="aed-phase-name">High-Fidelity</div>
+              <div class="aed-phase-tool">Figma Make · Claude</div>
+              <div class="aed-phase-output"><strong>Screens judgment-led, not generated</strong> — AI scaffolds, designer decides every call</div>
+            </div>
+            <div class="aed-phase">
+              <div class="aed-phase-num">05</div>
+              <div class="aed-phase-name">Ship + Iterate</div>
+              <div class="aed-phase-tool">Claude · VSCode</div>
+              <div class="aed-phase-output"><strong>Continuous QA follow-up, PM re-sync, UX fixes</strong> — loop never closes until experience is right</div>
+            </div>
+          </div>
+
+          <div class="aed-sync">
+            <div class="aed-sync-label">Always in sync with</div>
+            <div class="aed-sync-nodes">
+              <span class="aed-sync-node">PM — requirement changes</span>
+              <div class="aed-sync-divider"></div>
+              <span class="aed-sync-node">Engineering — build review</span>
+              <div class="aed-sync-divider"></div>
+              <span class="aed-sync-node">QE — validate &amp; iterate</span>
+            </div>
+            <div class="aed-sync-note">Every QA cycle is a design validation pass — gaps fixed same session</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- ═══════════════════════════════════════════
+       FLOW
+  ══════════════════════════════════════════════ -->
+  <section class="flow-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">The User Flow</div>
+        <span class="skill-tag">Interaction Design</span>
+      </div>
+      <h2>From requirement<br>to test case, <em>in minutes.</em></h2>
+      <div class="flow-steps fade-up">
+
+        <div class="flow-step">
+          <div class="flow-step-screenshot">
+            <img src="images/step1-quality-score.png" alt="Requirement details page with AI quality score panel showing 82/100 Good rating" loading="lazy" />
+          </div>
+          <div class="flow-step-num">1</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">QE arrives at the Requirements page</div>
+            <div class="flow-step-desc">Requirements sync from Jira/ALM automatically. Each shows an AI quality badge: Good, Needs Clarification, or Vague — QE sees signal before opening anything.</div>
+          </div>
+          <div class="flow-step-aside">
+            <div class="aside-label">Design decision</div>
+            <div class="aside-content">Proactive evaluation on sync shifts QE behaviour upstream — fix weak requirements before generating, not after wasted output.
+              <div class="ux-law-pill">Zeigarnik Effect — unresolved quality flags draw attention</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-num">2</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">QE reviews the requirement + quality breakdown</div>
+            <div class="flow-step-desc">Full requirement text + AI breakdown side by side — what's clear, what's ambiguous, what's missing. Score is explained, not just shown.</div>
+          </div>
+          <div class="flow-step-aside">
+            <div class="aside-label">Design decision</div>
+            <div class="aside-content">Showing reasoning behind the score builds trust and teaches QEs what good requirements look like over time.
+              <div class="ux-law-pill">Aesthetic-Usability Effect — transparent AI feels safer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-screenshot">
+            <img src="images/step2-upload.png" alt="Generation input page with upload attachments section and context source" loading="lazy" />
+          </div>
+          <div class="flow-step-num">3</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">QE selects Feature Area + uploads attachments</div>
+            <div class="flow-step-desc">QE picks a Feature Area, then optionally uploads attachments (Figma, DOCX, API docs) to enrich AI context. More context = more specific test cases.</div>
+          </div>
+          <div class="flow-step-aside">
+            <div class="aside-label">Design decision</div>
+            <div class="aside-content">Optional but impactful — UI shows a "coverage boost" signal when files are added, incentivising enrichment without blocking progress.
+              <div class="ux-law-pill">Goal-Gradient Effect — show QE getting closer to high-quality output</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-screenshot">
+            <img src="images/step3-clarification.png" alt="Clarification step showing AI-generated questions with answer options and skip button" loading="lazy" />
+          </div>
+          <div class="flow-step-num">4</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">If vague: AI asks clarifying questions</div>
+            <div class="flow-step-desc">For vague requirements, AI generates targeted clarifying questions. QE answers some, all, or none — each answer improves output. Skipping always allowed.</div>
+          </div>
+          <div class="flow-step-aside">
+            <div class="aside-label">Design decision</div>
+            <div class="aside-content">Never blocking. Each answered question shows a live quality score update — value is tangible, QE stays in control.
+              <div class="ux-law-pill">Tesler's Law — AI absorbs the clarification work, not the QE</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-screenshot">
+            <img src="images/step4-thinking.png" alt="Generating test cases progress screen showing 4-step AI thinking process" loading="lazy" />
+          </div>
+          <div class="flow-step-num">5</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">AI generates test cases</div>
+            <div class="flow-step-desc">Test cases appear in Given/When/Then format, scoped to the Feature Area. More context + answered questions = more complete coverage.</div>
+          </div>
+          <div class="flow-step-aside">
+            <div class="aside-label">Design decision</div>
+            <div class="aside-content">Familiar Given/When/Then format — no new mental model, immediate trust in AI output.
+              <div class="ux-law-pill">Jakob's Law — familiar format = immediate trust</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-step-screenshot">
+            <img src="images/step5-review.png" alt="Review Test Cases screen with AI drafts grouped by Feature Area, accept and discard actions" loading="lazy" />
+          </div>
+          <div class="flow-step-num">6</div>
+          <div class="flow-step-body">
+            <div class="flow-step-title">QE reviews, edits, accepts — grouped by Feature Area</div>
+            <div class="flow-step-desc">Cases auto-grouped by Feature Area — QE edits inline, accepts or rejects in context. No sorting, no flat list hunting. Accepted cases land directly in the test suite.</div>
+          </div>
+          <div class="flow-step-aside">
+            <div class="aside-label">Design decision</div>
+            <div class="aside-content">The final action is frictionless. The export confirmation is the last thing QE sees — make it feel like success, not a chore.
+              <div class="ux-law-pill">Peak-End Rule — end with effortless success</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FINAL FLOW & INTERACTION
+  ══════════════════════════════════════════════ -->
+  <section class="designs-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Final Flow &amp; Interaction</div>
+        <span class="skill-tag">Prototyping</span>
+      </div>
+      <h2>The shipped screens,<br><em>step by step.</em></h2>
+
+      <!-- Wizard -->
+      <div class="wizard fade-up">
+
+        <!-- Guidance hint -->
+        <div class="wizard-guide">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 5.5v3M6.5 4h.01" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          Click each step to view details
+        </div>
+
+        <!-- Step nav -->
+        <div class="wizard-steps">
+          <div class="wizard-step active" data-wizard="0">
+            <div class="wz-circle"><span class="wz-num">01</span><svg class="wz-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wz-label">Requirement<br>quality score</div>
+            <div class="wz-hint">click</div>
+          </div>
+          <div class="wz-connector"></div>
+          <div class="wizard-step" data-wizard="1">
+            <div class="wz-circle"><span class="wz-num">02</span><svg class="wz-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wz-label">Upload<br>attachment</div>
+            <div class="wz-hint">click</div>
+          </div>
+          <div class="wz-connector"></div>
+          <div class="wizard-step" data-wizard="2">
+            <div class="wz-circle"><span class="wz-num">03</span><svg class="wz-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wz-label">Clarification<br>requirement</div>
+            <div class="wz-hint">click</div>
+          </div>
+          <div class="wz-connector"></div>
+          <div class="wizard-step" data-wizard="3">
+            <div class="wz-circle"><span class="wz-num">04</span><svg class="wz-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wz-label">Thinking<br>process</div>
+            <div class="wz-hint">click</div>
+          </div>
+          <div class="wz-connector"></div>
+          <div class="wizard-step" data-wizard="4">
+            <div class="wz-circle"><span class="wz-num">05</span><svg class="wz-check" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wz-label">AI test cases<br>generated</div>
+            <div class="wz-hint">click</div>
+          </div>
+        </div>
+
+        <!-- Content panels -->
+        <div class="wizard-panels">
+
+          <div class="wizard-panel active" data-panel="0">
+            <div class="wizard-img">
+              <img src="images/step1-quality-score.png" alt="Requirement details page with AI quality score" />
+            </div>
+            <div class="wizard-desc">
+              <div class="wizard-desc-num">01</div>
+              <div>
+                <div class="wizard-desc-title">Requirement details — quality score</div>
+                <div class="wizard-desc-text">AI evaluates every requirement on sync and surfaces a quality score — Good, Needs Clarification, or Vague — with a full breakdown of what's clear and what's missing. QE sees signal before touching anything.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-panel" data-panel="1">
+            <div class="wizard-img">
+              <img src="images/step2-upload.png" alt="Upload attachment screen" />
+            </div>
+            <div class="wizard-desc">
+              <div class="wizard-desc-num">02</div>
+              <div>
+                <div class="wizard-desc-title">Upload more attachment</div>
+                <div class="wizard-desc-text">QE uploads design specs, mockups, or API docs to enrich the AI context before generating. More context means higher coverage and more specific test cases — shown as a clear value signal in the UI.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-panel" data-panel="2">
+            <div class="wizard-img">
+              <img src="images/step3-clarification.png" alt="Clarification questions for vague requirements" />
+            </div>
+            <div class="wizard-desc">
+              <div class="wizard-desc-num">03</div>
+              <div>
+                <div class="wizard-desc-title">Clarification requirement</div>
+                <div class="wizard-desc-text">When a requirement is vague, AI generates targeted clarifying questions. QE answers what they can — or skips entirely. Every answered question directly improves output quality.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-panel" data-panel="3">
+            <div class="wizard-img">
+              <img src="images/step4-thinking.png" alt="AI thinking process" />
+            </div>
+            <div class="wizard-desc">
+              <div class="wizard-desc-num">04</div>
+              <div>
+                <div class="wizard-desc-title">Thinking process</div>
+                <div class="wizard-desc-text">AI reads requirement, analyses scenarios, generates test cases, and finalises steps — shown as a transparent 4-stage progress. QEs know exactly what the AI is doing, building trust in the output.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-panel" data-panel="4">
+            <div class="wizard-img">
+              <img src="images/step5-review.png" alt="Review AI-generated test cases" />
+            </div>
+            <div class="wizard-desc">
+              <div class="wizard-desc-num">05</div>
+              <div>
+                <div class="wizard-desc-title">AI test cases generated</div>
+                <div class="wizard-desc-text">AI test cases are automatically grouped by Feature Area — so QE reviews in context, not across a flat list. Each case can be edited inline, accepted, or rejected individually. The grouping makes bulk review fast and exact, with accepted cases landing directly in the right place in the test suite.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✅</span>
+    <div class="toast-text" id="toast-msg">Test cases exported to suite.</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       SUCCESS METRICS
+  ══════════════════════════════════════════════ -->
+  <section class="metrics-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Success Metrics</div>
+        <span class="skill-tag">Impact</span>
+      </div>
+      <h2>What shipped<br>and <em>what changed.</em></h2>
+
+      <div class="metrics-grid fade-up">
+
+        <div class="metric-card metric-highlight">
+          <div class="metric-value">70%</div>
+          <div class="metric-label">Reduction in time spent creating test cases</div>
+          <div class="metric-context">From ~40 min per requirement to under 12 min — measured across the QE team in the first sprint after launch.</div>
+        </div>
+
+        <div class="metric-card metric-highlight">
+          <div class="metric-value">100%</div>
+          <div class="metric-label">Team adoption rate</div>
+          <div class="metric-context">Every QE on the team requested and actively uses the feature. Not mandated — chosen. The strongest signal a UX decision can get.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value">0 → 1</div>
+          <div class="metric-label">AI in QA workflow</div>
+          <div class="metric-context">First AI-assisted feature shipped to the QA tool. Established the design pattern for all subsequent AI features in the product.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value">3</div>
+          <div class="metric-label">Competitors studied, 1 gap found</div>
+          <div class="metric-context">Proactive quality evaluation + clarifying questions + Feature Area grouping. None of the 3 competitors ships all three. All three shipped in v1.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value">Same day</div>
+          <div class="metric-label">Prototype → engineering alignment → revision</div>
+          <div class="metric-context">Using Claude Code, feedback from the alignment session was incorporated in real time — not in the next sprint. Engineers saw their input reflected before the meeting ended.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-value">Zero</div>
+          <div class="metric-label">Design drift at launch</div>
+          <div class="metric-context">Proactive engineering follow-up during implementation caught 3 interaction gaps before QA. The shipped product matched the design intent — not a common outcome.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LESSONS LEARNED
+  ══════════════════════════════════════════════ -->
+  <section class="reflection-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Lessons Learned</div>
+        <span class="skill-tag">Design Maturity</span>
+      </div>
+      <h2>What I learned,<br>and <em>what comes next.</em></h2>
+
+      <div class="lessons-stack fade-up">
+
+        <div class="lesson-card">
+          <div class="lesson-left">
+            <div class="lesson-num">01</div>
+            <div class="lesson-tag">Core value</div>
+            <div class="lesson-title">AI as a trusted partner — not a threat</div>
+          </div>
+          <div class="lesson-body">
+            AI surfaces quality signals — QE always makes the final call. Every interaction was designed to build trust gradually: score badges, transparent reasoning, always-editable output. <strong>100% voluntary adoption</strong> was the proof that QEs felt safe, not threatened.
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-left">
+            <div class="lesson-num">02</div>
+            <div class="lesson-tag warn">Technical challenge</div>
+            <div class="lesson-title">Multi-agent friction and hallucination</div>
+          </div>
+          <div class="lesson-body">
+            Chaining <strong>multiple AI agents</strong> introduces real risk: context loss, inconsistent format, hallucination on vague requirements. The clarification step lets QE correct AI assumptions before generation; the review screen catches bad output. We <strong>continuously test each agent</strong> in isolation and in full flow — this is ongoing, not a one-time fix.
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-left">
+            <div class="lesson-num">03</div>
+            <div class="lesson-tag future">Roadmap</div>
+            <div class="lesson-title">Next: AI-powered test execution</div>
+          </div>
+          <div class="lesson-body">
+            Once QE accepts generated cases, the system should run them automatically — capturing results and surfacing failures without manual handoff. From <strong>"AI writes tests"</strong> to <strong>"AI writes and runs tests"</strong>. Planned as the next phase.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="next-project">
+        <div>
+          <div class="next-label">Next case study</div>
+          <div class="next-title">Import Test Case to System</div>
+        </div>
+        <a href="import-test-case.html" class="next-arrow">
+          View project
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Hien Nguyen · AI Designer Portfolio</p>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#work">All Work</a></li>
+      <li><a href="index.html#toolkit">AI Process</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    /* ─── NAV scroll ─── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+    /* ─── Scroll fade-up ─── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+
+    /* ══════════════════════════════════════════
+       WIZARD LOGIC
+    ══════════════════════════════════════════ */
+    (() => {
+      const steps      = document.querySelectorAll('.wizard-step');
+      const panels     = document.querySelectorAll('.wizard-panel');
+      const connectors = document.querySelectorAll('.wz-connector');
+
+      function updateWizard(idx) {
+        steps.forEach((s, i) => {
+          s.classList.toggle('active', i === idx);
+          s.classList.toggle('done',   i < idx);
+        });
+        connectors.forEach((c, i) => c.classList.toggle('done', i < idx));
+        panels.forEach((p, i) => p.classList.toggle('active', i === idx));
+      }
+
+      steps.forEach((s, i) => s.addEventListener('click', () => updateWizard(i)));
+      updateWizard(0);
+    })();
+  </script>
+</body>
+</html>

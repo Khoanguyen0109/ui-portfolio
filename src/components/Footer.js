@@ -1,27 +1,19 @@
-import { Container, Row, Col } from 'react-bootstrap';
-
-import { links } from '../data';
-
-export const Footer = () => {
-  return (
-    <footer className='footer'>
-      <Container>
-        <Row className='align-items-center'>
-          {/* <MailchimpForm /> */}
-          <Col size={12} sm={6}>
-            {/* <img src={logo} alt='Logo' /> */}
-          </Col>
-          <Col size={12} sm={6} className='text-center text-sm-end'>
-            <div className='social-icon'>
-              {links.map((link) => (
-                <a href={link.link} target="_blank" rel="noreferrer">
-                  <img src={link.icon} alt='Icon' />
-                </a>
-              ))}
-            </div>
-          </Col>
-        </Row>
-      </Container>
-    </footer>
-  );
-};
+export const Footer = () => (
+  <footer className="border-t border-[#3f3f46] px-12 py-7 flex justify-between items-center bg-bg">
+    <p className="text-[12px] text-[#a1a1aa] tracking-[0.04em]">
+      © 2026 Hien Nguyen · Built with React, deployed on Vercel
+    </p>
+    <ul className="flex gap-6 list-none">
+      {['Work', 'AI Process', 'About', 'Email'].map((l) => (
+        <li key={l}>
+          <a
+            href={l === 'Email' ? 'mailto:hien.nguyen@email.com' : `#${l.toLowerCase().replace(' ', '')}`}
+            className="text-[12px] text-[#a1a1aa] no-underline hover:text-white transition-colors tracking-[0.04em]"
+          >
+            {l}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </footer>
+);

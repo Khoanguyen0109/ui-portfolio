@@ -1,151 +1,49 @@
-import { useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import contactImg from '../assets/img/contact-img.svg';
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
-
-export const Contact = () => {
-  const formInitialDetails = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    message: '',
-  };
-  const [formDetails, setFormDetails] = useState(formInitialDetails);
-  const [buttonText, setButtonText] = useState('Send');
-  const [status, setStatus] = useState({});
-
-  const onFormUpdate = (category, value) => {
-    setFormDetails({
-      ...formDetails,
-      [category]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setButtonText('Sending...');
-    let response = await fetch('http://localhost:5000/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify(formDetails),
-    });
-    setButtonText('Send');
-    let result = await response.json();
-    setFormDetails(formInitialDetails);
-    if (result.code == 200) {
-      setStatus({ succes: true, message: 'Message sent successfully' });
-    } else {
-      setStatus({
-        succes: false,
-        message: 'Something went wrong, please try again later.',
-      });
-    }
-  };
-
-  return (
-    <section className='contact' id='connect'>
-      <Container>
-        <Row className='align-items-center'>
-          <Col size={12} md={6}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <img
-                  className={
-                    isVisible ? 'animate__animated animate__zoomIn' : ''
-                  }
-                  src={contactImg}
-                  alt='Contact Us'
-                />
-              )}
-            </TrackVisibility>
-          </Col>
-          <Col size={12} md={6}>
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? 'animate__animated animate__fadeIn' : ''
-                  }
-                >
-                  <h2>Get In Touch</h2>
-                  <form onSubmit={handleSubmit}>
-                    <Row>
-                      <Col size={12} sm={6} className='px-1'>
-                        <input
-                          type='text'
-                          value={formDetails.firstName}
-                          placeholder='First Name'
-                          onChange={(e) =>
-                            onFormUpdate('firstName', e.target.value)
-                          }
-                        />
-                      </Col>
-                      <Col size={12} sm={6} className='px-1'>
-                        <input
-                          type='text'
-                          value={formDetails.lasttName}
-                          placeholder='Last Name'
-                          onChange={(e) =>
-                            onFormUpdate('lastName', e.target.value)
-                          }
-                        />
-                      </Col>
-                      <Col size={12} sm={6} className='px-1'>
-                        <input
-                          type='email'
-                          value={formDetails.email}
-                          placeholder='Email Address'
-                          onChange={(e) =>
-                            onFormUpdate('email', e.target.value)
-                          }
-                        />
-                      </Col>
-                      <Col size={12} sm={6} className='px-1'>
-                        <input
-                          type='tel'
-                          value={formDetails.phone}
-                          placeholder='Phone No.'
-                          onChange={(e) =>
-                            onFormUpdate('phone', e.target.value)
-                          }
-                        />
-                      </Col>
-                      <Col size={12} className='px-1'>
-                        <textarea
-                          rows='6'
-                          value={formDetails.message}
-                          placeholder='Message'
-                          onChange={(e) =>
-                            onFormUpdate('message', e.target.value)
-                          }
-                        ></textarea>
-                        <button type='submit'>
-                          <span>{buttonText}</span>
-                        </button>
-                      </Col>
-                      {status.message && (
-                        <Col>
-                          <p
-                            className={
-                              status.success === false ? 'danger' : 'success'
-                            }
-                          >
-                            {status.message}
-                          </p>
-                        </Col>
-                      )}
-                    </Row>
-                  </form>
-                </div>
-              )}
-            </TrackVisibility>
-          </Col>
-        </Row>
-      </Container>
-    </section>
-  );
-};
+export const Contact = () => (
+  <section
+    className="px-12 text-center bg-bg"
+    style={{ paddingTop: '120px', paddingBottom: '120px' }}
+    id="contact"
+  >
+    <div
+      className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.14em] uppercase text-[#a1a1aa] mb-5 justify-center before:content-[''] before:w-4 before:h-px before:bg-[#a1a1aa]"
+    >
+      Let's talk
+    </div>
+    <h2
+      className="font-serif font-normal text-white leading-[1.1] mb-5"
+      style={{ fontSize: 'clamp(36px, 5vw, 68px)', letterSpacing: '-0.02em' }}
+    >
+      Ready to build<br />
+      <em className="not-italic text-accent">something great?</em>
+    </h2>
+    <p className="text-[16px] text-[#a1a1aa] max-w-[420px] mx-auto mb-11 leading-[1.7]">
+      Open to Senior Product Designer roles at companies building complex, meaningful enterprise software.
+    </p>
+    <div className="flex justify-center gap-4">
+      <a
+        href="mailto:hien.nguyen@email.com"
+        className="inline-flex items-center gap-2 bg-accent font-semibold px-6 py-3 rounded-full text-[14px] tracking-[0.02em] hover:opacity-90 hover:-translate-y-px transition-all no-underline"
+        style={{ color: '#09090b' }}
+      >
+        Send me an email
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/hien-nguyen-449761181/"
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex items-center gap-2 text-[14px] text-[#a1a1aa] hover:text-white transition-colors group no-underline"
+      >
+        View LinkedIn
+        <svg
+          className="transition-transform group-hover:translate-x-1"
+          width="14" height="14" viewBox="0 0 14 14" fill="none"
+        >
+          <path d="M2 12L12 2M12 2H5M12 2v7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+);

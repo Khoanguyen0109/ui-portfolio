@@ -1,13 +1,4 @@
-import figma from "./assets/tools/figma.png";
-import ai from "./assets/tools/ai.png";
-import ps from "./assets/tools/ps.png";
-import xd from "./assets/tools/xd.png";
-
-import us from "./assets/skill/research.svg";
-import low from "./assets/skill/UI.png";
-import proto from "./assets/skill/Protype.jpg";
-
-import navIcon1 from "./assets/img/nav-icon1.svg";
+// Tool and skill assets removed (components replaced by Tailwind redesign)
 
 
 // import autoThumb from "./assets/nowauto/19.jpg";
@@ -94,10 +85,17 @@ import test10 from "./assets/testcasse/10.jpg";
 const projects = [
   {
     id: 1,
-    name: "AI-Assisted Test Case Generation",
+    name: "AI Test Generator — a new chapter for QA teams",
+    tag: "AI · QA Testing",
+    category: "QA Testing",
+    year: "2026",
+    impact: "↓ 70% time saved · 100% adoption. AI-powered test case generation from requirements, with Feature Area grouping — the structural layer no competitor provides.",
+    chips: ["AI-augmented design", "Feature Area system", "Solo designer"],
+    thumbBg: "linear-gradient(135deg,#1a1a2e,#16213e)",
+    caseStudyType: "full",
     thumbnail: testcaseThumb,
     description: " ",
-    requirePassword: true,
+    requirePassword: false,
     images: [
       {
         id: 1,
@@ -143,8 +141,15 @@ const projects = [
   },
   {
     id: 2,
-    name: "Nobee",
+    name: "Nobee — USA Housing Rental App",
+    tag: "Mobile · PropTech",
+    category: "Mobile Design",
+    year: "2023",
     brief: "USA housing rental app",
+    impact: "Designed end-to-end rental search experience for the US market — streamlined listing discovery, agent contact flows, and saved-search management.",
+    chips: ["Mobile design", "PropTech", "0→1 product"],
+    thumbBg: "linear-gradient(135deg,#0d1b2a,#1b2838)",
+    caseStudyType: "gallery",
     thumbnail: noBeeThumb,
     description: " ",
     requirePassword: false,
@@ -185,7 +190,15 @@ const projects = [
   },
   {
     id: 242,
-    name: "Tik tok",
+    name: "TikTok Creator Studio",
+    tag: "Social · Creator Tools",
+    category: "Social Media",
+    year: "2022",
+    brief: "TikTok creator tools",
+    impact: "Redesigned the creator dashboard and analytics flow to surface actionable performance insights — reducing time-to-insight for content creators.",
+    chips: ["Creator tools", "Data visualization", "Mobile-first"],
+    thumbBg: "linear-gradient(135deg,#10001a,#1a0030)",
+    caseStudyType: "gallery",
     thumbnail: tiktok1,
     description: " ",
     requirePassword: false,
@@ -235,8 +248,15 @@ const projects = [
 
   {
     id: 3,
-    name: "Car Now",
+    name: "CarNow — Used Car Sales App",
+    tag: "Mobile · Automotive",
+    category: "Mobile Design",
+    year: "2022",
     brief: "Used car sales app",
+    impact: "Designed the buyer-side experience for a used car marketplace — from search and filter to inspection reports and dealer contact.",
+    chips: ["Mobile design", "Automotive", "Marketplace UX"],
+    thumbBg: "linear-gradient(135deg,#1a1200,#2d1f00)",
+    caseStudyType: "gallery",
     description: " ",
     requirePassword: false,
     thumbnail: carThumb,
@@ -285,8 +305,15 @@ const projects = [
   },
   {
     id: 134432,
-    name: "Cine",
-    brief: "USA housing rental app",
+    name: "Cine — Movie Social Platform",
+    tag: "Social · Entertainment",
+    category: "Social Media",
+    year: "2021",
+    brief: "Movie social platform",
+    impact: "Designed a social platform for film enthusiasts — combining discovery, watchlists, and micro-reviews in a cinema-inspired visual language.",
+    chips: ["Social platform", "Entertainment", "Visual design"],
+    thumbBg: "linear-gradient(135deg,#0f0a1a,#1a0f2e)",
+    caseStudyType: "gallery",
     thumbnail: cineThumb,
     description: " ",
     images: [
@@ -408,45 +435,4 @@ const projects = [
   // },
 ];
 
-const skills = [
-  {
-    name: "User Research",
-    url: us,
-  },
-  {
-    name: "Low to high Fidelity Design",
-    url: low,
-  },
-  {
-    name: "Prototyping & Usability Testing",
-    url: proto,
-  },
-];
-
-const tools = [
-  {
-    name: "Fignma",
-    url: figma,
-  },
-  {
-    name: "Xd",
-    url: xd,
-  },
-  {
-    name: "Ai",
-    url: ai,
-  },
-  {
-    name: "Ps",
-    url: ps,
-  },
-];
-
-const links = [
-  {
-    name: "Linkedin",
-    icon: navIcon1,
-    link: "https://www.linkedin.com/in/hien-nguyen-449761181/",
-  },
-];
-export { projects, skills, tools, links };
+export { projects };
