@@ -14,7 +14,7 @@ function NotFound() {
             </div>
           </div>
         </div>
-        <img className='background-image-left' src={colorSharp} alt='Image' />
+        <img className='background-image-left' src={colorSharp} alt='' />
       </section>
     </div>
   );
