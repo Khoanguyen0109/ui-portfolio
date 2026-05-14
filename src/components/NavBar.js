@@ -49,18 +49,13 @@ export const NavBar = ({ variant = 'home' }) => {
             </a>
           </li>
           <li>
-            <a href="#toolkit" className="text-[13px] text-[#a1a1aa] no-underline tracking-[0.04em] hover:text-white transition-colors">
-              AI Toolkit
-            </a>
-          </li>
-          <li>
             <a href="#about" className="text-[13px] text-[#a1a1aa] no-underline tracking-[0.04em] hover:text-white transition-colors">
               About
             </a>
           </li>
           <li>
             <a
-              href="#contact"
+              href="https://www.linkedin.com/in/hien-nguyen-449761181/"
               className="text-[13px] font-medium text-bg bg-accent px-5 py-2 rounded-full tracking-[0.04em] hover:opacity-85 transition-opacity no-underline"
               style={{ color: '#09090b' }}
             >
