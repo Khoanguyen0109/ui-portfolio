@@ -70,7 +70,7 @@ const AI_STEPS = [
     phase: 'Refinement',
     tool: 'Figma',
     title: 'High-fidelity — judgment-heavy, not generation-heavy',
-    body: 'Figma Make accelerated components. Focused designer judgment on phrasing, tone, default actions. Specs shared with engineers as completed — not at the end.',
+    body: 'Figma accelerated components. Focused designer judgment on phrasing, tone, default actions. Specs shared with engineers as completed — not at the end.',
     result: 'Engineers never blocked — specs delivered in parallel',
   },
   {
@@ -409,7 +409,7 @@ export const CaseStudyTestGenerator = () => {
             </p>
             {/* Meta cells */}
             <div className="grid gap-px bg-[#3f3f46] border border-[#3f3f46] rounded-xl overflow-hidden mb-10" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
-              {[{ label: 'My Role', value: 'Solo Senior Designer' }, { label: 'Timeline', value: '2026 · Shipped' }, { label: 'AI Tools', value: 'Claude Code · VSCode · Figma Make' }].map((m) => (
+              {[{ label: 'My Role', value: 'Senior Designer' }, { label: 'Timeline', value: '2026 · Shipped' }, { label: 'AI Tools', value: 'Claude Code · VSCode · Figma Make' }].map((m) => (
                 <div key={m.label} className="bg-surface px-5 py-4">
                   <div className="text-[10px] tracking-[0.10em] uppercase text-[#a1a1aa] mb-1">{m.label}</div>
                   <div className="text-[13px] font-medium text-white">{m.value}</div>

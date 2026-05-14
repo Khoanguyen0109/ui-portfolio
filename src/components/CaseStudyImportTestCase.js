@@ -32,7 +32,7 @@ const AI_STEPS = [
     num: '2',
     phase: 'Architecture',
     tool: 'Claude · Figma',
-    title: '3-step wizard + all edge cases mapped before any screen work',
+    title: '4-step wizard + all edge cases mapped before any screen work',
     body: 'Claude helped map every decision point: empty states, admin-locked fields, conflict types, error recovery paths. The full flow was validated with PM before opening Figma. Zero structural rework after review.',
     result: 'Flow locked, edge cases covered before design',
   },
@@ -318,7 +318,7 @@ export const CaseStudyImportTestCase = () => {
               <span className="text-[#3f3f46]">/</span>
               <strong className="text-accent font-medium">QA Testing · 2026</strong>
               <span className="text-[10px] font-bold tracking-[0.10em] uppercase text-accent bg-[rgba(167,139,250,0.10)] border border-[rgba(167,139,250,0.25)] px-2.5 py-[3px] rounded-full ml-1">
-                Solo Senior Designer
+                Senior Designer
               </span>
             </div>
 
@@ -328,7 +328,7 @@ export const CaseStudyImportTestCase = () => {
             </h1>
 
             <p className="text-[15px] text-[#a1a1aa] leading-[1.75] mb-10 max-w-[580px]">
-              A 3-step guided import flow that lets QE teams migrate thousands of test cases
+              A 4-step guided import flow that lets QE teams migrate thousands of test cases
               from TestRail, Qase, Excel, or CSV into Katalon True Platform, with full field mapping,
               conflict resolution, and zero data loss. Shipped in{' '}
               <strong className="text-[#d4d4d8]">3 weeks</strong>.
@@ -337,7 +337,7 @@ export const CaseStudyImportTestCase = () => {
             {/* Meta cells */}
             <div className="grid gap-px bg-[#3f3f46] border border-[#3f3f46] rounded-xl overflow-hidden" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
               {[
-                { label: 'My Role', value: 'Solo Senior Designer' },
+                { label: 'My Role', value: 'Senior Designer' },
                 { label: 'Timeline', value: '3 weeks · Shipped', accent: true },
                 { label: 'AI Tools', value: 'Claude · Figma · VSCode' },
               ].map((m) => (
