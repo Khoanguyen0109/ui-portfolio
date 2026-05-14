@@ -119,27 +119,25 @@ const AI_STEPS = [
     num: '1',
     phase: 'Discovery',
     tool: 'Claude',
-    title: 'Research and competitive analysis — before the first meeting',
-    body: 'Used Claude to map the competitive landscape, extract QE mental models, and define the 5 core design questions — before the first PM session. Walked in with a clear point of view, not a blank canvas.',
-    result: 'Competitor gap confirmed and design questions defined — before kickoff',
-    codeSnippet: null,
+    title: 'Research & competitive analysis — before the first meeting',
+    body: 'Used Claude to map the competitive landscape, extract QE mental models, and define 5 core design questions before the first PM session.',
+    result: 'Gap confirmed + questions defined before kickoff',
   },
   {
     num: '2',
     phase: 'Architecture',
     tool: 'Claude Code · Figma Make',
-    title: 'Main flow and page hierarchy — defined before any screen work',
-    body: 'Mapped the 5-step flow: Quality score → Upload attachments → Clarification → AI generation → Review (edit/accept/reject). Defined page hierarchy for each screen, then used Claude Code to build the initial prototype for team alignment.',
-    result: 'Flow and hierarchy locked before Figma — zero structural rework after team review',
-    codeSnippet: null,
+    title: 'Flow & hierarchy locked — before any screen work',
+    body: 'Mapped the 5-step flow and page hierarchy for each screen, then built an initial prototype with Claude Code for team alignment.',
+    result: 'Zero structural rework after team review',
   },
   {
     num: '3',
     phase: 'Prototyping',
     tool: 'Claude Code · VSCode',
-    title: 'Interactive prototype in hours — brought to engineering, not sent after',
-    body: 'Built a fully interactive HTML prototype in hours with Claude Code + VSCode. Brought it to the engineering session — not static screens. Feedback came in real time and was incorporated the same day.',
-    result: 'Interactive prototype → engineering alignment → same-day revision: all in one session',
+    title: 'Interactive prototype in hours — live in the engineering session',
+    body: 'Built a fully interactive HTML prototype and brought it to the engineering session. Real-time feedback incorporated same day — no static handoff.',
+    result: 'Prototype → alignment → revision in one session',
     codeSnippet: [
       { type: 'comment', text: '// Prompt to Claude Code' },
       { type: 'accent', text: '"Build a 4-step test generator prototype.' },
@@ -152,20 +150,18 @@ const AI_STEPS = [
   {
     num: '4',
     phase: 'Refinement',
-    tool: 'Figma Make · Claude',
-    title: 'High-fidelity design — judgment-heavy, not generation-heavy',
-    body: 'Used Figma Make to accelerate components, then focused on what AI can\'t decide: phrasing of quality warnings, tone of empty states, which actions to show by default. Components shared with engineers as they were completed — not at the end.',
-    result: 'Engineers were never blocked waiting for specs — components shared in parallel',
-    codeSnippet: null,
+    tool: 'Figma',
+    title: 'High-fidelity — judgment-heavy, not generation-heavy',
+    body: 'Figma Make accelerated components. Focused designer judgment on phrasing, tone, default actions. Specs shared with engineers as completed — not at the end.',
+    result: 'Engineers never blocked — specs delivered in parallel',
   },
   {
     num: '5',
     phase: 'Handoff',
-    tool: 'Claude · VSCode',
+    tool: 'Figma',
     title: 'Handoff is where the real design work begins',
-    body: 'Stayed embedded after handoff — reviewing builds on QA, pushing fixes immediately, looping in PM when requirements changed. Collaborated with QE and engineers continuously, treating every QA cycle as a design validation pass.',
-    result: 'Shipped experience matched design intent — feedback loops caught and resolved gaps before release',
-    codeSnippet: null,
+    body: 'Stayed embedded post-handoff — reviewing QA builds, fixing gaps immediately, syncing with PM on requirement changes and QE on validation.',
+    result: 'Shipped experience matched design intent',
   },
 ];
 
@@ -182,44 +178,68 @@ const FLOW_STEPS = [
   {
     num: '1',
     title: 'QE arrives at the Requirements page',
-    desc: "Requirements sync from Jira/ALM automatically. Each shows an AI quality badge: Good, Needs Clarification, or Vague — QE sees signal before opening anything.",
-    aside: "Proactive evaluation on sync shifts QE behaviour upstream — fix weak requirements before generating, not after wasted output.",
-    law: 'Zeigarnik Effect — unresolved quality flags draw attention',
+    desc: 'Requirements sync from Jira/ALM automatically. Each shows an AI quality badge — Good, Needs Clarification, or Vague — before opening anything.',
+    skill: 'Information Architecture',
+    decision: 'Surface quality signal at the list level, not inside each item',
+    why: "Most tools hide quality issues until the QE opens a requirement. I moved evaluation to sync time — QE scans the list and knows where to focus before spending any time.",
+    valueLabel: 'User value',
+    valueText: 'No wasted effort on vague requirements — triage happens at a glance',
+    law: 'Zeigarnik Effect',
   },
   {
     num: '2',
-    title: 'QE reviews the requirement + quality breakdown',
-    desc: "Full requirement text + AI breakdown side by side — what's clear, what's ambiguous, what's missing. Score is explained, not just shown.",
-    aside: 'Showing reasoning behind the score builds trust and teaches QEs what good requirements look like over time.',
-    law: 'Aesthetic-Usability Effect — transparent AI feels safer',
+    title: 'QE reviews requirement + AI quality breakdown',
+    desc: "Full requirement text + AI analysis side by side — what's clear, ambiguous, missing. Score is explained with reasoning, not just shown as a number.",
+    skill: 'Trust Design',
+    decision: "Show the AI's reasoning, not just its verdict",
+    why: "A score alone is opaque and untrustworthy. Showing the breakdown tells QEs exactly what the AI found — builds confidence and teaches better requirement writing over time.",
+    valueLabel: 'User value',
+    valueText: "QE trusts the AI output because they can see its work — not just its answer",
+    law: 'Aesthetic-Usability Effect',
   },
   {
     num: '3',
-    title: 'QE selects Feature Area + uploads attachments',
-    desc: 'QE picks a Feature Area, then optionally uploads attachments (Figma, DOCX, API docs) to enrich AI context. More context = more specific test cases.',
-    aside: 'Optional but impactful — UI shows a "coverage boost" signal when files are added, incentivising enrichment without blocking progress.',
-    law: 'Goal-Gradient Effect — show QE getting closer to high-quality output',
+    title: 'QE enriches context before generating',
+    desc: 'Before hitting Generate, QE can upload attachments — Figma files, DOCX specs, API docs. More context given to AI = more accurate, specific test cases as output.',
+    skill: 'Input Design · Output Quality',
+    decision: 'Give QE control over what AI knows before it generates',
+    why: 'AI output quality is only as good as its input. I designed this step so QEs can actively improve what the AI sees — attachments feed directly into generation context, making output more targeted and reducing manual edits after.',
+    valueLabel: 'User value',
+    valueText: 'Better input = better output — QE spends less time editing AI-generated cases after the fact',
+    law: 'Goal-Gradient Effect',
   },
   {
     num: '4',
-    title: 'If vague: AI asks clarifying questions',
-    desc: 'For vague requirements, AI generates targeted clarifying questions. QE answers some, all, or none — each answer improves output. Skipping always allowed.',
-    aside: 'Never blocking. Each answered question shows a live quality score update — value is tangible, QE stays in control.',
-    law: "Tesler's Law — AI absorbs the clarification work, not the QE",
+    title: 'AI asks targeted clarifying questions',
+    desc: 'For vague requirements, AI generates clarifying questions. QE answers some, all, or none — every answer improves output. Skipping always allowed.',
+    skill: 'Complexity Management',
+    decision: 'Offload clarification work to AI, keep QE in choice not obligation',
+    why: "Instead of QE chasing PMs for clarification, AI generates the questions. Live quality score updates after each answer make the value tangible — QE sees progress, not a form to fill.",
+    valueLabel: 'User value',
+    valueText: 'QE gets smarter output without extra meetings — AI does the legwork',
+    law: "Tesler's Law",
   },
   {
     num: '5',
     title: 'AI generates test cases',
-    desc: 'Test cases appear in Given/When/Then format, scoped to the Feature Area. More context + answered questions = more complete coverage.',
-    aside: "Familiar Given/When/Then format — no new mental model, immediate trust in AI output.",
-    law: "Jakob's Law — familiar format = immediate trust",
+    desc: 'Each test case is generated with: name, precondition, description, and test steps — scoped to the Feature Area. More context + answered questions = more complete coverage.',
+    skill: 'Mental Model Design',
+    decision: 'Match the exact structure QEs already write — zero re-learning required',
+    why: 'Name, precondition, description, test steps — this is the structure QEs already use in their test management tools. AI output maps directly to what they know, so review starts immediately with no reformatting needed.',
+    valueLabel: 'User value',
+    valueText: 'Output feels native — QE can review and edit immediately, no mental translation required',
+    law: "Jakob's Law",
   },
   {
     num: '6',
     title: 'QE reviews, edits, accepts — grouped by Feature Area',
-    desc: 'Cases auto-grouped by Feature Area — QE edits inline, accepts or rejects in context. No sorting, no flat list hunting. Accepted cases land directly in the test suite.',
-    aside: 'The final action is frictionless. The export confirmation is the last thing QE sees — make it feel like success, not a chore.',
-    law: 'Peak-End Rule — end with effortless success',
+    desc: 'Cases auto-grouped by Feature Area. QE edits inline, accepts or rejects in context. No flat list hunting. Accepted cases land directly in the test suite.',
+    skill: 'End-State Design · Control',
+    decision: 'Grouping by Feature Area removes the hardest cognitive task — orientation',
+    why: 'Flat lists at scale are unusable. Feature Area grouping gives QEs a mental map of what they\'re reviewing before they read a single case. The final export confirmation closes the loop — it feels like success.',
+    valueLabel: 'User value',
+    valueText: 'Review is fast and structured — QE stays in judgment mode, not search mode',
+    law: 'Peak-End Rule',
   },
 ];
 
@@ -270,38 +290,38 @@ const WIZARD_STEPS = [
 const METRICS = [
   {
     value: '70%',
-    label: 'Reduction in time spent creating test cases',
-    context: 'From ~40 min per requirement to under 12 min — measured across the QE team in the first sprint after launch.',
+    label: 'Time saved on test case creation',
+    context: '~40 min → under 12 min per requirement, first sprint post-launch.',
     highlight: true,
   },
   {
     value: '100%',
     label: 'Team adoption rate',
-    context: 'Every QE on the team requested and actively uses the feature. Not mandated — chosen. The strongest signal a UX decision can get.',
+    context: 'Every QE requested and uses it. Not mandated — chosen.',
     highlight: true,
   },
   {
-    value: '0 → 1',
-    label: 'AI in QA workflow',
-    context: 'First AI-assisted feature shipped to the QA tool. Established the design pattern for all subsequent AI features in the product.',
+    value: '0→1',
+    label: 'First AI feature in QA tool',
+    context: 'Set the design pattern for all subsequent AI features.',
     highlight: false,
   },
   {
     value: '3',
     label: 'Competitors studied, 1 gap found',
-    context: 'Proactive quality evaluation + clarifying questions + Feature Area grouping. None of the 3 competitors ships all three. All three shipped in v1.',
+    context: 'All 3 differentiators shipped in v1 — no competitor matched.',
     highlight: false,
   },
   {
     value: 'Same day',
-    label: 'Prototype → engineering alignment → revision',
-    context: 'Using Claude Code, feedback from the alignment session was incorporated in real time — not in the next sprint. Engineers saw their input reflected before the meeting ended.',
+    label: 'Prototype → alignment → revision',
+    context: 'Engineer feedback incorporated same session via Claude Code.',
     highlight: false,
   },
   {
     value: 'Zero',
     label: 'Design drift at launch',
-    context: 'Proactive engineering follow-up during implementation caught 3 interaction gaps before QA. The shipped product matched the design intent — not a common outcome.',
+    context: '3 interaction gaps caught pre-QA. Shipped matched intent.',
     highlight: false,
   },
 ];
@@ -600,27 +620,37 @@ export const CaseStudyTestGenerator = () => {
             Not as a shortcut — as a force multiplier. Claude Code, Figma Make, and VSCode let me stay in the room with engineering and PM at every stage, not just at handoff.
           </p>
 
-          <div className="fade-up flex flex-col gap-0.5">
+          <div className="fade-up flex flex-col gap-px bg-[#3f3f46] border border-[#3f3f46] rounded-[14px] overflow-hidden">
             {AI_STEPS.map((step, i) => (
-              <div key={step.num} className={`grid bg-surface transition-colors hover:bg-[#18181b] ${i === 0 ? 'rounded-t-[14px]' : i === AI_STEPS.length - 1 ? 'rounded-b-[14px]' : ''}`} style={{ gridTemplateColumns: '56px 1fr' }}>
-                <div className="flex items-start justify-center pt-[30px] font-serif text-[28px] text-[#3f3f46] border-r border-[#3f3f46] transition-colors hover:text-accent">
+              <div
+                key={step.num}
+                className="grid bg-surface transition-colors hover:bg-[#3f3f46] items-center"
+                style={{ gridTemplateColumns: '48px 200px 1fr auto' }}
+              >
+                {/* Num */}
+                <div className="flex items-center justify-center self-stretch font-serif text-[18px] text-[#3f3f46] border-r border-[#3f3f46] transition-colors hover:text-accent">
                   {step.num}
                 </div>
-                <div className="px-8 py-7">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#a1a1aa]">{step.phase}</span>
-                    <span className="text-[10px] font-semibold text-accent bg-[rgba(167,139,250,0.10)] border border-[rgba(167,139,250,0.25)] px-2 py-0.5 rounded">{step.tool}</span>
-                  </div>
-                  <div className="text-[16px] font-semibold text-white mb-2 leading-[1.4]">{step.title}</div>
-                  <div className="text-[13px] text-[#d4d4d8] leading-[1.65] mb-3">{step.body}</div>
+                {/* Phase + tool */}
+                <div className="px-[18px] py-4 border-r border-[#3f3f46] self-stretch flex flex-col justify-center gap-1.5">
+                  <span className="text-[10px] font-bold tracking-[0.10em] uppercase text-[#a1a1aa]">{step.phase}</span>
+                  <span className="text-[10px] font-semibold text-accent bg-[rgba(167,139,250,0.10)] border border-[rgba(167,139,250,0.22)] px-2 py-0.5 rounded w-fit">{step.tool}</span>
+                </div>
+                {/* Title + body */}
+                <div className="px-5 py-4">
+                  <div className="text-[13px] font-semibold text-white mb-1">{step.title}</div>
+                  <div className="text-[12px] text-[#a1a1aa] leading-[1.6]">{step.body}</div>
                   {step.codeSnippet && (
-                    <div className="mt-3 bg-bg border border-[#3f3f46] rounded-lg px-3.5 py-3 font-mono text-[11px] leading-[1.6] mb-3">
+                    <div className="mt-3 bg-bg border border-[#3f3f46] rounded-lg px-3.5 py-3 font-mono text-[11px] leading-[1.6]">
                       {step.codeSnippet.map((line, li) => (
                         <div key={li} className={line.type === 'comment' ? 'text-[#444]' : 'text-accent'}>{line.text}</div>
                       ))}
                     </div>
                   )}
-                  <div className="text-[12px] text-accent font-medium">→ {step.result}</div>
+                </div>
+                {/* Result */}
+                <div className="px-5 py-4 text-[11px] font-semibold text-accent whitespace-nowrap border-l border-[#3f3f46] self-stretch flex items-center gap-1.5">
+                  → {step.result}
                 </div>
               </div>
             ))}
@@ -672,28 +702,54 @@ export const CaseStudyTestGenerator = () => {
       </section>
 
       {/* ── USER FLOW ── */}
-      <section className="px-12 py-20 bg-surface border-b border-[#3f3f46]">
+      <section className="px-12 py-20 bg-[#09090b] border-b border-[#3f3f46]">
         <div className="max-w-[1100px] mx-auto">
           <SectionHeader><SectionLabel>The User Flow</SectionLabel><SkillTag>Interaction Design</SkillTag></SectionHeader>
-          <h2 className="font-serif font-normal text-white leading-[1.1] mb-12" style={{ fontSize: 'clamp(28px, 3.5vw, 46px)', letterSpacing: '-0.02em' }}>
+          <h2 className="font-serif font-normal text-white leading-[1.1] mb-10" style={{ fontSize: 'clamp(28px, 3.5vw, 46px)', letterSpacing: '-0.02em' }}>
             From requirement<br />to test case, <em className="not-italic text-accent">in minutes.</em>
           </h2>
 
-          <div className="fade-up flex flex-col gap-0.5">
+          {/* Column headers */}
+          <div className="grid border border-[#3f3f46] rounded-t-xl overflow-hidden bg-[#3f3f46]" style={{ gridTemplateColumns: '44px 1fr 1fr 220px' }}>
+            <div className="bg-[#3f3f46] border-r border-[#3f3f46]" />
+            <div className="bg-surface px-[22px] py-2.5 text-[10px] font-bold tracking-[0.10em] uppercase text-[#a1a1aa] border-r border-[#3f3f46]">What happens</div>
+            <div className="bg-surface px-[22px] py-2.5 text-[10px] font-bold tracking-[0.10em] uppercase text-[#a1a1aa] border-r border-[#3f3f46]">My design decision</div>
+            <div className="bg-surface px-[18px] py-2.5 text-[10px] font-bold tracking-[0.10em] uppercase text-[#a1a1aa]">User value + principle</div>
+          </div>
+
+          <div className="fade-up flex flex-col gap-px bg-[#3f3f46] border border-t-0 border-[#3f3f46] rounded-b-xl overflow-hidden">
             {FLOW_STEPS.map((step, i) => (
-              <div key={step.num} className={`grid bg-bg transition-colors hover:bg-[#18181b] ${i === 0 ? 'rounded-t-[14px]' : i === FLOW_STEPS.length - 1 ? 'rounded-b-[14px]' : ''}`} style={{ gridTemplateColumns: '64px 1fr 340px' }}>
-                <div className="flex items-center justify-center font-serif text-[20px] text-accent border-r border-[#3f3f46]" style={{ minHeight: '80px' }}>
+              <div
+                key={step.num}
+                className="grid bg-surface transition-colors hover:bg-[#3f3f46]"
+                style={{ gridTemplateColumns: '44px 1fr 1fr 220px' }}
+              >
+                {/* Num */}
+                <div
+                  className="flex items-center justify-center font-serif text-[16px] text-[#3f3f46] border-r border-[#3f3f46] transition-colors"
+                  style={{ alignSelf: 'stretch' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#a78bfa'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#3f3f46'}
+                >
                   {step.num}
                 </div>
-                <div className="px-8 py-7 border-r border-[#3f3f46]">
-                  <div className="text-[16px] font-semibold text-white mb-2">{step.title}</div>
-                  <div className="text-[13px] text-[#d4d4d8] leading-[1.65] max-w-[500px]">{step.desc}</div>
+                {/* What happens */}
+                <div className="px-[22px] py-[18px] border-r border-[#3f3f46]">
+                  <div className="text-[13px] font-semibold text-white mb-1.5">{step.title}</div>
+                  <div className="text-[12px] text-[#a1a1aa] leading-[1.6]">{step.desc}</div>
                 </div>
-                <div className="px-7 py-7">
-                  <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#a1a1aa] mb-2.5">Design decision</div>
-                  <div className="text-[12px] text-[#d4d4d8] leading-[1.6] mb-3">{step.aside}</div>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-accent bg-[rgba(167,139,250,0.10)] px-2.5 py-1 rounded-full">
-                    ✦ {step.law}
+                {/* Design decision */}
+                <div className="px-[22px] py-[18px] border-r border-[#3f3f46] flex flex-col gap-2">
+                  <div className="text-[10px] font-bold tracking-[0.10em] uppercase text-accent">{step.skill}</div>
+                  <div className="text-[12px] font-semibold text-white">{step.decision}</div>
+                  <div className="text-[12px] text-[#a1a1aa] leading-[1.6]">{step.why}</div>
+                </div>
+                {/* Value + principle */}
+                <div className="px-[18px] py-[18px] flex flex-col gap-2 justify-center">
+                  <div className="text-[10px] font-bold tracking-[0.10em] uppercase text-[#a1a1aa]">{step.valueLabel}</div>
+                  <div className="text-[12px] text-[#d4d4d8] leading-[1.55]">{step.valueText}</div>
+                  <span className="inline-flex items-center text-[10px] text-accent bg-[rgba(167,139,250,0.10)] px-2 py-[3px] rounded-full w-fit">
+                    {step.law}
                   </span>
                 </div>
               </div>
@@ -705,6 +761,7 @@ export const CaseStudyTestGenerator = () => {
       {/* ── THE SHIPPED SCREENS ── */}
       <section className="px-12 py-20 bg-surface border-b border-[#3f3f46]">
         <div className="max-w-[1100px] mx-auto">
+          <SectionHeader><SectionLabel>Final Flow &amp; Interaction</SectionLabel><SkillTag>Prototyping</SkillTag></SectionHeader>
           <h2 className="font-serif font-normal text-white leading-[1.1] mb-12" style={{ fontSize: 'clamp(28px, 3.5vw, 46px)', letterSpacing: '-0.02em' }}>
             The shipped screens,<br /><em className="not-italic text-accent">step by step.</em>
           </h2>
