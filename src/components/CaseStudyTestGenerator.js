@@ -574,6 +574,7 @@ export const CaseStudyTestGenerator = () => {
           </div>
 
           {/* AI-Era Workflow Diagram */}
+          <div className="mt-20" />
           <SectionHeader>
             <SectionLabel>How I work as a designer in the AI era</SectionLabel>
             <SkillTag>AI-Augmented Design</SkillTag>

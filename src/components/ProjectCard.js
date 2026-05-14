@@ -13,8 +13,8 @@ export const ProjectCard = ({ project, index }) => {
   return (
     <Link
       to={`/details/${id}`}
-      className={`block bg-surface overflow-hidden text-white no-underline cursor-pointer transition-colors duration-250 hover:bg-[#18181b] group ${cornerClass}`}
-      style={{ textDecoration: 'none' }}
+      className={`flex flex-col bg-surface overflow-hidden text-white no-underline cursor-pointer transition-colors duration-250 hover:bg-[#18181b] group ${cornerClass}`}
+      style={{ textDecoration: 'none', minHeight: '460px' }}
     >
       {/* Thumbnail */}
       <div
@@ -47,7 +47,7 @@ export const ProjectCard = ({ project, index }) => {
       </div>
 
       {/* Body */}
-      <div className="px-7 pt-7 pb-8">
+      <div className="flex-1 px-7 pt-7 pb-8">
         <div className="text-[12px] text-[#a1a1aa] tracking-[0.05em] uppercase mb-2.5">
           {category} · {year}
         </div>
