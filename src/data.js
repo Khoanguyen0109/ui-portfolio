@@ -13,19 +13,17 @@
 // import detail from "./assets/lend/detail.jpg";
 
 
-import importTestCaseThumb from "./assets/importTestCase/Thumbnail.jpg";
+import noBee1 from "./assets/newNobee/1.jpg";
+import noBee2 from "./assets/newNobee/2.jpg";
+import noBee3 from "./assets/newNobee/3.jpg";
+import noBee4 from "./assets/newNobee/4.jpg";
+import noBee5 from "./assets/newNobee/5.jpg";
+import noBee6 from "./assets/newNobee/6.jpg";
+import noBee7 from "./assets/newNobee/7.jpg";
+import noBee8 from "./assets/newNobee/8.jpg";
+import noBeeThumb from "./assets/newNobee/Thumnail.jpg";
 
-import tiktok1 from "./assets/newTiktok/Thumbnail.jpg";
-import tiktok2 from "./assets/newTiktok/2.jpg";
-import tiktok3 from "./assets/newTiktok/3.jpg";
-import tiktok4 from "./assets/newTiktok/4.jpg";
-import tiktok5 from "./assets/newTiktok/5.jpg";
-import tiktok6 from "./assets/newTiktok/6.jpg";
-import tiktok7 from "./assets/newTiktok/7.jpg";
-import tiktok8 from "./assets/newTiktok/8.jpg";
-import tiktok9 from "./assets/newTiktok/9.jpg";
-import tiktok10 from "./assets/newTiktok/10.jpg";
-import tiktok11 from "./assets/newTiktok/11.jpg";
+import importTestCaseThumb from "./assets/importTestCase/Thumbnail.jpg";
 
 
 import carThumb from "./assets/newCar/Thumbnail.jpg"
@@ -40,23 +38,6 @@ import car8 from "./assets/newCar/8.jpg";
 import car9 from "./assets/newCar/9.jpg";
 import car10 from "./assets/newCar/10.jpg";
 
-
-import cineThumb from "./assets/newCine/Thumbnail.jpg"
-import cine1 from "./assets/newCine/1.jpg";
-import cine2 from "./assets/newCine/2.jpg";
-import cine3 from "./assets/newCine/3.jpg";
-import cine4 from "./assets/newCine/4.jpg";
-import cine5 from "./assets/newCine/5.jpg";
-import cine6 from "./assets/newCine/6.jpg";
-import cine7 from "./assets/newCine/7.jpg";
-import cine8 from "./assets/newCine/8.jpg";
-import cine9 from "./assets/newCine/9.jpg";
-import cine10 from "./assets/newCine/10.jpg";
-import cine11 from "./assets/newCine/11.jpg";
-import cine12 from "./assets/newCine/12.jpg";
-import cine13 from "./assets/newCine/13.jpg";
-import cine14 from "./assets/newCine/14.jpg";
-import cine15 from "./assets/newCine/15.jpg";
 
 
 import testcaseThumb from "./assets/testcasse/Thumbnail.jpg"
@@ -149,64 +130,6 @@ const projects = [
     images: [],
   },
   {
-    id: 242,
-    name: "Mobile-first feature shipped in 5 days, not 3 weeks",
-    tag: "High Velocity",
-    category: "Enterprise SaaS",
-    year: "2023",
-    brief: "AI-assisted rapid prototyping",
-    impact: "3 weeks → 5 days. End-to-end feature design using AI-assisted prototyping. Delivered 4× more explorations than standard sprint velocity.",
-    chips: ["Rapid prototyping", "Mobile design", "Velocity"],
-    thumbBg: "linear-gradient(135deg,#1a1200,#2d1f00)",
-    caseStudyType: "gallery",
-    thumbnail: tiktok1,
-    description: " ",
-    requirePassword: false,
-    images: [
-      {
-        id: 1,
-        url: tiktok2,
-      },
-      {
-        id: 2,
-        url: tiktok3,
-      },
-      {
-        id: 3,
-        url: tiktok4,
-      },
-      {
-        id: 4,
-        url: tiktok5,
-      },
-      {
-        id: 5,
-        url: tiktok6,
-      },
-      {
-        id: 6,
-        url: tiktok7,
-      },
-      {
-        id: 7,
-        url: tiktok8,
-      },
-      {
-        id: 8,
-        url: tiktok9,
-      },
-      {
-        id: 9,
-        url: tiktok10,
-      },
-      {
-        id: 10,
-        url: tiktok11,
-      },
-    ],
-  },
-
-  {
     id: 3,
     name: "Design system unifying 6 product teams at scale",
     tag: "Stakeholder Alignment",
@@ -264,79 +187,28 @@ const projects = [
     ],
   },
   {
-    id: 134432,
-    name: "Cine — Movie Social Platform",
-    tag: "Social · Entertainment",
-    category: "Social Media",
-    year: "2021",
-    brief: "Movie social platform",
-    impact: "Designed a social platform for film enthusiasts — combining discovery, watchlists, and micro-reviews in a cinema-inspired visual language.",
-    chips: ["Social platform", "Entertainment", "Visual design"],
-    thumbBg: "linear-gradient(135deg,#0f0a1a,#1a0f2e)",
+    id: 5,
+    name: "Nobee — USA housing rental app",
+    tag: "Prop-tech · Housing",
+    category: "Prop-tech",
+    year: "2022",
+    brief: "USA housing rental app",
+    impact: "Designed end-to-end rental experience for US renters — search, listing detail, application flow, and tenant dashboard — in a clean, trust-building visual language.",
+    chips: ["Prop-tech", "Mobile & web", "End-to-end UX"],
+    thumbBg: "linear-gradient(135deg,#0f1a10,#162616)",
     caseStudyType: "gallery",
-    thumbnail: cineThumb,
+    thumbnail: noBeeThumb,
     description: " ",
+    requirePassword: false,
     images: [
-      {
-        id: 1,
-        url: cine1,
-      },
-      {
-        id: 2,
-        url: cine2,
-      },
-      {
-        id: 3,
-        url: cine3,
-      },
-      {
-        id: 4,
-        url: cine4,
-      },
-      {
-        id: 5,
-        url: cine5,
-      },
-      {
-        id: 6,
-        url: cine6,
-      },
-      {
-        id: 7,
-        url: cine7,
-      },
-      {
-        id: 8,
-        url: cine8,
-      },
-      {
-        id: 9,
-        url: cine9,
-      },
-      {
-        id: 10,
-        url: cine10,
-      },
-      {
-        id: 11,
-        url: cine11,
-      },
-      {
-        id: 12,
-        url: cine12,
-      },
-      {
-        id: 13,
-        url: cine13,
-      },
-      {
-        id: 14,
-        url: cine14,
-      },
-      {
-        id: 15,
-        url: cine15,
-      },
+      { id: 1, url: noBee1 },
+      { id: 2, url: noBee2 },
+      { id: 3, url: noBee3 },
+      { id: 4, url: noBee4 },
+      { id: 5, url: noBee5 },
+      { id: 6, url: noBee6 },
+      { id: 7, url: noBee7 },
+      { id: 8, url: noBee8 },
     ],
   },
   // {
