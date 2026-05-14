@@ -22,6 +22,8 @@ import noBee7 from "./assets/newNobee/7.jpg";
 import noBee8 from "./assets/newNobee/8.jpg";
 import noBeeThumb from "./assets/newNobee/Thumnail.jpg";
 
+import importTestCaseThumb from "./assets/importTestCase/Thumbnail.jpg";
+
 import tiktok1 from "./assets/newTiktok/Thumbnail.jpg";
 import tiktok2 from "./assets/newTiktok/2.jpg";
 import tiktok3 from "./assets/newTiktok/3.jpg";
@@ -141,52 +143,19 @@ const projects = [
   },
   {
     id: 2,
-    name: "Import Test Case to System",
+    name: "Import Test Cases — migrate millions, lose nothing",
     tag: "Workflow · Import",
     category: "QA Testing",
-    year: "2026",
+    year: "2025",
     brief: "Import workflow for QA teams",
-    impact: "Designed the end-to-end import workflow for QEs to bring existing test cases into the platform — mapping, validation, and conflict resolution in a single guided flow.",
-    chips: ["Data import UX", "Workflow design", "QA tooling"],
+    impact: "A 3-step guided import flow that lets QE teams migrate thousands of test cases from TestRail, Qase, Excel, or CSV — with auto field mapping, conflict resolution, and zero data loss.",
+    chips: ["Data import UX", "Workflow design", "Solo Senior Designer"],
     thumbBg: "linear-gradient(135deg,#0d1b2a,#1b2838)",
-    caseStudyType: "gallery",
-    thumbnail: noBeeThumb,
+    caseStudyType: "import-case-study",
+    thumbnail: importTestCaseThumb,
     description: " ",
     requirePassword: false,
-    images: [
-      {
-        id: 1,
-        url: noBee1,
-      },
-      {
-        id: 2,
-        url: noBee2,
-      },
-      {
-        id: 3,
-        url: noBee3,
-      },
-      {
-        id: 4,
-        url: noBee4,
-      },
-      {
-        id: 5,
-        url: noBee5,
-      },
-      {
-        id: 6,
-        url: noBee6,
-      },
-      {
-        id: 7,
-        url: noBee7,
-      },
-      {
-        id: 8,
-        url: noBee8,
-      },
-    ],
+    images: [],
   },
   {
     id: 242,
