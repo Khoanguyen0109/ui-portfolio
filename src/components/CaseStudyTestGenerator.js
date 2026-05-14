@@ -2,19 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 
 /* ── Small primitives ── */
 const SectionLabel = ({ children }) => (
-  <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.14em] uppercase text-[#a1a1aa] mb-5 before:content-[''] before:w-4 before:h-px before:bg-[#a1a1aa]">
+  <div className="inline-flex items-center gap-2.5 text-[13px] font-bold tracking-[0.10em] uppercase text-[#d4d4d8] before:content-[''] before:w-6 before:h-0.5 before:bg-accent before:rounded-sm flex-shrink-0">
     {children}
   </div>
 );
 
 const SkillTag = ({ children }) => (
-  <span className="inline-flex items-center text-[10px] font-bold tracking-[0.10em] uppercase text-accent bg-[rgba(167,139,250,0.10)] border border-[rgba(167,139,250,0.25)] px-3 py-1 rounded-full ml-3 align-middle">
+  <span className="inline-flex items-center text-[11px] font-bold tracking-[0.08em] uppercase text-accent bg-[rgba(167,139,250,0.10)] border border-[rgba(167,139,250,0.25)] px-3.5 py-[5px] rounded-full ml-2.5 align-middle">
     {children}
   </span>
 );
 
 const SectionHeader = ({ children }) => (
-  <div className="flex items-center flex-wrap gap-1 mb-5">{children}</div>
+  <div className="flex items-center flex-wrap gap-1 mb-6">{children}</div>
 );
 
 /* ── Hero Product Preview ── */
@@ -23,93 +23,11 @@ const ProductPreview = () => (
     className="border border-[#3f3f46] rounded-2xl overflow-hidden bg-bg shadow-2xl"
     style={{ animation: 'float 5s ease-in-out infinite' }}
   >
-    <div className="flex items-center gap-1.5 bg-[#09090b] border-b border-[#3f3f46] px-3.5 py-2.5">
-      <span className="w-2 h-2 rounded-full bg-[#ff5f57]" />
-      <span className="w-2 h-2 rounded-full bg-[#febc2e]" />
-      <span className="w-2 h-2 rounded-full bg-[#28c840]" />
-      <span className="flex-1 bg-[rgba(255,255,255,0.04)] rounded px-2.5 py-1 text-[10px] text-[#a1a1aa] mx-2">
-        testgen.app / generate
-      </span>
-    </div>
-    <div className="grid" style={{ gridTemplateColumns: '140px 1fr', height: '340px' }}>
-      {/* Sidebar */}
-      <div className="bg-[#090909] border-r border-[#3f3f46] px-2 py-3">
-        <div className="text-[9px] tracking-[0.12em] uppercase text-[#a1a1aa] px-2 py-1.5 mb-1">
-          Feature Areas
-        </div>
-        {[
-          { name: 'Authentication', count: '12', active: true },
-          { name: 'Checkout', count: '8', active: false },
-          { name: 'Search', count: '5', active: false },
-          { name: 'User Profile', count: '3', active: false },
-        ].map((a) => (
-          <div
-            key={a.name}
-            className={`flex items-center gap-1.5 px-2 py-1.5 rounded-md mb-0.5 text-[11px] ${
-              a.active ? 'bg-[rgba(167,139,250,0.10)] text-accent' : 'text-[#d4d4d8]'
-            }`}
-          >
-            <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${a.active ? 'bg-accent' : 'bg-[#3f3f46]'}`} />
-            <span className="flex-1 truncate">{a.name}</span>
-            <span className={`text-[9px] px-1.5 py-0.5 rounded-full ${a.active ? 'bg-[rgba(167,139,250,0.20)] text-accent' : 'text-[#a1a1aa] bg-[rgba(255,255,255,0.05)]'}`}>
-              {a.count}
-            </span>
-          </div>
-        ))}
-        <div className="mx-2 mt-2.5 px-2 py-1.5 rounded-md text-[10px] text-accent border border-dashed border-[rgba(167,139,250,0.22)] text-center cursor-default">
-          + Add Area
-        </div>
-      </div>
-      {/* Main panel */}
-      <div className="flex flex-col overflow-hidden">
-        <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-[#3f3f46]">
-          <div>
-            <div className="text-[12px] font-semibold text-white">Authentication</div>
-            <div className="text-[10px] text-[#a1a1aa] mt-0.5">12 test cases</div>
-          </div>
-          <span className="flex items-center gap-1.5 bg-accent text-[#09090b] text-[10px] font-bold px-2.5 py-1 rounded-md">
-            <svg width="9" height="9" viewBox="0 0 13 13" fill="none">
-              <path d="M6.5 1v2M6.5 10v2M1 6.5h2M10 6.5h2M2.93 2.93l1.41 1.41M8.66 8.66l1.41 1.41M2.93 10.07l1.41-1.41M8.66 4.34l1.41-1.41" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
-            </svg>
-            Generate
-          </span>
-        </div>
-        <div className="flex-1 p-3 flex flex-col gap-2 overflow-hidden">
-          <div className="text-[9px] text-[#a1a1aa] tracking-[0.10em] uppercase mb-0.5">AI Generated · 3 cases</div>
-          {/* TC 1 — accepted */}
-          <div className="bg-[rgba(167,139,250,0.07)] border border-[rgba(167,139,250,0.28)] rounded-lg p-3">
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <span className="text-[9px] font-bold text-accent tracking-[0.06em]">TC-001</span>
-              <span className="text-[9px] text-[#a1a1aa] bg-[rgba(255,255,255,0.05)] px-1.5 py-0.5 rounded-full">Functional</span>
-              <span className="ml-auto text-[9px] font-semibold text-accent flex items-center gap-1">✓ Accepted</span>
-            </div>
-            <div className="text-[11px] font-semibold text-white mb-1 leading-[1.4]">Valid credentials login success</div>
-            <div className="text-[10px] text-[#d4d4d8] leading-[1.55]">
-              <span className="font-semibold text-[#a78bfa]">Given</span> a registered user<br />
-              <span className="font-semibold text-[#f7e07e]">When</span> they submit valid credentials<br />
-              <span className="font-semibold text-[#7eb8f7]">Then</span> redirected to dashboard
-            </div>
-          </div>
-          {/* TC 2 */}
-          <div className="bg-surface border border-[#3f3f46] rounded-lg p-3">
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <span className="text-[9px] font-bold text-accent tracking-[0.06em]">TC-002</span>
-              <span className="text-[9px] text-[#f7a07e] bg-[rgba(247,160,126,0.08)] px-1.5 py-0.5 rounded-full ml-auto">Negative</span>
-            </div>
-            <div className="text-[11px] font-semibold text-white mb-1 leading-[1.4]">Account locked after 3 failed attempts</div>
-            <div className="text-[10px] text-[#d4d4d8] leading-[1.55]">
-              <span className="font-semibold text-[#a78bfa]">Given</span> wrong password × 3<br />
-              <span className="font-semibold text-[#f7e07e]">When</span> 3rd attempt fails<br />
-              <span className="font-semibold text-[#7eb8f7]">Then</span> account temporarily locked
-            </div>
-            <div className="flex gap-1.5 mt-2">
-              <span className="text-[9px] bg-[rgba(167,139,250,0.10)] text-accent px-2 py-1 rounded-full">✓ Accept</span>
-              <span className="text-[9px] bg-[rgba(255,255,255,0.05)] text-[#a1a1aa] px-2 py-1 rounded-full">Edit</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <img
+      src="/images/test-generator-hero.png"
+      alt="AI Test Generator product preview"
+      style={{ width: '100%', height: '340px', objectFit: 'cover', objectPosition: 'top left', display: 'block' }}
+    />
   </div>
 );
 
@@ -621,25 +539,25 @@ export const CaseStudyTestGenerator = () => {
           </p>
 
           <div className="fade-up flex flex-col gap-px bg-[#3f3f46] border border-[#3f3f46] rounded-[14px] overflow-hidden">
-            {AI_STEPS.map((step, i) => (
+            {AI_STEPS.map((step) => (
               <div
                 key={step.num}
-                className="grid bg-surface transition-colors hover:bg-[#3f3f46] items-center"
-                style={{ gridTemplateColumns: '48px 200px 1fr auto' }}
+                className="group grid bg-surface transition-colors hover:bg-[#1c1c1f]"
+                style={{ gridTemplateColumns: '48px 200px 1fr 260px' }}
               >
                 {/* Num */}
-                <div className="flex items-center justify-center self-stretch font-serif text-[18px] text-[#3f3f46] border-r border-[#3f3f46] transition-colors hover:text-accent">
+                <div className="flex items-center justify-center font-serif text-[18px] text-[#3f3f46] group-hover:text-accent border-r border-[#3f3f46] transition-colors py-4">
                   {step.num}
                 </div>
                 {/* Phase + tool */}
-                <div className="px-[18px] py-4 border-r border-[#3f3f46] self-stretch flex flex-col justify-center gap-1.5">
+                <div className="px-[18px] py-4 border-r border-[#3f3f46] flex flex-col justify-center gap-2">
                   <span className="text-[10px] font-bold tracking-[0.10em] uppercase text-[#a1a1aa]">{step.phase}</span>
                   <span className="text-[10px] font-semibold text-accent bg-[rgba(167,139,250,0.10)] border border-[rgba(167,139,250,0.22)] px-2 py-0.5 rounded w-fit">{step.tool}</span>
                 </div>
                 {/* Title + body */}
                 <div className="px-5 py-4">
-                  <div className="text-[13px] font-semibold text-white mb-1">{step.title}</div>
-                  <div className="text-[12px] text-[#a1a1aa] leading-[1.6]">{step.body}</div>
+                  <div className="text-[13px] font-semibold text-white mb-1 leading-[1.4]">{step.title}</div>
+                  <div className="text-[12px] text-[#a1a1aa] leading-[1.65]">{step.body}</div>
                   {step.codeSnippet && (
                     <div className="mt-3 bg-bg border border-[#3f3f46] rounded-lg px-3.5 py-3 font-mono text-[11px] leading-[1.6]">
                       {step.codeSnippet.map((line, li) => (
@@ -649,7 +567,7 @@ export const CaseStudyTestGenerator = () => {
                   )}
                 </div>
                 {/* Result */}
-                <div className="px-5 py-4 text-[11px] font-semibold text-accent whitespace-nowrap border-l border-[#3f3f46] self-stretch flex items-center gap-1.5">
+                <div className="px-5 py-4 text-[11px] font-semibold text-accent border-l border-[#3f3f46] flex items-center">
                   → {step.result}
                 </div>
               </div>

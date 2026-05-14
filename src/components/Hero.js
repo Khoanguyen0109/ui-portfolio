@@ -89,7 +89,7 @@ export const Hero = () => {
       />
 
       <div
-        className="relative z-10 w-full max-w-[1280px] mx-auto grid items-center gap-20"
+        className="relative z-10 w-full max-w-[1280px] mx-auto grid items-start gap-20"
         style={{ gridTemplateColumns: '1fr 380px' }}
       >
         {/* ── LEFT: Content ── */}
@@ -113,7 +113,7 @@ export const Hero = () => {
           <h1
             className="font-serif font-normal text-white mb-6 fade-up visible"
             style={{
-              fontSize: 'clamp(44px, 6.5vw, 88px)',
+              fontSize: 'clamp(36px, 5vw, 68px)',
               lineHeight: 1.04,
               letterSpacing: '-0.025em',
             }}
@@ -184,7 +184,7 @@ export const Hero = () => {
 
         {/* ── RIGHT: Proof of impact ── */}
         <div
-          className="flex flex-col gap-px bg-[#3f3f46] border border-[#3f3f46] rounded-2xl overflow-hidden fade-up visible"
+          className="flex flex-col gap-px bg-[#3f3f46] border border-[#3f3f46] rounded-2xl overflow-hidden fade-up visible mt-[52px]"
         >
           <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#a1a1aa] px-[22px] pt-4 pb-0 bg-surface">
             Proof of impact

@@ -59,16 +59,17 @@
 
     section { padding: 80px 48px; }
     .section-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 20px;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted2); margin-bottom: 16px;
     }
-    .section-label::before { content: ''; width: 16px; height: 1px; background: var(--muted); }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--accent); border-radius: 2px; }
 
     h2 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 3.5vw, 46px);
-      font-weight: 400; line-height: 1.1; letter-spacing: -0.02em;
+      font-size: clamp(36px, 4.5vw, 62px);
+      font-weight: 400; line-height: 1.05; letter-spacing: -0.025em;
+      margin-bottom: 40px;
     }
     h2 em { font-style: italic; color: var(--accent); }
     h3 {
@@ -227,15 +228,15 @@
     /* ── SKILL TAGS ── */
     .skill-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--accent); background: var(--accent-dim);
       border: 1px solid var(--accent-border);
-      padding: 4px 12px; border-radius: 100px; margin-left: 12px;
+      padding: 5px 14px; border-radius: 100px; margin-left: 10px;
       vertical-align: middle;
     }
     .section-header {
       display: flex; align-items: center; flex-wrap: wrap; gap: 4px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     @media (max-width: 960px) {
@@ -341,49 +342,47 @@
     .persona-section { background: var(--bg); border-bottom: 1px solid var(--border); }
     .persona-card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 20px; overflow: hidden; margin-top: 40px;
-    }
-    .persona-top {
-      display: grid; grid-template-columns: 280px 1fr;
-      border-bottom: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; margin-top: 32px;
+      display: grid; grid-template-columns: auto 1px 1fr;
     }
     .persona-identity {
-      padding: 36px 36px; border-right: 1px solid var(--border);
+      padding: 24px 28px; display: flex; align-items: flex-start; gap: 14px; min-width: 280px; max-width: 300px;
     }
     .persona-avatar {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: linear-gradient(135deg, #18181b, #3f3f46);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 28px; margin-bottom: 20px;
+      width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, #27272a, #3f3f46);
+      display: flex; align-items: center; justify-content: center; font-size: 18px;
     }
-    .persona-name { font-size: 18px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-    .persona-role { font-size: 13px; color: var(--accent); margin-bottom: 16px; }
-    .persona-detail { font-size: 13px; color: var(--muted); line-height: 1.6; }
-    .persona-stats {
-      padding: 36px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px;
+    .persona-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .persona-role { font-size: 11px; color: var(--accent); margin-bottom: 8px; }
+    .persona-detail { font-size: 11px; color: var(--muted); line-height: 1.6; }
+    .persona-divider { width: 1px; background: var(--border); }
+    .persona-pain {
+      padding: 20px 28px;
     }
-    .p-stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-    .p-stat-value { font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-    .p-stat-sub { font-size: 12px; color: var(--muted); line-height: 1.5; }
-    .persona-bottom {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    .persona-pain-header {
+      display: flex; align-items: center; gap: 20px; margin-bottom: 14px;
     }
-    .persona-col { padding: 28px 36px; }
-    .persona-col:first-child { border-right: 1px solid var(--border); }
-    .persona-col-label {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 16px;
+    .persona-pain-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--red);
     }
-    .persona-col-label.red { color: var(--red); }
-    .persona-col-label.green { color: var(--accent); }
-    .persona-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .persona-stats-row {
+      display: flex; gap: 24px;
+    }
+    .p-stat-chip {
+      font-size: 11px; color: var(--muted2);
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 6px; padding: 4px 10px;
+      display: flex; gap: 6px; align-items: center;
+    }
+    .p-stat-chip strong { color: var(--text); font-size: 12px; }
+    .persona-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .persona-list li {
-      font-size: 13px; color: var(--muted2); line-height: 1.55;
-      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 12px; color: var(--muted2); line-height: 1.5;
+      display: flex; gap: 8px; align-items: flex-start;
     }
-    .persona-list li::before { content: '—'; color: var(--border); flex-shrink: 0; }
-    .persona-list.red li::before { content: '×'; color: var(--red); }
-    .persona-list.green li::before { content: '→'; color: var(--accent); }
+    .persona-list li::before { content: '×'; color: var(--red); flex-shrink: 0; font-size: 11px; margin-top: 1px; }
 
     /* ── SCOPE ── */
     .scope-section { background: var(--surface); border-bottom: 1px solid var(--border); }
@@ -413,57 +412,53 @@
 
     /* ── AI PROCESS ── */
     .ai-section { background: var(--bg); border-bottom: 1px solid var(--border); }
-    .ai-header { margin-bottom: 48px; }
-    .ai-header h2 { margin-bottom: 16px; }
-    .ai-header p { font-size: 16px; color: var(--muted); max-width: 600px; line-height: 1.7; }
-    .ai-steps { display: flex; flex-direction: column; gap: 2px; }
-    .ai-step {
-      display: grid; grid-template-columns: 56px 1fr;
-      background: var(--surface); border-radius: 0;
-      border: 1px solid transparent;
-      transition: background 0.2s, border-color 0.2s;
-      overflow: hidden;
+    .ai-header { margin-bottom: 32px; }
+    .ai-header h2 { margin-bottom: 12px; }
+    .ai-header p { font-size: 14px; color: var(--muted); max-width: 600px; line-height: 1.65; }
+    .ai-steps {
+      display: flex; flex-direction: column; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
     }
-    .ai-steps .ai-step:first-child { border-radius: 14px 14px 0 0; }
-    .ai-steps .ai-step:last-child { border-radius: 0 0 14px 14px; }
-    .ai-step:hover { background: #18181b; }
-
+    .ai-step {
+      display: grid; grid-template-columns: 48px 200px 1fr auto;
+      background: var(--surface); align-items: center;
+      transition: background 0.15s;
+    }
+    .ai-step:hover { background: var(--surface2); }
     .ai-step-num {
-      display: flex; align-items: flex-start; justify-content: center;
-      padding-top: 30px;
+      display: flex; align-items: center; justify-content: center;
+      align-self: stretch;
       font-family: 'DM Serif Display', serif;
-      font-size: 28px; color: var(--border);
+      font-size: 18px; color: var(--border);
       border-right: 1px solid var(--border);
-      transition: color 0.2s;
+      transition: color 0.15s;
     }
     .ai-step:hover .ai-step-num { color: var(--accent); }
-
-    /* New single-column process step layout */
-    .process-step-content { padding: 28px 32px; }
     .process-step-meta {
-      display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+      padding: 16px 18px; border-right: 1px solid var(--border);
+      align-self: stretch; display: flex; flex-direction: column;
+      justify-content: center; gap: 6px;
     }
     .process-phase-tag {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--muted);
     }
     .process-tool-tag {
       font-size: 10px; font-weight: 600; padding: 2px 8px;
       background: rgba(167,139,250,0.10); color: var(--accent);
       border: 1px solid rgba(167,139,250,0.22); border-radius: 100px;
+      width: fit-content;
     }
-    .step-col-label {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; margin-bottom: 12px;
-    }
-    .step-col-label.human { color: var(--muted); }
-    .step-col-label.ai { color: var(--accent); }
-    .step-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    .step-body { font-size: 13px; color: var(--muted2); line-height: 1.65; }
+    .process-step-content { padding: 16px 20px; }
+    .step-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .step-body { font-size: 12px; color: var(--muted); line-height: 1.6; }
     .step-result {
-      margin-top: 12px; font-size: 12px; font-weight: 600;
-      color: var(--accent); letter-spacing: 0.04em;
-      display: flex; align-items: center; gap: 6px;
+      padding: 16px 20px; font-size: 11px; font-weight: 600;
+      color: var(--accent); white-space: nowrap;
+      border-left: 1px solid var(--border);
+      display: flex; align-items: center; gap: 5px;
+      align-self: stretch;
     }
     .step-result::before { content: '→'; }
 
@@ -646,66 +641,69 @@
     /* ── FLOW ── */
     .flow-section { background: var(--bg); border-bottom: 1px solid var(--border); }
     .flow-steps {
-      display: flex; flex-direction: column; gap: 2px;
-      margin-top: 48px;
+      display: flex; flex-direction: column; gap: 1px;
+      margin-top: 40px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
     }
     .flow-step {
       display: grid;
-      grid-template-columns: 64px 1fr 340px;
-      grid-template-rows: auto auto;
+      grid-template-columns: 44px 1fr 1fr 220px;
       background: var(--surface); overflow: hidden;
+      transition: background 0.15s;
     }
-    .flow-steps .flow-step:first-child { border-radius: 14px 14px 0 0; }
-    .flow-steps .flow-step:last-child { border-radius: 0 0 14px 14px; }
-    .flow-step:hover { background: #18181b; }
-
-    /* Screenshot row — spans all columns */
-    .flow-step-screenshot {
-      grid-column: 1 / -1;
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-      position: relative;
-      background: var(--surface2);
-    }
-    .flow-step-screenshot img {
-      width: 100%;
-      display: block;
-      max-height: 400px;
-      object-fit: cover;
-      object-position: top;
-      transition: transform 0.4s ease;
-    }
-    .flow-step:hover .flow-step-screenshot img { transform: scale(1.01); }
-    /* Placeholder shown when no image */
-    .flow-step-screenshot .img-placeholder {
-      display: none;
-      height: 72px;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-    .flow-step-screenshot img[src=""] ~ .img-placeholder,
-    .flow-step-screenshot:not(:has(img)) .img-placeholder { display: flex; }
+    .flow-steps .flow-step:first-child { border-radius: 15px 15px 0 0; }
+    .flow-steps .flow-step:last-child { border-radius: 0 0 15px 15px; }
+    .flow-step:hover { background: var(--surface2); }
 
     .flow-step-num {
       display: flex; align-items: center; justify-content: center;
-      font-family: 'DM Serif Display', serif; font-size: 20px;
-      color: var(--accent); border-right: 1px solid var(--border);
-      min-height: 80px;
+      font-family: 'DM Serif Display', serif; font-size: 16px;
+      color: var(--border); border-right: 1px solid var(--border);
+      transition: color 0.15s; align-self: stretch;
     }
-    .flow-step-body { padding: 28px 32px; border-right: 1px solid var(--border); }
-    .flow-step-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    .flow-step-desc { font-size: 13px; color: var(--muted2); line-height: 1.65; max-width: 500px; }
-    .flow-step-aside { padding: 28px 28px; }
-    .aside-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-    .aside-content { font-size: 12px; color: var(--muted2); line-height: 1.6; }
+    .flow-step:hover .flow-step-num { color: var(--accent); }
+
+    /* Col 2: What happens */
+    .flow-step-body {
+      padding: 18px 22px; border-right: 1px solid var(--border);
+    }
+    .flow-step-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+    .flow-step-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* Col 3: Design thinking */
+    .flow-step-thinking {
+      padding: 18px 22px; border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .thinking-skill {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .thinking-decision {
+      font-size: 12px; font-weight: 600; color: var(--text);
+    }
+    .thinking-why {
+      font-size: 12px; color: var(--muted); line-height: 1.6;
+    }
+
+    /* Col 4: Value + principle */
+    .flow-step-value {
+      padding: 18px 18px;
+      display: flex; flex-direction: column; gap: 8px; justify-content: center;
+    }
+    .value-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .value-text {
+      font-size: 12px; color: var(--muted2); line-height: 1.55;
+    }
     .ux-law-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; color: var(--accent);
-      background: var(--accent-dim); padding: 4px 10px;
-      border-radius: 100px; margin-top: 8px;
+      display: inline-flex; align-items: center;
+      font-size: 10px; color: var(--accent);
+      background: var(--accent-dim); padding: 3px 8px;
+      border-radius: 100px; width: fit-content;
     }
 
     /* ── DESIGNS / LIVE DEMO ── */
@@ -1206,65 +1204,61 @@
 
     /* ── SUCCESS METRICS ── */
     .metrics-section { background: var(--surface); border-bottom: 1px solid var(--border); }
-    .metrics-section h2 { margin-bottom: 48px; }
+    .metrics-section h2 { margin-bottom: 32px; }
     .metrics-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
     }
     .metric-card {
-      background: var(--bg); padding: 32px 28px;
-      border-radius: 0;
+      background: var(--bg); padding: 20px 22px;
+      display: flex; gap: 14px; align-items: flex-start;
     }
-    .metrics-grid .metric-card:first-child { border-radius: 14px 0 0 0; }
-    .metrics-grid .metric-card:nth-child(3) { border-radius: 0 14px 0 0; }
-    .metrics-grid .metric-card:nth-child(4) { border-radius: 0 0 0 14px; }
-    .metrics-grid .metric-card:last-child   { border-radius: 0 0 14px 0; }
-    .metric-highlight .metric-value { color: var(--accent); }
     .metric-value {
       font-family: 'DM Serif Display', serif;
-      font-size: 48px; font-weight: 400; line-height: 1;
-      color: var(--text); margin-bottom: 12px;
+      font-size: 28px; font-weight: 400; line-height: 1;
+      color: var(--text); flex-shrink: 0; min-width: 64px;
+      padding-top: 2px;
     }
+    .metric-highlight .metric-value { color: var(--accent); }
     .metric-label {
-      font-size: 13px; font-weight: 600; color: var(--text);
-      margin-bottom: 10px; line-height: 1.4;
+      font-size: 12px; font-weight: 600; color: var(--muted2);
+      margin-bottom: 4px; line-height: 1.4;
     }
     .metric-context {
-      font-size: 12px; color: var(--muted); line-height: 1.65;
+      font-size: 11px; color: var(--muted); line-height: 1.6;
     }
 
     /* ── REFLECTION / LESSONS ── */
     .reflection-section { background: var(--bg); }
-    .lessons-stack { display: flex; flex-direction: column; gap: 2px; margin-top: 40px; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .lessons-stack { display: flex; flex-direction: column; gap: 1px; margin-top: 32px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--border); }
     .lesson-card {
       background: var(--surface);
-      padding: 32px 36px;
-      display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start;
-      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      display: grid; grid-template-columns: 180px 1fr; gap: 24px; align-items: start;
     }
-    .lesson-card:last-child { border-bottom: none; }
-    .lesson-left { display: flex; flex-direction: column; gap: 12px; }
+    .lesson-left { display: flex; flex-direction: column; gap: 8px; }
     .lesson-num {
-      font-family: 'DM Serif Display', serif; font-size: 36px;
+      font-family: 'DM Serif Display', serif; font-size: 24px;
       color: var(--accent); line-height: 1;
     }
     .lesson-tag {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--accent);
       background: var(--accent-dim); border: 1px solid var(--accent-border);
-      padding: 4px 10px; border-radius: 4px; display: inline-block; width: fit-content;
+      padding: 3px 8px; border-radius: 4px; display: inline-block; width: fit-content;
     }
     .lesson-tag.warn { color: #f0a500; background: rgba(240,165,0,0.08); border-color: rgba(240,165,0,0.25); }
     .lesson-tag.future { color: #34d399; background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.25); }
     .lesson-title {
-      font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.4;
+      font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.4;
     }
     .lesson-body {
-      font-size: 14px; color: var(--muted2); line-height: 1.8;
-      padding-top: 4px;
+      font-size: 12px; color: var(--muted2); line-height: 1.75;
+      padding-top: 2px;
     }
     .lesson-body strong { color: var(--text); font-weight: 600; }
     @media (max-width: 720px) {
-      .lesson-card { grid-template-columns: 1fr; gap: 16px; }
+      .lesson-card { grid-template-columns: 1fr; gap: 12px; }
     }
 
     .next-project {
@@ -1383,10 +1377,6 @@
           <div class="impact-item">
             <div class="impact-num">100%</div>
             <div class="impact-label">Adoption rate<br>(user-requested)</div>
-          </div>
-          <div class="impact-item">
-            <div class="impact-num">0→1</div>
-            <div class="impact-label">AI in QA<br>workflow</div>
           </div>
           <div class="impact-item">
             <div class="impact-num">3</div>
@@ -1521,6 +1511,47 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+       QE PERSONA
+  ══════════════════════════════════════════════ -->
+  <section class="persona-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">User Persona</div>
+        <span class="skill-tag">User Research</span>
+      </div>
+      <h2>Who we designed for —<br><em>the QE under pressure.</em></h2>
+
+      <div class="persona-card fade-up">
+        <div class="persona-identity">
+          <div class="persona-avatar">👩‍💻</div>
+          <div>
+            <div class="persona-name">Minh — Quality Engineer</div>
+            <div class="persona-role">Mid-level QE · Enterprise team · 4 yrs</div>
+            <div class="persona-detail">Writes 20–40 test cases per sprint manually from Jira requirements — under constant pressure to match engineering speed.</div>
+          </div>
+        </div>
+        <div class="persona-divider"></div>
+        <div class="persona-pain">
+          <div class="persona-pain-header">
+            <div class="persona-pain-label">Before AI — manual pain points</div>
+            <div class="persona-stats-row">
+              <div class="p-stat-chip"><strong>20–40</strong> test cases / sprint</div>
+              <div class="p-stat-chip"><strong>5–15 min</strong> each, manually</div>
+              <div class="p-stat-chip"><strong>~60%</strong> time parsing, not thinking</div>
+            </div>
+          </div>
+          <ul class="persona-list">
+            <li>Requirements often vague — hard to write meaningful tests without chasing clarification</li>
+            <li>Manual writing is repetitive; most sprint time goes to parsing, not coverage strategy</li>
+            <li>Test cases pile up as flat lists — no grouping, no structure, hard to review at scale</li>
+            <li>Coverage gaps only discovered after QA cycles, too late to fix without rework</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
        COMPETITOR ANALYSIS
   ══════════════════════════════════════════════ -->
   <section class="comp-section">
@@ -1626,87 +1657,69 @@
 
       <div class="ai-steps fade-up">
 
-        <div class="ai-step process-step">
+        <div class="ai-step">
           <div class="ai-step-num">1</div>
-          <div class="process-step-content">
-            <div class="process-step-meta">
-              <span class="process-phase-tag">Discovery</span>
-              <span class="process-tool-tag">Claude</span>
-            </div>
-            <div class="step-title">Research and competitive analysis — before the first meeting</div>
-            <div class="step-body">
-              Used Claude to map the competitive landscape, extract QE mental models, and define the 5 core design questions — before the first PM session. Walked in with a clear point of view, not a blank canvas.
-            </div>
-            <div class="step-result">Competitor gap confirmed and design questions defined — before kickoff</div>
+          <div class="process-step-meta">
+            <span class="process-phase-tag">Discovery</span>
+            <span class="process-tool-tag">Claude</span>
           </div>
+          <div class="process-step-content">
+            <div class="step-title">Research &amp; competitive analysis — before the first meeting</div>
+            <div class="step-body">Used Claude to map the competitive landscape, extract QE mental models, and define 5 core design questions before the first PM session.</div>
+          </div>
+          <div class="step-result">Gap confirmed + questions defined before kickoff</div>
         </div>
 
-        <div class="ai-step process-step">
+        <div class="ai-step">
           <div class="ai-step-num">2</div>
-          <div class="process-step-content">
-            <div class="process-step-meta">
-              <span class="process-phase-tag">Architecture</span>
-              <span class="process-tool-tag">Claude Code · Figma Make</span>
-            </div>
-            <div class="step-title">Main flow and page hierarchy — defined before any screen work</div>
-            <div class="step-body">
-              Mapped the 5-step flow: Quality score → Upload attachments → Clarification → AI generation → Review (edit/accept/reject). Defined page hierarchy for each screen, then used Claude Code to build the initial prototype for team alignment.
-            </div>
-            <div class="step-result">Flow and hierarchy locked before Figma — zero structural rework after team review</div>
+          <div class="process-step-meta">
+            <span class="process-phase-tag">Architecture</span>
+            <span class="process-tool-tag">Claude Code · Figma Make</span>
           </div>
+          <div class="process-step-content">
+            <div class="step-title">Flow &amp; hierarchy locked — before any screen work</div>
+            <div class="step-body">Mapped the 5-step flow and page hierarchy for each screen, then built an initial prototype with Claude Code for team alignment.</div>
+          </div>
+          <div class="step-result">Zero structural rework after team review</div>
         </div>
 
-        <div class="ai-step process-step">
+        <div class="ai-step">
           <div class="ai-step-num">3</div>
-          <div class="process-step-content">
-            <div class="process-step-meta">
-              <span class="process-phase-tag">Prototyping</span>
-              <span class="process-tool-tag">Claude Code · VSCode</span>
-            </div>
-            <div class="step-title">Interactive prototype in hours — brought to engineering, not sent after</div>
-            <div class="step-body">
-              Built a fully interactive HTML prototype in hours with Claude Code + VSCode. Brought it to the engineering session — not static screens. Feedback came in real time and was incorporated the same day.
-            </div>
-            <div class="code-snippet">
-              <div class="code-comment">// Prompt to Claude Code</div>
-              <div class="code-accent">"Build a 4-step test generator prototype.</div>
-              <div class="code-accent"> Step 1: requirement list with AI quality badges.</div>
-              <div class="code-accent"> Step 2: detail + upload + quality analysis panel.</div>
-              <div class="code-accent"> Step 3: clarifying questions, skippable.</div>
-              <div class="code-accent"> Step 4: generated cases streaming in, accept/edit/reject."</div>
-            </div>
-            <div class="step-result">Interactive prototype → engineering alignment → same-day revision: all in one session</div>
+          <div class="process-step-meta">
+            <span class="process-phase-tag">Prototyping</span>
+            <span class="process-tool-tag">Claude Code · VSCode</span>
           </div>
+          <div class="process-step-content">
+            <div class="step-title">Interactive prototype in hours — live in the engineering session</div>
+            <div class="step-body">Built a fully interactive HTML prototype and brought it to the engineering session. Real-time feedback incorporated same day — no static handoff.</div>
+          </div>
+          <div class="step-result">Prototype → alignment → revision in one session</div>
         </div>
 
-        <div class="ai-step process-step">
+        <div class="ai-step">
           <div class="ai-step-num">4</div>
-          <div class="process-step-content">
-            <div class="process-step-meta">
-              <span class="process-phase-tag">Refinement</span>
-              <span class="process-tool-tag">Figma Make · Claude</span>
-            </div>
-            <div class="step-title">High-fidelity design — judgment-heavy, not generation-heavy</div>
-            <div class="step-body">
-              Used Figma Make to accelerate components, then focused on what AI can't decide: phrasing of quality warnings, tone of empty states, which actions to show by default. Components shared with engineers as they were completed — not at the end.
-            </div>
-            <div class="step-result">Engineers were never blocked waiting for specs — components shared in parallel</div>
+          <div class="process-step-meta">
+            <span class="process-phase-tag">Refinement</span>
+            <span class="process-tool-tag">Figma</span>
           </div>
+          <div class="process-step-content">
+            <div class="step-title">High-fidelity — judgment-heavy, not generation-heavy</div>
+            <div class="step-body">Figma Make accelerated components. Focused designer judgment on phrasing, tone, default actions. Specs shared with engineers as completed — not at the end.</div>
+          </div>
+          <div class="step-result">Engineers never blocked — specs delivered in parallel</div>
         </div>
 
-        <div class="ai-step process-step">
+        <div class="ai-step">
           <div class="ai-step-num">5</div>
-          <div class="process-step-content">
-            <div class="process-step-meta">
-              <span class="process-phase-tag">Handoff</span>
-              <span class="process-tool-tag">Claude · VSCode</span>
-            </div>
-            <div class="step-title">Handoff is where the real design work begins</div>
-            <div class="step-body">
-              Stayed embedded after handoff — reviewing builds on QA, pushing fixes immediately, looping in PM when requirements changed. Collaborated with QE and engineers continuously, treating every QA cycle as a design validation pass.
-            </div>
-            <div class="step-result">Shipped experience matched design intent — feedback loops caught and resolved gaps before release</div>
+          <div class="process-step-meta">
+            <span class="process-phase-tag">Handoff</span>
+            <span class="process-tool-tag">Figma</span>
           </div>
+          <div class="process-step-content">
+            <div class="step-title">Handoff is where the real design work begins</div>
+            <div class="step-body">Stayed embedded post-handoff — reviewing QA builds, fixing gaps immediately, syncing with PM on requirement changes and QE on validation.</div>
+          </div>
+          <div class="step-result">Shipped experience matched design intent</div>
         </div>
 
         <!-- ── AI-Era Workflow Diagram ── -->
@@ -1792,104 +1805,121 @@
         <span class="skill-tag">Interaction Design</span>
       </div>
       <h2>From requirement<br>to test case, <em>in minutes.</em></h2>
+      <!-- Column headers -->
+      <div style="display:grid; grid-template-columns: 44px 1fr 1fr 220px; margin-top:40px; border:1px solid var(--border); border-radius:12px 12px 0 0; overflow:hidden; background:var(--surface2);">
+        <div style="border-right:1px solid var(--border);"></div>
+        <div style="padding:10px 22px; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); border-right:1px solid var(--border);">What happens</div>
+        <div style="padding:10px 22px; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); border-right:1px solid var(--border);">My design decision</div>
+        <div style="padding:10px 18px; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted);">User value + principle</div>
+      </div>
+
       <div class="flow-steps fade-up">
 
         <div class="flow-step">
-          <div class="flow-step-screenshot">
-            <img src="images/step1-quality-score.png" alt="Requirement details page with AI quality score panel showing 82/100 Good rating" loading="lazy" />
-          </div>
           <div class="flow-step-num">1</div>
           <div class="flow-step-body">
             <div class="flow-step-title">QE arrives at the Requirements page</div>
-            <div class="flow-step-desc">Requirements sync from Jira/ALM automatically. Each shows an AI quality badge: Good, Needs Clarification, or Vague — QE sees signal before opening anything.</div>
+            <div class="flow-step-desc">Requirements sync from Jira/ALM automatically. Each shows an AI quality badge — Good, Needs Clarification, or Vague — before opening anything.</div>
           </div>
-          <div class="flow-step-aside">
-            <div class="aside-label">Design decision</div>
-            <div class="aside-content">Proactive evaluation on sync shifts QE behaviour upstream — fix weak requirements before generating, not after wasted output.
-              <div class="ux-law-pill">Zeigarnik Effect — unresolved quality flags draw attention</div>
-            </div>
+          <div class="flow-step-thinking">
+            <div class="thinking-skill">Information Architecture</div>
+            <div class="thinking-decision">Surface quality signal at the list level, not inside each item</div>
+            <div class="thinking-why">Most tools hide quality issues until the QE opens a requirement. I moved evaluation to sync time — QE scans the list and knows where to focus before spending any time.</div>
+          </div>
+          <div class="flow-step-value">
+            <div class="value-label">User value</div>
+            <div class="value-text">No wasted effort on vague requirements — triage happens at a glance</div>
+            <div class="ux-law-pill">Zeigarnik Effect</div>
           </div>
         </div>
 
         <div class="flow-step">
           <div class="flow-step-num">2</div>
           <div class="flow-step-body">
-            <div class="flow-step-title">QE reviews the requirement + quality breakdown</div>
-            <div class="flow-step-desc">Full requirement text + AI breakdown side by side — what's clear, what's ambiguous, what's missing. Score is explained, not just shown.</div>
+            <div class="flow-step-title">QE reviews requirement + AI quality breakdown</div>
+            <div class="flow-step-desc">Full requirement text + AI analysis side by side — what's clear, ambiguous, missing. Score is explained with reasoning, not just shown as a number.</div>
           </div>
-          <div class="flow-step-aside">
-            <div class="aside-label">Design decision</div>
-            <div class="aside-content">Showing reasoning behind the score builds trust and teaches QEs what good requirements look like over time.
-              <div class="ux-law-pill">Aesthetic-Usability Effect — transparent AI feels safer</div>
-            </div>
+          <div class="flow-step-thinking">
+            <div class="thinking-skill">Trust Design</div>
+            <div class="thinking-decision">Show the AI's reasoning, not just its verdict</div>
+            <div class="thinking-why">A score alone is opaque and untrustworthy. Showing the breakdown tells QEs exactly what the AI found — builds confidence and teaches better requirement writing over time.</div>
+          </div>
+          <div class="flow-step-value">
+            <div class="value-label">User value</div>
+            <div class="value-text">QE trusts the AI output because they can see its work — not just its answer</div>
+            <div class="ux-law-pill">Aesthetic-Usability Effect</div>
           </div>
         </div>
 
         <div class="flow-step">
-          <div class="flow-step-screenshot">
-            <img src="images/step2-upload.png" alt="Generation input page with upload attachments section and context source" loading="lazy" />
-          </div>
           <div class="flow-step-num">3</div>
           <div class="flow-step-body">
-            <div class="flow-step-title">QE selects Feature Area + uploads attachments</div>
-            <div class="flow-step-desc">QE picks a Feature Area, then optionally uploads attachments (Figma, DOCX, API docs) to enrich AI context. More context = more specific test cases.</div>
+            <div class="flow-step-title">QE enriches context before generating</div>
+            <div class="flow-step-desc">Before hitting Generate, QE can upload attachments — Figma files, DOCX specs, API docs. More context given to AI = more accurate, specific test cases as output.</div>
           </div>
-          <div class="flow-step-aside">
-            <div class="aside-label">Design decision</div>
-            <div class="aside-content">Optional but impactful — UI shows a "coverage boost" signal when files are added, incentivising enrichment without blocking progress.
-              <div class="ux-law-pill">Goal-Gradient Effect — show QE getting closer to high-quality output</div>
-            </div>
+          <div class="flow-step-thinking">
+            <div class="thinking-skill">Input Design · Output Quality</div>
+            <div class="thinking-decision">Give QE control over what AI knows before it generates</div>
+            <div class="thinking-why">AI output quality is only as good as its input. I designed this step so QEs can actively improve what the AI sees — attachments feed directly into generation context, making output more targeted and reducing manual edits after.</div>
+          </div>
+          <div class="flow-step-value">
+            <div class="value-label">User value</div>
+            <div class="value-text">Better input = better output — QE spends less time editing AI-generated cases after the fact</div>
+            <div class="ux-law-pill">Goal-Gradient Effect</div>
           </div>
         </div>
 
         <div class="flow-step">
-          <div class="flow-step-screenshot">
-            <img src="images/step3-clarification.png" alt="Clarification step showing AI-generated questions with answer options and skip button" loading="lazy" />
-          </div>
           <div class="flow-step-num">4</div>
           <div class="flow-step-body">
-            <div class="flow-step-title">If vague: AI asks clarifying questions</div>
-            <div class="flow-step-desc">For vague requirements, AI generates targeted clarifying questions. QE answers some, all, or none — each answer improves output. Skipping always allowed.</div>
+            <div class="flow-step-title">AI asks targeted clarifying questions</div>
+            <div class="flow-step-desc">For vague requirements, AI generates clarifying questions. QE answers some, all, or none — every answer improves output. Skipping always allowed.</div>
           </div>
-          <div class="flow-step-aside">
-            <div class="aside-label">Design decision</div>
-            <div class="aside-content">Never blocking. Each answered question shows a live quality score update — value is tangible, QE stays in control.
-              <div class="ux-law-pill">Tesler's Law — AI absorbs the clarification work, not the QE</div>
-            </div>
+          <div class="flow-step-thinking">
+            <div class="thinking-skill">Complexity Management</div>
+            <div class="thinking-decision">Offload clarification work to AI, keep QE in choice not obligation</div>
+            <div class="thinking-why">Instead of QE chasing PMs for clarification, AI generates the questions. Live quality score updates after each answer make the value tangible — QE sees progress, not a form to fill.</div>
+          </div>
+          <div class="flow-step-value">
+            <div class="value-label">User value</div>
+            <div class="value-text">QE gets smarter output without extra meetings — AI does the legwork</div>
+            <div class="ux-law-pill">Tesler's Law</div>
           </div>
         </div>
 
         <div class="flow-step">
-          <div class="flow-step-screenshot">
-            <img src="images/step4-thinking.png" alt="Generating test cases progress screen showing 4-step AI thinking process" loading="lazy" />
-          </div>
           <div class="flow-step-num">5</div>
           <div class="flow-step-body">
             <div class="flow-step-title">AI generates test cases</div>
-            <div class="flow-step-desc">Test cases appear in Given/When/Then format, scoped to the Feature Area. More context + answered questions = more complete coverage.</div>
+            <div class="flow-step-desc">Each test case is generated with: name, precondition, description, and test steps — scoped to the Feature Area. More context + answered questions = more complete coverage.</div>
           </div>
-          <div class="flow-step-aside">
-            <div class="aside-label">Design decision</div>
-            <div class="aside-content">Familiar Given/When/Then format — no new mental model, immediate trust in AI output.
-              <div class="ux-law-pill">Jakob's Law — familiar format = immediate trust</div>
-            </div>
+          <div class="flow-step-thinking">
+            <div class="thinking-skill">Mental Model Design</div>
+            <div class="thinking-decision">Match the exact structure QEs already write — zero re-learning required</div>
+            <div class="thinking-why">Name, precondition, description, test steps — this is the structure QEs already use in their test management tools. AI output maps directly to what they know, so review starts immediately with no reformatting needed.</div>
+          </div>
+          <div class="flow-step-value">
+            <div class="value-label">User value</div>
+            <div class="value-text">Output feels native — QE can review and edit immediately, no mental translation required</div>
+            <div class="ux-law-pill">Jakob's Law</div>
           </div>
         </div>
 
         <div class="flow-step">
-          <div class="flow-step-screenshot">
-            <img src="images/step5-review.png" alt="Review Test Cases screen with AI drafts grouped by Feature Area, accept and discard actions" loading="lazy" />
-          </div>
           <div class="flow-step-num">6</div>
           <div class="flow-step-body">
             <div class="flow-step-title">QE reviews, edits, accepts — grouped by Feature Area</div>
-            <div class="flow-step-desc">Cases auto-grouped by Feature Area — QE edits inline, accepts or rejects in context. No sorting, no flat list hunting. Accepted cases land directly in the test suite.</div>
+            <div class="flow-step-desc">Cases auto-grouped by Feature Area. QE edits inline, accepts or rejects in context. No flat list hunting. Accepted cases land directly in the test suite.</div>
           </div>
-          <div class="flow-step-aside">
-            <div class="aside-label">Design decision</div>
-            <div class="aside-content">The final action is frictionless. The export confirmation is the last thing QE sees — make it feel like success, not a chore.
-              <div class="ux-law-pill">Peak-End Rule — end with effortless success</div>
-            </div>
+          <div class="flow-step-thinking">
+            <div class="thinking-skill">End-State Design · Control</div>
+            <div class="thinking-decision">Grouping by Feature Area removes the hardest cognitive task — orientation</div>
+            <div class="thinking-why">Flat lists at scale are unusable. Feature Area grouping gives QEs a mental map of what they're reviewing before they read a single case. The final export confirmation closes the loop — it feels like success.</div>
+          </div>
+          <div class="flow-step-value">
+            <div class="value-label">User value</div>
+            <div class="value-text">Review is fast and structured — QE stays in judgment mode, not search mode</div>
+            <div class="ux-law-pill">Peak-End Rule</div>
           </div>
         </div>
 
@@ -2047,38 +2077,38 @@
 
         <div class="metric-card metric-highlight">
           <div class="metric-value">70%</div>
-          <div class="metric-label">Reduction in time spent creating test cases</div>
-          <div class="metric-context">From ~40 min per requirement to under 12 min — measured across the QE team in the first sprint after launch.</div>
+          <div><div class="metric-label">Time saved on test case creation</div>
+          <div class="metric-context">~40 min → under 12 min per requirement, first sprint post-launch.</div></div>
         </div>
 
         <div class="metric-card metric-highlight">
           <div class="metric-value">100%</div>
-          <div class="metric-label">Team adoption rate</div>
-          <div class="metric-context">Every QE on the team requested and actively uses the feature. Not mandated — chosen. The strongest signal a UX decision can get.</div>
+          <div><div class="metric-label">Team adoption rate</div>
+          <div class="metric-context">Every QE requested and uses it. Not mandated — chosen.</div></div>
         </div>
 
         <div class="metric-card">
-          <div class="metric-value">0 → 1</div>
-          <div class="metric-label">AI in QA workflow</div>
-          <div class="metric-context">First AI-assisted feature shipped to the QA tool. Established the design pattern for all subsequent AI features in the product.</div>
+          <div class="metric-value">0→1</div>
+          <div><div class="metric-label">First AI feature in QA tool</div>
+          <div class="metric-context">Set the design pattern for all subsequent AI features.</div></div>
         </div>
 
         <div class="metric-card">
           <div class="metric-value">3</div>
-          <div class="metric-label">Competitors studied, 1 gap found</div>
-          <div class="metric-context">Proactive quality evaluation + clarifying questions + Feature Area grouping. None of the 3 competitors ships all three. All three shipped in v1.</div>
+          <div><div class="metric-label">Competitors studied, 1 gap found</div>
+          <div class="metric-context">All 3 differentiators shipped in v1 — no competitor matched.</div></div>
         </div>
 
         <div class="metric-card">
-          <div class="metric-value">Same day</div>
-          <div class="metric-label">Prototype → engineering alignment → revision</div>
-          <div class="metric-context">Using Claude Code, feedback from the alignment session was incorporated in real time — not in the next sprint. Engineers saw their input reflected before the meeting ended.</div>
+          <div class="metric-value" style="font-size:20px;padding-top:4px">Same day</div>
+          <div><div class="metric-label">Prototype → alignment → revision</div>
+          <div class="metric-context">Engineer feedback incorporated same session via Claude Code.</div></div>
         </div>
 
         <div class="metric-card">
           <div class="metric-value">Zero</div>
-          <div class="metric-label">Design drift at launch</div>
-          <div class="metric-context">Proactive engineering follow-up during implementation caught 3 interaction gaps before QA. The shipped product matched the design intent — not a common outcome.</div>
+          <div><div class="metric-label">Design drift at launch</div>
+          <div class="metric-context">3 interaction gaps caught pre-QA. Shipped matched intent.</div></div>
         </div>
 
       </div>
@@ -2096,7 +2126,7 @@
       </div>
       <h2>What I learned,<br>and <em>what comes next.</em></h2>
 
-      <div class="lessons-stack fade-up">
+      <div class="lessons-stack fade-up" style="margin-top:28px">
 
         <div class="lesson-card">
           <div class="lesson-left">
