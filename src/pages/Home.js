@@ -1,7 +1,6 @@
 import { NavBar } from '../components/NavBar';
 import { Hero } from '../components/Hero';
 import { Marquee } from '../components/Marquee';
-import { AIToolkit } from '../components/AIToolkit';
 import { Work } from '../components/Work';
 import { About } from '../components/About';
 import { Contact } from '../components/Contact';
@@ -13,7 +12,6 @@ function Home() {
       <NavBar />
       <Hero />
       <Marquee />
-      <AIToolkit />
       <Work />
       <About />
       <Contact />

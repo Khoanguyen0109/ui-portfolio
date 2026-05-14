@@ -26,7 +26,7 @@ const ProductPreview = () => (
     <img
       src="/images/test-generator-hero.png"
       alt="AI Test Generator product preview"
-      style={{ width: '100%', height: '340px', objectFit: 'cover', objectPosition: 'top left', display: 'block' }}
+      style={{ width: '100%', height: 'auto', display: 'block' }}
     />
   </div>
 );
@@ -421,7 +421,6 @@ export const CaseStudyTestGenerator = () => {
               {[
                 { num: '70%', label: 'Time saved on\ntest case creation' },
                 { num: '100%', label: 'Adoption rate\n(user-requested)' },
-                { num: '0→1', label: 'AI in QA\nworkflow' },
                 { num: '3', label: 'Competitors studied,\n1 gap found' },
               ].map((s) => (
                 <div key={s.num}>
@@ -575,16 +574,16 @@ export const CaseStudyTestGenerator = () => {
           </div>
 
           {/* AI-Era Workflow Diagram */}
-          <div className="fade-up mt-0.5 bg-surface rounded-b-[14px] border-t-0 overflow-hidden border border-[#3f3f46]">
-            <div className="px-8 py-7 border-b border-[#3f3f46]">
-              <div className="inline-block text-[11px] font-bold tracking-[0.10em] uppercase text-[#a1a1aa] bg-[rgba(255,255,255,0.04)] border border-[#3f3f46] px-3 py-1 rounded mb-3">
-                How I work as a designer in the AI era
-              </div>
-              <div className="font-serif text-white leading-[1.3] mb-2" style={{ fontSize: 'clamp(18px, 2vw, 26px)', letterSpacing: '-0.015em' }}>
-                I leverage AI across every phase —<br /><em className="not-italic text-accent">to ship sharper, faster, with no gaps</em>
-              </div>
-              <div className="text-[13px] text-[#a1a1aa]">Compressing time between decisions and delivery — every judgment call stays mine.</div>
-            </div>
+          <SectionHeader>
+            <SectionLabel>How I work as a designer in the AI era</SectionLabel>
+            <SkillTag>AI-Augmented Design</SkillTag>
+          </SectionHeader>
+          <h2 className="font-serif font-normal text-white leading-[1.1] mb-4" style={{ fontSize: 'clamp(28px, 3.5vw, 46px)', letterSpacing: '-0.02em' }}>
+            I leverage AI across every phase —<br /><em className="not-italic text-accent">to ship sharper, faster, with no gaps</em>
+          </h2>
+          <p className="text-[15px] text-[#a1a1aa] max-w-[600px] leading-[1.7] mb-12">Compressing time between decisions and delivery — every judgment call stays mine.</p>
+
+          <div className="fade-up bg-surface rounded-[14px] overflow-hidden border border-[#3f3f46]">
             <div className="grid" style={{ gridTemplateColumns: 'repeat(5,1fr)' }}>
               {AED_PHASES.map((p, i) => (
                 <div key={p.num} className="px-5 py-6 border-r border-[#3f3f46] last:border-r-0 relative">
@@ -694,14 +693,20 @@ export const CaseStudyTestGenerator = () => {
           <h2 className="font-serif font-normal text-white leading-[1.1] mb-12" style={{ fontSize: 'clamp(28px, 3.5vw, 46px)', letterSpacing: '-0.02em' }}>
             What shipped<br />and <em className="not-italic text-accent">what changed.</em>
           </h2>
-          <div className="fade-up grid gap-0.5 bg-[#3f3f46] border border-[#3f3f46] rounded-[14px] overflow-hidden" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
-            {METRICS.map((m, i) => (
-              <div key={m.label} className={`bg-bg px-7 py-8 ${i === 0 ? 'rounded-tl-[14px]' : i === 2 ? 'rounded-tr-[14px]' : i === 3 ? 'rounded-bl-[14px]' : i === 5 ? 'rounded-br-[14px]' : ''}`}>
-                <div className={`font-serif font-normal leading-none mb-3 ${m.highlight ? 'text-accent' : 'text-white'}`} style={{ fontSize: '48px' }}>
+          <div className="fade-up border border-[#3f3f46] rounded-[14px] overflow-hidden">
+            {METRICS.map((m) => (
+              <div
+                key={m.label}
+                className="grid border-b border-[#3f3f46] last:border-b-0 bg-bg hover:bg-surface transition-colors"
+                style={{ gridTemplateColumns: '180px 1fr', alignItems: 'center' }}
+              >
+                <div className={`px-8 py-7 border-r border-[#3f3f46] font-serif font-normal leading-none ${m.highlight ? 'text-accent' : 'text-white'}`} style={{ fontSize: 'clamp(32px, 3vw, 48px)' }}>
                   {m.value}
                 </div>
-                <div className="text-[13px] font-semibold text-white mb-2.5 leading-[1.4]">{m.label}</div>
-                <div className="text-[12px] text-[#a1a1aa] leading-[1.65]">{m.context}</div>
+                <div className="px-8 py-7">
+                  <div className="text-[14px] font-semibold text-white mb-1.5 leading-[1.4]">{m.label}</div>
+                  <div className="text-[13px] text-[#a1a1aa] leading-[1.65]">{m.context}</div>
+                </div>
               </div>
             ))}
           </div>

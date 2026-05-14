@@ -153,7 +153,7 @@ Existing projects (Nobee, TikTok, CarNow, Cine) get `caseStudyType: "gallery"` a
 
 ### Work
 - Section label "Selected Work"
-- Header row: h2 "4 enterprise case studies" + "View all work →" link (placeholder)
+- Header row: h2 "" + "View all work →" link (placeholder)
 - **2-col CSS grid, `gap: 2px`** (1-col on mobile)
 - Rounded corners only on outer edges (first-child top-left, last-child bottom-right, etc.)
 - Card: thumb wrap (260px height, `object-fit: cover`, scale on hover), absolute `case-tag` pill, absolute arrow icon (opacity 0 → 1 on hover), body (meta, title, impact, chips)

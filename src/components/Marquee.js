@@ -7,7 +7,7 @@ const ITEMS = [
   'AI-Augmented Design',
   'Rapid Prototyping',
   'User Research Synthesis',
-  'Stakeholder Alignment',
+  'Vehicle valuation',
 ];
 
 export const Marquee = () => (

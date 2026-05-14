@@ -23,7 +23,7 @@ import noBee7 from "./assets/newNobee/7.jpg";
 import noBee8 from "./assets/newNobee/8.jpg";
 import noBeeThumb from "./assets/newNobee/Thumnail.jpg";
 
-import importTestCaseThumb from "./assets/importTestCase/Thumbnail.jpg";
+import importTestCaseThumb from "./assets/importTestCase/Thumbnail.png";
 
 
 import carThumb from "./assets/newCar/Thumbnail.jpg"
@@ -116,9 +116,9 @@ const projects = [
   {
     id: 2,
     name: "Import Test Cases — migrate millions, lose nothing",
-    tag: "Workflow · Import",
+    tag: "QA Testing · Import Test Case Data",
     category: "QA Testing",
-    year: "2025",
+    year: "2026",
     brief: "Import workflow for QA teams",
     impact: "A 3-step guided import flow that lets QE teams migrate thousands of test cases from TestRail, Qase, Excel, or CSV — with auto field mapping, conflict resolution, and zero data loss.",
     chips: ["Data import UX", "Workflow design", "Solo Senior Designer"],
@@ -131,13 +131,13 @@ const projects = [
   },
   {
     id: 3,
-    name: "Design system unifying 6 product teams at scale",
-    tag: "Stakeholder Alignment",
-    category: "Healthcare Tech",
+    name: "Viet Nam Car Rental Application",
+    tag: "Vehicle valuation",
+    category: "Vehicle Tech",
     year: "2023",
     brief: "Design system at scale",
-    impact: "↓ 70% design debt. Led cross-functional alignment across engineering, product, and brand. AI-drafted all handoff documentation and component specs.",
-    chips: ["Design systems", "Leadership", "AI handoff"],
+    impact: "Change the way people rent cars in Viet Nam",
+    chips: ["Design systems", "Leadership"],
     thumbBg: "linear-gradient(135deg,#0f1a0f,#162616)",
     caseStudyType: "gallery",
     description: " ",

@@ -308,7 +308,7 @@ export const CaseStudyImportTestCase = () => {
       <section className="px-12 pb-[72px] border-b border-[#3f3f46] relative overflow-hidden" style={{ paddingTop: '120px' }}>
         <div className="absolute pointer-events-none" style={{ top: '-200px', right: '-200px', width: '800px', height: '700px', background: 'radial-gradient(ellipse, rgba(167,139,250,0.08) 0%, transparent 65%)' }} />
         <div className="hero-grid-bg" />
-        <div className="relative z-10 grid gap-16 items-start" style={{ gridTemplateColumns: '1fr 360px' }}>
+        <div className="relative z-10 grid gap-16 items-start" style={{ gridTemplateColumns: '1fr 1fr' }}>
 
           {/* Left */}
           <div>
@@ -316,7 +316,7 @@ export const CaseStudyImportTestCase = () => {
             <div className="flex items-center gap-2.5 text-[12px] text-[#a1a1aa] uppercase tracking-[0.06em] mb-5">
               <span>Katalon True Platform</span>
               <span className="text-[#3f3f46]">/</span>
-              <strong className="text-accent font-medium">QA Testing · 2025</strong>
+              <strong className="text-accent font-medium">QA Testing · 2026</strong>
               <span className="text-[10px] font-bold tracking-[0.10em] uppercase text-accent bg-[rgba(167,139,250,0.10)] border border-[rgba(167,139,250,0.25)] px-2.5 py-[3px] rounded-full ml-1">
                 Solo Senior Designer
               </span>
@@ -349,27 +349,16 @@ export const CaseStudyImportTestCase = () => {
             </div>
           </div>
 
-          {/* Right: Impact cards */}
-          <div className="flex flex-col gap-px bg-[#3f3f46] border border-[#3f3f46] rounded-2xl overflow-hidden self-start">
-            <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-[#a1a1aa] px-[22px] pt-4 pb-0 bg-surface">
-              Outcome
-            </div>
-            {[
-              { num: '3w', title: 'Brainstorm to shipped', sub: 'Full design, prototype, and handoff in 3 weeks with AI-augmented workflow.' },
-              { num: '0', title: 'Data loss on migration', sub: 'Flexible mapping + conflict resolution ensures no test case is lost silently.' },
-              { num: '3', title: 'Competitor gaps identified', sub: 'Auto-mapping, inline conflict resolution, and real-time import progress. None had all three.' },
-              { num: '1st', title: 'Migration feature in platform', sub: 'Unlocked a new customer acquisition channel. Teams could now switch without losing history.' },
-            ].map((card) => (
-              <div key={card.num} className="bg-surface px-[22px] py-[18px] flex items-center gap-4 transition-colors hover:bg-[#27272a]">
-                <div className="font-serif text-accent min-w-[68px] flex-shrink-0 leading-none" style={{ fontSize: '26px' }}>
-                  {card.num}
-                </div>
-                <div>
-                  <div className="text-[12px] font-semibold text-white mb-0.5">{card.title}</div>
-                  <div className="text-[11px] text-[#a1a1aa] leading-[1.5]">{card.sub}</div>
-                </div>
-              </div>
-            ))}
+          {/* Right: Product preview */}
+          <div
+            className="border border-[#3f3f46] rounded-2xl overflow-hidden bg-bg shadow-2xl self-start"
+            style={{ animation: 'float 5s ease-in-out infinite' }}
+          >
+            <img
+              src="/images/import-test-case-hero.png"
+              alt="Import Test Cases product preview"
+              style={{ width: '100%', display: 'block' }}
+            />
           </div>
 
         </div>
