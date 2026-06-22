@@ -641,77 +641,30 @@ export function CaseStudyGetNow() {
       ══════════════════════════════ */}
       <section className="px-12 py-20 bg-surface border-b border-[#3f3f46]">
         <div className="max-w-[1100px] mx-auto">
-          <SectionHeader><SectionLabel>Screens + Demo</SectionLabel><SkillTag>4 Scenes</SkillTag></SectionHeader>
+          <SectionHeader><SectionLabel>Screens + Demo</SectionLabel><SkillTag>5 Screens</SkillTag></SectionHeader>
 
           <p className="text-[14px] text-[#a1a1aa] leading-[1.7] mb-12 max-w-[640px]">
-            Each scene follows one order through a complete workflow segment — from the dispatch
-            board overview to the final driver handoff confirmation.
+            Live prototype walkthrough — 5 screens showing the end-to-end order workflow.
           </p>
 
-          {/* Scene 1 */}
-          <div className="mb-14 fade-up">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-[11px] font-bold tracking-[0.12em] uppercase text-accent">Scene 1 · 45s</span>
-              <span className="text-[13px] font-medium text-white">Board Overview</span>
-            </div>
-            <p className="text-[13px] text-[#71717a] mb-4">
-              Board overview → StatsBar → open Rx order → prescription drawer → "Prepare this order"
-            </p>
-            <div className="rounded-2xl overflow-hidden border border-[#3f3f46]">
-              <img src="/images/getnow/scene1.png" alt="Kanban dispatch board" className="w-full h-auto block" loading="lazy" />
-            </div>
-          </div>
-
-          {/* Scene 2 */}
-          <div className="mb-14 fade-up">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-[11px] font-bold tracking-[0.12em] uppercase text-accent">Scene 2 · 75s</span>
-              <span className="text-[13px] font-medium text-white">OOS Resolution</span>
-            </div>
-            <p className="text-[13px] text-[#71717a] mb-4">
-              OOS order → "Call buyer" auto-logs, no personal phone → substitute picker, price shown → confirm → CTA unlocks
-            </p>
-            <div className="flex flex-col gap-3">
-              {['scene2a', 'scene2b', 'scene2c'].map((s, i) => (
-                <div key={s} className="rounded-xl overflow-hidden border border-[#3f3f46]">
-                  <img src={`/images/getnow/${s}.png`} alt={`OOS step ${i + 1}`} className="w-full h-auto block" loading="lazy" />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Scene 3 */}
-          <div className="mb-14 fade-up">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-[11px] font-bold tracking-[0.12em] uppercase text-accent">Scene 3 · 60s</span>
-              <span className="text-[13px] font-medium text-white">Pre-dispatch Sign-off</span>
-            </div>
-            <p className="text-[13px] text-[#71717a] mb-4">
-              All 5 checklist items → hold gesture → progress bar fills → order moves to Ready
-            </p>
-            <div className="rounded-2xl overflow-hidden border border-[#3f3f46]">
-              <img src="/images/getnow/scene3.png" alt="Pre-dispatch sign-off" className="w-full h-auto block" loading="lazy" />
-            </div>
-          </div>
-
-          {/* Scene 4 */}
-          <div className="fade-up">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-[11px] font-bold tracking-[0.12em] uppercase text-accent">Scene 4 · 45s</span>
-              <span className="text-[13px] font-medium text-white">Driver Handoff</span>
-            </div>
-            <p className="text-[13px] text-[#71717a] mb-4">
-              Driver card → Order ID displayed large → pharmacist reads back → ID match confirmed → Confirm Handoff → Done
-            </p>
-            <div className="flex flex-col gap-3">
-              <div className="rounded-xl overflow-hidden border border-[#3f3f46]">
-                <img src="/images/getnow/scene4a.png" alt="Handoff — awaiting confirmation" className="w-full h-auto block" loading="lazy" />
+          {[
+            { label: 'Screen 1', src: '/images/getnow/screen1.jpg', alt: 'OOS order detail — call buyer' },
+            { label: 'Screen 2', src: '/images/getnow/screen2.jpg', alt: 'Kanban board overview' },
+            { label: 'Screen 3', src: '/images/getnow/screen3.jpg', alt: 'Substitute picker' },
+            { label: 'Screen 4', src: '/images/getnow/screen4.jpg', alt: 'Substitute offered — proceed to sign-off' },
+            { label: 'Screen 5', src: '/images/getnow/screen5.jpg', alt: 'Pre-dispatch checklist' },
+            { label: 'Screen 6', src: '/images/getnow/screen6.jpg', alt: 'Handoff — driver not assigned' },
+            { label: 'Screen 7', src: '/images/getnow/screen7.jpg', alt: 'Handoff — Order ID confirmed' },
+          ].map(({ label, src, alt }, idx, arr) => (
+            <div key={label} className={`${idx < arr.length - 1 ? 'mb-14' : ''} fade-up`}>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-[11px] font-bold tracking-[0.12em] uppercase text-accent">{label}</span>
               </div>
-              <div className="rounded-xl overflow-hidden border border-[#3f3f46]">
-                <img src="/images/getnow/scene4b.png" alt="Handoff — ID confirmed, button enabled" className="w-full h-auto block" loading="lazy" />
+              <div className="rounded-2xl overflow-hidden border border-[#3f3f46]">
+                <img src={src} alt={alt} className="w-full h-auto block" loading="lazy" />
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 

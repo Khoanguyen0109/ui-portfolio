@@ -524,49 +524,33 @@ function Slide11() {
 /* ══════════════════════════════
    SLIDE 12 — DEMO
 ══════════════════════════════ */
+const DEMO_SCREENS = [
+  { label: 'Screen 1', src: '/images/getnow/screen1.jpg', alt: 'OOS order detail — call buyer' },
+  { label: 'Screen 2', src: '/images/getnow/screen2.jpg', alt: 'Kanban board overview' },
+  { label: 'Screen 3', src: '/images/getnow/screen3.jpg', alt: 'Substitute picker' },
+  { label: 'Screen 4', src: '/images/getnow/screen4.jpg', alt: 'Substitute offered — proceed to sign-off' },
+  { label: 'Screen 5', src: '/images/getnow/screen5.jpg', alt: 'Pre-dispatch checklist' },
+  { label: 'Screen 6', src: '/images/getnow/screen6.jpg', alt: 'Handoff — driver not assigned' },
+  { label: 'Screen 7', src: '/images/getnow/screen7.jpg', alt: 'Handoff — Order ID confirmed' },
+];
+
 function Slide12() {
   return (
     <div className="w-full max-w-4xl">
       <SlideNum n={12} />
       <SectionTag>Section 4 — Screens + Demo</SectionTag>
       <SlideTitle>Demo</SlideTitle>
-      <SlideSub>4 key screens — one per scene</SlideSub>
+      <SlideSub>7 screens — live prototype walkthrough</SlideSub>
 
-      <div className="mb-6">
-        <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-accent mb-2">Scene 1 · Board overview + Rx intake</div>
-        <div className="rounded-xl overflow-hidden border border-[#27272a]">
-          <img src="/images/getnow/scene1.png" alt="Kanban board" className="w-full h-auto block" loading="lazy" />
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-accent mb-2">Scene 2 · OOS resolution + call buyer</div>
-        <div className="flex flex-col gap-2">
-          {['scene2a', 'scene2b', 'scene2c'].map((s, i) => (
-            <div key={s} className="rounded-xl overflow-hidden border border-[#27272a]">
-              <img src={`/images/getnow/${s}.png`} alt={`OOS step ${i + 1}`} className="w-full h-auto block" loading="lazy" />
+      <div className="flex flex-col gap-6">
+        {DEMO_SCREENS.map(({ label, src, alt }) => (
+          <div key={label}>
+            <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-accent mb-2">{label}</div>
+            <div className="rounded-xl overflow-hidden border border-[#27272a]">
+              <img src={src} alt={alt} className="w-full h-auto block" loading="lazy" />
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-accent mb-2">Scene 3 · Pre-dispatch sign-off</div>
-        <div className="rounded-xl overflow-hidden border border-[#27272a]">
-          <img src="/images/getnow/scene3.png" alt="Pre-dispatch sign-off" className="w-full h-auto block" loading="lazy" />
-        </div>
-      </div>
-
-      <div>
-        <div className="text-[10px] font-bold tracking-[0.12em] uppercase text-accent mb-2">Scene 4 · Driver handoff</div>
-        <div className="flex flex-col gap-2">
-          <div className="rounded-xl overflow-hidden border border-[#27272a]">
-            <img src="/images/getnow/scene4a.png" alt="Handoff — awaiting" className="w-full h-auto block" loading="lazy" />
           </div>
-          <div className="rounded-xl overflow-hidden border border-[#27272a]">
-            <img src="/images/getnow/scene4b.png" alt="Handoff — confirmed" className="w-full h-auto block" loading="lazy" />
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
