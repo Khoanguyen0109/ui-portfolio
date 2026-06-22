@@ -1,5 +1,6 @@
 // Tool and skill assets removed (components replaced by Tailwind redesign)
 
+import getnowThumb from "./assets/getnow/Thumbnail.jpg";
 
 // import autoThumb from "./assets/nowauto/19.jpg";
 // import auto from "./assets/nowauto/1.jpg";
@@ -185,6 +186,36 @@ const projects = [
         url: car10,
       },
     ],
+  },
+  {
+    id: 7,
+    name: "GetNow V2 — Slide Presentation",
+    tag: "Healthcare · Slides",
+    category: "Healthcare",
+    year: "2026",
+    impact: "Interactive 13-slide presentation of the GetNow pharmacy dispatch design — brief, context, decisions, demo, tradeoffs, and release plan navigated one slide at a time.",
+    chips: ["Healthcare", "Slideshow", "Presentation", "Solo designer"],
+    thumbBg: "linear-gradient(135deg,#0a1628,#1a2744)",
+    caseStudyType: "getnow-slides",
+    thumbnail: getnowThumb,
+    description: " ",
+    requirePassword: false,
+    images: [],
+  },
+  {
+    id: 6,
+    name: "GetNow — Pharmacy Dispatch System",
+    tag: "Healthcare · Logistics",
+    category: "Healthcare",
+    year: "2026",
+    impact: "Auto verified and smart marketplace system — Kanban dispatch board, guided OOS resolution, pre-dispatch sign-off, and driver handoff in one compliance-first flow.",
+    chips: ["Healthcare", "Desktop app", "Workflow design", "Solo designer"],
+    thumbBg: "linear-gradient(135deg,#0a1628,#1a2744)",
+    caseStudyType: "getnow",
+    thumbnail: getnowThumb,
+    description: " ",
+    requirePassword: false,
+    images: [],
   },
   {
     id: 5,
