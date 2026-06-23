@@ -160,22 +160,6 @@ function Slide02() {
       <SlideTitle>Market</SlideTitle>
       <SlideSub>Vietnam pharmacy — size, gap, and opportunity</SlideSub>
 
-      {/* Key stats */}
-      <div className="grid grid-cols-4 gap-3 mb-5">
-        {[
-          { stat: '$8.9B', label: 'Pharmacy retail (2024)', sub: 'CAGR 8.18% through 2033' },
-          { stat: '$130M→$275M', label: 'e-Pharmacy by 2030', sub: '13.34% CAGR' },
-          { stat: '60,000+', label: 'Independent pharmacies', sub: '85% of all outlets' },
-          { stat: 'Jan 2026', label: 'E-prescription mandate', sub: 'Ministry of Health' },
-        ].map((m) => (
-          <Card key={m.stat}>
-            <div className="font-serif text-[18px] text-accent mb-1" style={{ letterSpacing: '-0.02em' }}>{m.stat}</div>
-            <p className="text-[12px] font-medium text-white mb-0.5">{m.label}</p>
-            <p className="text-[11px] text-[#71717a]">{m.sub}</p>
-          </Card>
-        ))}
-      </div>
-
       {/* Scorecard */}
       <Card className="mb-4 overflow-x-auto">
         <div className="text-[10px] font-bold tracking-[0.10em] uppercase text-[#52525b] mb-3">Full competitive scorecard — 8 dimensions</div>
