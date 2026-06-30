@@ -28,7 +28,7 @@ export const Work = () => {
             className="font-serif font-normal text-white leading-[1.1]"
             style={{ fontSize: 'clamp(32px, 4vw, 52px)', letterSpacing: '-0.02em' }}
           >
-            {projects.length} case studies
+            {projects.filter(p => !p.hidden).length} case studies
           </h2>
         </div>
         <a
@@ -51,7 +51,7 @@ export const Work = () => {
         className="grid gap-5"
         style={{ gridTemplateColumns: '1fr 1fr' }}
       >
-        {projects.map((project, i) => (
+        {projects.filter(p => !p.hidden).map((project, i) => (
           <div
             key={project.id}
             className="fade-up"

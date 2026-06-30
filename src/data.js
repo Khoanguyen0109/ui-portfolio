@@ -201,6 +201,7 @@ const projects = [
     description: " ",
     requirePassword: false,
     images: [],
+    hidden: true,
   },
   {
     id: 6,
